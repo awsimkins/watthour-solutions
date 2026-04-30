@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watthour Solutions • Precision Metering & Utility Optimization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-active {
+            position: relative;
+        }
+        
+        .nav-active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <img src="logo.png" alt="Watthour Solutions" class="h-12 w-auto">
+                <div>
+                    <span class="font-semibold text-3xl tracking-tighter">Watthour Solutions</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#education" class="hover:text-blue-400 transition-colors">Education</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+            
+            <div class="flex items-center gap-x-4">
+                <a href="#contact" 
+                   class="px-6 py-2.5 bg-white text-slate-950 font-semibold text-sm rounded-3xl hover:bg-white/90 transition-all flex items-center gap-x-2">
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="min-h-screen pt-20 flex items-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#1e3a8a_0.8px,transparent_1px)] bg-[length:5px_5px] opacity-30"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/10 backdrop-blur border border-white/20 mb-8">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span class="text-sm font-medium tracking-wider">REBRANDED &amp; UPGRADED</span>
+            </div>
+            
+            <h1 class="text-7xl md:text-8xl font-semibold tracking-tighter heading-font leading-none mb-6">
+                Precision<br>Metering.<br>Proven Results.
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-2xl text-slate-300 mb-10">
+                Expert metering audits, field testing, and revenue recovery for Midwest utilities.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                        class="px-10 py-4 bg-white hover:bg-white/90 transition-all text-slate-950 font-semibold rounded-3xl text-lg flex items-center justify-center gap-x-3 group">
+                    <span>Request a Consultation</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                
+                <a href="#services" 
+                   class="px-10 py-4 border border-white/30 hover:bg-white/5 transition-all font-medium rounded-3xl text-lg flex items-center justify-center gap-x-2">
+                    <span>Explore Services</span>
+                </a>
+            </div>
+            
+            <div class="mt-16 flex justify-center gap-x-12 text-sm">
+                <div class="text-center">
+                    <div class="text-4xl font-semibold text-emerald-400">12+</div>
+                    <div class="text-slate-400 mt-1">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-semibold text-emerald-400">$800K+</div>
+                    <div class="text-slate-400 mt-1">Revenue Recovered</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-semibold text-emerald-400">50+</div>
+                    <div class="text-slate-400 mt-1">Utilities Served</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div id="services" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center mb-16">
+            <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">WHAT WE DELIVER</div>
+            <h2 class="text-5xl font-semibold tracking-tight">Expert Solutions for<br>Utility Excellence</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-search text-blue-400 text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Meter Audits</h3>
+                <p class="text-slate-400">Comprehensive accuracy testing and billing error detection across your entire metering infrastructure.</p>
+            </div>
+            
+            <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-tools text-emerald-400 text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Field Testing</h3>
+                <p class="text-slate-400">On-site meter testing, calibration verification, and performance validation by certified technicians.</p>
+            </div>
+            
+            <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-file-invoice-dollar text-amber-400 text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Billing Corrections</h3>
+                <p class="text-slate-400">Identify and recover lost revenue through tariff analysis, misbilling detection, and correction support.</p>
+            </div>
+            
+            <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-chart-line text-purple-400 text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Revenue Recovery</h3>
+                <p class="text-slate-400">Proven track record of recovering hundreds of thousands in lost revenue for co-ops and utilities.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div id="about" class="bg-slate-900 border-y border-white/10 py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                <div class="md:col-span-7">
+                    <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">OUR STORY</div>
+                    <h2 class="text-5xl font-semibold tracking-tight leading-none mb-8">From Innovative Electric Services to Watthour Solutions</h2>
+                    
+                    <div class="space-y-6 text-lg text-slate-300">
+                        <p>Founded in 2011 by <strong>Anthony W. Simkins</strong>, Watthour Solutions (formerly Innovative Electric Services) has been a trusted partner for Midwest utilities for decades.</p>
+                        
+                        <p>We specialize in optimizing utility infrastructure through precise metering audits, accurate field testing, and strategic billing corrections. Our work has helped co-ops and utilities recover millions of dollars in lost revenue.</p>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-5 mt-12 md:mt-0">
+                    <div class="bg-slate-800 border border-white/10 rounded-3xl p-8">
+                        <h4 class="font-semibold mb-6 text-xl">Our Core Values</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-x-4">
+                                <i class="fa-solid fa-shield-halved text-blue-400 mt-1.5"></i>
+                                <div>
+                                    <span class="font-semibold">Integrity</span><br>
+                                    <span class="text-sm text-slate-400">In every audit and service we deliver</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-x-4">
+                                <i class="fa-solid fa-medal text-blue-400 mt-1.5"></i>
+                                <div>
+                                    <span class="font-semibold">Excellence</span><br>
+                                    <span class="text-sm text-slate-400">In technical expertise and precision</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-x-4">
+                                <i class="fa-solid fa-handshake text-blue-400 mt-1.5"></i>
+                                <div>
+                                    <span class="font-semibold">Partnership</span><br>
+                                    <span class="text-sm text-slate-400">Long-term success with every client</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Teaser -->
+    <div id="education" class="max-w-5xl mx-auto px-6 py-24">
+        <div class="text-center mb-12">
+            <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">NOW OFFERING</div>
+            <h2 class="text-5xl font-semibold tracking-tight">Educational Resources</h2>
+            <p class="mt-4 text-xl text-slate-400 max-w-md mx-auto">Empowering utilities with knowledge and best practices</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <div class="text-blue-400 mb-4"><i class="fa-solid fa-graduation-cap text-4xl"></i></div>
+                <h3 class="font-semibold text-xl mb-3">Metering Fundamentals</h3>
+                <p class="text-slate-400">Free guides and webinars on meter accuracy, testing procedures, and billing best practices.</p>
+            </div>
+            <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <div class="text-emerald-400 mb-4"><i class="fa-solid fa-lightbulb text-4xl"></i></div>
+                <h3 class="font-semibold text-xl mb-3">Tariff &amp; Rate Training</h3>
+                <p class="text-slate-400">Workshops to help your team understand rate structures and identify optimization opportunities.</p>
+            </div>
+            <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <div class="text-amber-400 mb-4"><i class="fa-solid fa-users text-4xl"></i></div>
+                <h3 class="font-semibold text-xl mb-3">Custom Training Sessions</h3>
+                <p class="text-slate-400">On-site or virtual training tailored to your utility’s specific metering and billing systems.</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-10">
+            <p class="text-sm text-slate-400">Educational content launching soon. Sign up below to be notified.</p>
+        </div>
+    </div>
+
+    <!-- Contact / Notify -->
+    <div id="contact" class="bg-slate-900 border-t border-white/10 py-24">
+        <div class="max-w-xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-semibold tracking-tight mb-4">Ready to optimize your revenue?</h2>
+            <p class="text-xl text-slate-400 mb-10">Let’s discuss how Watthour Solutions can help your utility recover lost revenue and improve metering accuracy.</p>
+            
+            <form onsubmit="handleNotify(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Your Name" required
+                           class="bg-white/5 border border-white/20 focus:border-blue-500 px-6 py-4 rounded-3xl text-white placeholder:text-slate-500 outline-none">
+                    <input type="email" placeholder="Work Email" required
+                           class="bg-white/5 border border-white/20 focus:border-blue-500 px-6 py-4 rounded-3xl text-white placeholder:text-slate-500 outline-none">
+                </div>
+                <input type="text" placeholder="Utility / Company Name" required
+                       class="bg-white/5 border border-white/20 focus:border-blue-500 px-6 py-4 rounded-3xl text-white placeholder:text-slate-500 outline-none w-full">
+                
+                <button type="submit"
+                        class="w-full mt-4 py-4 bg-white hover:bg-white/90 transition-all text-slate-950 font-semibold rounded-3xl text-lg">
+                    Request Consultation
+                </button>
+            </form>
+            
+            <p class="text-xs text-slate-500 mt-6">We respect your time. No spam, ever.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-y-6 text-sm">
+                <div class="flex items-center gap-x-6 text-slate-400">
+                    <span>© 2026 Watthour Solutions, LLC</span>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Legal</a>
+                </div>
+                
+                <div class="text-xs text-slate-500 font-mono">
+                    FOUNDED 2011 • REBRANDED 2026 • MIDWEST UTILITIES
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleNotify(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = 'Submitting...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '✓ Request Received!';
+                btn.style.background = 'linear-gradient(to right, #10b981, #34d399)';
+                
+                setTimeout(() => {
+                    alert("Thank you! We'll contact you within 1 business day.");
+                    e.target.reset();
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 1800);
+            }, 900);
+        }
+        
+        // Simple animation for stats
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = Math.ceil(target / 30);
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (stat.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = current + (stat.textContent.includes('+') ? '+' : '');
+                    }
+                }, 80);
+            });
+        }
+        
+        // Trigger animation when stats come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.disconnect();
+                }
+            });
+        });
+        
+        window.onload = function() {
+            const statsSection = document.querySelector('.flex.justify-center.gap-x-12');
+            if (statsSection) observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
