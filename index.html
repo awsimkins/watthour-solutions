@@ -265,30 +265,15 @@
             <h2 class="text-4xl font-semibold tracking-tight mb-4">Ready to optimize your revenue?</h2>
             <p class="text-xl text-slate-400 mb-10">Let’s discuss how Watthour Solutions can help your utility recover lost revenue and improve metering accuracy.</p>
             
-            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="text" name="name" placeholder="Your Name" required
-                           class="bg-white/5 border border-white/20 focus:border-blue-500 px-6 py-4 rounded-3xl text-white placeholder:text-slate-500 outline-none">
-                    <input type="email" name="email" placeholder="Work Email" required
-                           class="bg-white/5 border border-white/20 focus:border-blue-500 px-6 py-4 rounded-3xl text-white placeholder:text-slate-500 outline-none">
-                </div>
+            <div class="max-w-md mx-auto">
+                <a href="mailto:support@watthoursolutions.com?subject=Inquiry%20from%20Watthour%20Solutions%20Website&body=Hello%20Watthour%20Solutions%20team%2C%0A%0AMy%20name%20is%20%5BYour%20Name%5D%20from%20%5BYour%20Utility%20or%20Company%5D.%0A%0A%5BPlease%20type%20your%20message%20or%20questions%20here%5D%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
+                   class="inline-flex w-full items-center justify-center gap-x-3 px-10 py-5 bg-white hover:bg-white/90 active:scale-[0.985] transition-all text-slate-950 font-semibold rounded-3xl text-xl shadow-xl">
+                    <span>Email Us Directly</span>
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                </a>
                 
-                <input type="text" name="utility" placeholder="Utility / Company Name" required
-                       class="bg-white/5 border border-white/20 focus:border-blue-500 px-6 py-4 rounded-3xl text-white placeholder:text-slate-500 outline-none w-full">
-                
-                <!-- New Message Box -->
-                <div>
-                    <textarea name="message" rows="5" placeholder="Additional information, questions, or specific needs..." required
-                              class="bg-white/5 border border-white/20 focus:border-blue-500 px-6 py-4 rounded-3xl text-white placeholder:text-slate-500 outline-none w-full resize-y min-h-[120px]"></textarea>
-                </div>
-                
-                <button type="submit"
-                        class="w-full mt-4 py-4 bg-white hover:bg-white/90 transition-all text-slate-950 font-semibold rounded-3xl text-lg">
-                    Request Consultation
-                </button>
-            </form>
-            
-            <p class="text-xs text-slate-500 mt-6">We respect your time. No spam, ever.</p>
+                <p class="text-xs text-slate-500 mt-4">Opens your default email app with our address pre-filled.<br>We typically reply within 1 business day.</p>
+            </div>
         </div>
     </div>
 
@@ -310,6 +295,28 @@
     </footer>
 
     <script>
+        function handleNotify(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = 'Submitting...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '✓ Request Received!';
+                btn.style.background = 'linear-gradient(to right, #10b981, #34d399)';
+                
+                setTimeout(() => {
+                    alert("Thank you! We'll contact you within 1 business day.");
+                    e.target.reset();
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 1800);
+            }, 900);
+        }
+        
         // Simple animation for stats
         function animateStats() {
             const stats = document.querySelectorAll('.stat-number');
