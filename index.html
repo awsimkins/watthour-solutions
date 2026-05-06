@@ -259,31 +259,6 @@
         </div>
     </div>
 
-    <!-- Featured Promotional Video / Ad -->
-    <div id="video" class="max-w-5xl mx-auto px-6 py-24 border-t border-white/10">
-        <div class="text-center mb-12">
-            <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">NOW SHOWING</div>
-            <h2 class="text-5xl font-semibold tracking-tight">See the Difference</h2>
-            <p class="mt-4 text-xl text-slate-400 max-w-lg mx-auto">Our latest promotional video highlighting precision metering and revenue recovery in action for Midwest utilities.</p>
-        </div>
-        
-        <div class="max-w-[900px] mx-auto">
-            <div class="bg-slate-900 border border-white/10 rounded-3xl p-4 shadow-2xl">
-                <video 
-                    controls 
-                    class="w-full rounded-2xl aspect-video bg-black shadow-inner"
-                    preload="metadata"
-                    playsinline
-                >
-                    <source src="watthour-ad.mp4" type="video/mp4">
-                    Your browser does not support the video tag. 
-                    <a href="watthour-ad.mp4" class="text-blue-400 hover:underline">Download the ad (11MB)</a>
-                </video>
-            </div>
-            <p class="text-center text-xs text-slate-500 mt-4">11MB file • Best viewed with a stable connection • Supports HD playback</p>
-        </div>
-    </div>
-
     <!-- Contact / Notify -->
     <div id="contact" class="bg-slate-900 border-t border-white/10 py-24">
         <div class="max-w-xl mx-auto px-6 text-center">
@@ -291,13 +266,15 @@
             <p class="text-xl text-slate-400 mb-10">Let’s discuss how Watthour Solutions can help your utility recover lost revenue and improve metering accuracy.</p>
             
             <div class="max-w-md mx-auto">
-                <a href="mailto:support@watthoursolutions.com?subject=Inquiry%20from%20Watthour%20Solutions%20Website&body=Hello%20Watthour%20Solutions%20team%2C%0A%0AMy%20name%20is%20%5BYour%20Name%5D%20from%20%5BYour%20Utility%20or%20Company%5D.%0A%0A%5BPlease%20type%20your%20message%20or%20questions%20here%5D%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
+                <a href="outlook:mailto:support@watthoursolutions.com?subject=Inquiry%20from%20Watthour%20Solutions%20Website&body=Hello%20Watthour%20Solutions%20team%2C%0A%0AMy%20name%20is%20%5BYour%20Name%5D%20from%20%5BYour%20Utility%20or%20Company%5D.%0A%0A%5BPlease%20type%20your%20message%20or%20questions%20here%5D%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
                    class="inline-flex w-full items-center justify-center gap-x-3 px-10 py-5 bg-white hover:bg-white/90 active:scale-[0.985] transition-all text-slate-950 font-semibold rounded-3xl text-xl shadow-xl">
-                    <span>Email Us Directly</span>
+                    <span>Email Us Directly (Outlook)</span>
                     <i class="fa-solid fa-envelope text-xl"></i>
                 </a>
                 
-                <p class="text-xs text-slate-500 mt-4">Opens your default email app with our address pre-filled.<br>We typically reply within 1 business day.</p>
+                <p class="text-xs text-slate-500 mt-3">Tries to open Microsoft Outlook first.<br>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@watthoursolutions.com&su=Inquiry%20from%20Watthour%20Solutions%20Website&body=Hello%20Watthour%20Solutions%20team%2C%0A%0AMy%20name%20is%20%5BYour%20Name%5D%20from%20%5BYour%20Utility%20or%20Company%5D.%0A%0A%5BPlease%20type%20your%20message%20or%20questions%20here%5D%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D" 
+                   target="_blank" class="text-blue-400 hover:underline">Use webmail instead (Gmail/Outlook.com)</a></p>
             </div>
         </div>
     </div>
@@ -320,6 +297,28 @@
     </footer>
 
     <script>
+        function handleNotify(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = 'Submitting...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '✓ Request Received!';
+                btn.style.background = 'linear-gradient(to right, #10b981, #34d399)';
+                
+                setTimeout(() => {
+                    alert("Thank you! We'll contact you within 1 business day.");
+                    e.target.reset();
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 1800);
+            }, 900);
+        }
+        
         // Simple animation for stats
         function animateStats() {
             const stats = document.querySelectorAll('.stat-number');
