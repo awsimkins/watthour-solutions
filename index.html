@@ -91,9 +91,9 @@
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-           <!-- Navbar Logo -->
+           <!-- Navbar Logo (25% larger) -->
             <div class="flex items-center gap-x-4">
-                <img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"> <!-- 25% larger -->
+                <img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto">
             </div>
            
             <!-- Desktop Navigation -->
@@ -341,7 +341,7 @@
         </div>
     </div>
 
-    <!-- Education & Training Section (Combined) -->
+    <!-- Education & Training Section -->
     <div id="education" class="max-w-5xl mx-auto px-6 py-20">
         <div class="text-center mb-12">
             <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">NOW OFFERING</div>
@@ -371,19 +371,17 @@
             </div>
         </div>
 
-        <!-- 3-Day Meter School 2027 + Training Notification Form (Combined) -->
+        <!-- 3-Day Meter School 2027 + Training Form -->
         <div class="mt-10 bg-slate-900 border border-white/10 rounded-3xl p-8">
             <div class="grid md:grid-cols-2 gap-8 items-center">
-                <!-- 3-Day Course Info -->
                 <div>
                     <div class="flex items-center gap-x-3 mb-3">
                         <span class="px-3 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-400 rounded-full">COMING 2027</span>
                     </div>
                     <h3 class="text-2xl font-semibold tracking-tight mb-3">3-Day Meter School</h3>
-                    <p class="text-slate-400">A deeper, hands-on program covering advanced metering topics, CT/PT applications, and revenue protection strategies. Date to be announced.</p>
+                    <p class="text-slate-400 mt-2">A deeper, hands-on program covering advanced metering topics, CT/PT applications, and revenue protection strategies. Date to be announced.</p>
                 </div>
 
-                <!-- Training Notification Form -->
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Be the first to know</h4>
                     <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4" id="training-form">
@@ -401,7 +399,6 @@
                         </button>
                     </form>
 
-                    <!-- Training Form Success Message -->
                     <div id="training-success" class="hidden mt-4 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400 text-center">
                         Thank you! We'll notify you when new training is available.
                     </div>
@@ -410,7 +407,7 @@
         </div>
     </div>
 
-    <!-- Contact Section (Business Inquiries - CT/Meter Testing) -->
+    <!-- Contact Section (Business Inquiries) -->
     <div id="contact" class="bg-slate-900 border-t border-white/10 py-20">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-10">
@@ -421,7 +418,7 @@
             </div>
 
             <form action="https://api.web3forms.com/submit" method="POST" class="max-w-md mx-auto space-y-5" id="business-contact-form">
-                <input type="hidden" name="access_key" value="313fc86c-2e74-44f5-b46d-4805b46d8aac"> <!-- Replace with second Web3Forms key -->
+                <input type="hidden" name="access_key" value="a4977e05-2be4-4600-94fd-553c093ee57c">
                 <input type="hidden" name="_subject" value="New Business Inquiry - Watthour Solutions">
                 <input type="hidden" name="_template" value="table">
 
@@ -461,7 +458,6 @@
                 </button>
             </form>
 
-            <!-- Business Contact Form Success Message -->
             <div id="business-success" class="hidden max-w-md mx-auto mt-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl text-center">
                 <p class="text-emerald-400 font-medium">Thank you! Someone will get back with you shortly.</p>
             </div>
@@ -548,7 +544,7 @@
             if (statsSection) observer.observe(statsSection);
         }
 
-        // Training Form Success
+        // Training Form Success Message
         const trainingForm = document.getElementById('training-form');
         if (trainingForm) {
             trainingForm.addEventListener('submit', function(e) {
@@ -559,7 +555,7 @@
             });
         }
 
-        // Business Contact Form Success
+        // Business Contact Form Success Message
         const businessForm = document.getElementById('business-contact-form');
         if (businessForm) {
             businessForm.addEventListener('submit', function(e) {
