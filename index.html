@@ -395,14 +395,13 @@
                         <input type="text" name="name" placeholder="Your Name" required 
                                class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500">
         
-                        <!-- Contact Email Address -->
                         <input type="email" name="email" placeholder="Contact Email Address" required 
                                class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500">
         
                         <input type="text" name="utility" placeholder="Utility or Company Name" 
                                class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500">
         
-                        <!-- New Dropdown: How many people might attend -->
+                        <!-- Number of Attendees -->
                         <div>
                             <label class="block text-sm mb-1.5 text-slate-400">How many people at your utility might attend?</label>
                             <select name="attendees" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white">
@@ -419,9 +418,6 @@
                                 <option value="10">10 or more</option>
                             </select>
                         </div>
-        
-                        <!-- hCaptcha -->
-                        <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
         
                         <button type="submit" class="w-full px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2">
                             <span>Notify Me About Training</span>
@@ -447,7 +443,7 @@
                 </p>
             </div>
     
-        <!-- Business Contact Form -->
+            <!-- Business Contact Form -->
             <form action="https://api.web3forms.com/submit" method="POST" class="max-w-md mx-auto space-y-5" id="business-contact-form">
                 <input type="hidden" name="access_key" value="a4977e05-2be4-4600-94fd-553c093ee57c">
                 <input type="hidden" name="_subject" value="New Business Inquiry - Watthour Solutions">
@@ -489,18 +485,15 @@
                     <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white"></textarea>
                 </div>
             
-                <!-- hCaptcha -->
-                <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
-            
                 <button type="submit" class="w-full px-8 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-white/90 transition-all">
                     Send Inquiry
                 </button>
             </form>
-        
-        <!-- Success Message -->
-        <div id="business-success" class="hidden max-w-md mx-auto mt-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl text-center">
-            <p class="text-emerald-400 font-medium">Thank you! Someone will get back with you shortly.</p>
-        </div>
+            
+            <!-- Success Message -->
+            <div id="business-success" class="hidden max-w-md mx-auto mt-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl text-center">
+                <p class="text-emerald-400 font-medium">Thank you! Someone will get back with you shortly.</p>
+            </div>
 
     <!-- Footer -->
     <footer class="border-t border-white/10 bg-slate-950 py-12">
