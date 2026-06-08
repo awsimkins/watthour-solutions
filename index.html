@@ -556,14 +556,14 @@
         }
 
         // Business Contact Form Success Message
-        const businessForm = document.getElementById('business-contact-form');
-        if (businessForm) {
-            businessForm.addEventListener('submit', function(e) {
-                setTimeout(() => {
-                    businessForm.style.display = 'none';
-                    document.getElementById('business-success').classList.remove('hidden');
-                }, 800);
-            });
+            const businessForm = document.getElementById('business-contact-form');
+            if (businessForm) {
+                businessForm.addEventListener('submit', function(e) {
+                    setTimeout(() => {
+                        businessForm.style.display = 'none';
+                        document.getElementById('business-success').classList.remove('hidden');
+                    }, 800);
+                });
         }
     </script>
 </body>
