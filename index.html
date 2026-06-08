@@ -343,36 +343,52 @@
             </div>
         </div>
         
-        <!-- Training Notification Form -->
+        <!-- Training Notification Form (AJAX version with Formspree) -->
         <div class="mt-12 max-w-md mx-auto">
             <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
                 <h4 class="font-semibold text-xl mb-2 text-center">Be the first to know</h4>
                 <p class="text-center text-slate-400 mb-6 text-sm">Get notified when new training dates, resources, and workshops are announced.</p>
                 
-                <form action="https://formspree.io/f/xqeoqygl" method="POST" class="space-y-4">
-                    <!-- Custom subject line for emails you receive -->
+                <!-- Success Message -->
+                <div data-fs-success 
+                     class="hidden mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400 text-center">
+                    <i class="fa-solid fa-check-circle mr-2"></i>
+                    <span class="font-medium">Thank you! We'll notify you when training is available.</span>
+                </div>
+                
+                <!-- Error Message -->
+                <div data-fs-error 
+                     class="hidden mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-2xl text-red-400 text-center">
+                    <i class="fa-solid fa-exclamation-circle mr-2"></i>
+                    <span class="font-medium">Something went wrong. Please try again or email us directly.</span>
+                </div>
+                
+                <form id="training-signup-form" class="space-y-4">
                     <input type="hidden" name="_subject" value="New Training Signup - Watthour Solutions Website">
                     
                     <div>
                         <label class="sr-only" for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required
+                               data-fs-field
                                class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
                     </div>
                     
                     <div>
                         <label class="sr-only" for="email">Email</label>
                         <input type="email" id="email" name="email" placeholder="Work Email Address" required
+                               data-fs-field
                                class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
                     </div>
                     
                     <div>
                         <label class="sr-only" for="utility">Utility / Company</label>
                         <input type="text" id="utility" name="utility" placeholder="Utility or Company Name" 
+                               data-fs-field
                                class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
                     </div>
                     
-                    <button type="submit"
-                            class="w-full px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 active:scale-[0.985] transition-all text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2">
+                    <button type="submit" data-fs-submit-btn
+                            class="w-full px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 active:scale-[0.985] transition-all text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2 disabled:opacity-70">
                         <span>Notify Me About Training</span>
                         <i class="fa-solid fa-bell"></i>
                     </button>
@@ -381,6 +397,7 @@
                 </form>
             </div>
         </div>
+    </div>
 
     <!-- Contact -->
     <div id="contact" class="bg-slate-900 border-t border-white/10 py-24">
@@ -541,5 +558,15 @@
         // Optional: Simple active nav highlighting on scroll (bonus)
         // Can be expanded later if desired
     </script>
+
+    <!-- Formspree AJAX (for Training Signup Form) -->
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { 
+            formElement: '#training-signup-form', 
+            formId: 'xqeoqygl' 
+        });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
