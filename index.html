@@ -97,11 +97,10 @@
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+           <!-- Navbar Logo -->
             <div class="flex items-center gap-x-4">
-                <img src="logo.png" alt="Watthour Solutions" class="h-12 w-auto">
-                <div>
-                    <span class="font-semibold text-3xl tracking-tighter">Watthour Solutions</span>
-                </div>
+                <img src="logo.png" alt="Watthour Solutions" class="h-14 w-auto">   <!-- Doubled size -->
+                <!-- Removed the "Watthour Solutions" text -->
             </div>
             
             <!-- Desktop Navigation -->
@@ -405,61 +404,46 @@
             </div>
         </div>
         
-        <!-- Training Notification Form (AJAX version with Formspree) -->
-        <div class="mt-12 max-w-md mx-auto">
-            <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
-                <h4 class="font-semibold text-xl mb-2 text-center">Be the first to know</h4>
-                <p class="text-center text-slate-400 mb-6 text-sm">Get notified when new training dates, resources, and workshops are announced.</p>
-                
-                <!-- Success Message -->
-                <div data-fs-success 
-                     class="hidden mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400 text-center">
-                    <i class="fa-solid fa-check-circle mr-2"></i>
-                    <span class="font-medium">Thank you! We'll notify you when training is available.</span>
-                </div>
-                
-                <!-- Error Message -->
-                <div data-fs-error 
-                     class="hidden mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-2xl text-red-400 text-center">
-                    <i class="fa-solid fa-exclamation-circle mr-2"></i>
-                    <span class="font-medium">Something went wrong. Please try again or email us directly.</span>
-                </div>
-                
-                <form id="training-signup-form" class="space-y-4">
-                    <input type="hidden" name="_subject" value="New Training Signup - Watthour Solutions Website">
-                    
-                    <div>
-                        <label class="sr-only" for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required
-                               data-fs-field
-                               class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
-                    </div>
-                    
-                    <div>
-                        <label class="sr-only" for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Work Email Address" required
-                               data-fs-field
-                               class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
-                    </div>
-                    
-                    <div>
-                        <label class="sr-only" for="utility">Utility / Company</label>
-                        <input type="text" id="utility" name="utility" placeholder="Utility or Company Name" 
-                               data-fs-field
-                               class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
-                    </div>
-                    
-                    <button type="submit" data-fs-submit-btn
-                            class="w-full px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 active:scale-[0.985] transition-all text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2 disabled:opacity-70">
-                        <span>Notify Me About Training</span>
-                        <i class="fa-solid fa-bell"></i>
-                    </button>
-                    
-                    <p class="text-[10px] text-center text-slate-500">We respect your inbox. Unsubscribe anytime.</p>
-                </form>
+<!-- Training Notification Form (Web3Forms) -->
+<div class="mt-10 max-w-md mx-auto">
+    <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
+        <h4 class="font-semibold text-xl mb-2 text-center">Be the first to know</h4>
+        <p class="text-center text-slate-400 mb-6 text-sm">Get notified when new training dates and workshops are announced.</p>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+            <!-- Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="313fc86c-2e74-44f5-b46d-4805b46d8aac">
+            <input type="hidden" name="_subject" value="New Training Signup - Watthour Solutions">
+            <input type="hidden" name="_template" value="table"> <!-- Clean email format -->
+
+            <div>
+                <label class="sr-only" for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required
+                       class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
             </div>
-        </div>
+            
+            <div>
+                <label class="sr-only" for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Work Email Address" required
+                       class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <div>
+                <label class="sr-only" for="utility">Utility / Company</label>
+                <input type="text" id="utility" name="utility" placeholder="Utility or Company Name" 
+                       class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <button type="submit"
+                    class="w-full px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 active:scale-[0.985] transition-all text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2">
+                <span>Notify Me About Training</span>
+                <i class="fa-solid fa-bell"></i>
+            </button>
+            
+            <p class="text-[10px] text-center text-slate-500">We respect your inbox. Unsubscribe anytime.</p>
+        </form>
     </div>
+</div>
 
 <!-- Contact -->
 <div id="contact" class="bg-slate-900 border-t border-white/10 py-20">
@@ -471,23 +455,33 @@
             </p>
         </div>
 
-        <div class="max-w-md mx-auto">
-            <!-- Main Email -->
-            <a href="mailto:support@watthoursolutions.com?subject=Inquiry%20from%20Watthour%20Solutions%20Website&body=Hello%20Watthour%20Solutions%20team%2C%0A%0AMy%20name%20is%20%5BYour%20Name%5D%20from%20%5BYour%20Utility%20or%20Company%5D.%0A%0A%5BPlease%20type%20your%20message%20or%20questions%20here%5D%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D" 
-               class="block w-full px-8 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-white/90 transition-all text-center mb-4">
-                Email Anthony Directly
+        <div class="max-w-md mx-auto space-y-4">
+            
+            <!-- Email with Copy Button -->
+            <div class="bg-slate-800 border border-white/10 rounded-3xl p-5 flex items-center justify-between">
+                <div>
+                    <div class="text-sm text-slate-400">Email</div>
+                    <div class="font-medium text-lg">asimkins@watthoursolutions.com</div>
+                </div>
+                <button onclick="copyEmailAddress()" 
+                        class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-2xl text-sm font-medium flex items-center gap-x-2 transition-all">
+                    <i class="fa-solid fa-copy"></i>
+                    <span>Copy</span>
+                </button>
+            </div>
+
+            <!-- Email Button -->
+            <a href="mailto:asimkins@watthoursolutions.com?subject=Inquiry%20from%20Watthour%20Solutions%20Website&body=Hello%20Anthony%2C%0A%0AMy%20name%20is%20%5BYour%20Name%5D%20from%20%5BYour%20Utility%20or%20Company%5D.%0A%0A%5BPlease%20type%20your%20message%20or%20questions%20here%5D%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D" 
+               class="block w-full px-8 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-white/90 transition-all text-center">
+                Open in Email App
             </a>
 
             <!-- X -->
             <a href="https://x.com/watthourllc" target="_blank"
-               class="block w-full px-8 py-4 bg-slate-800 hover:bg-slate-700 transition-all text-white font-medium rounded-3xl text-center mb-6 flex items-center justify-center gap-x-2">
+               class="block w-full px-8 py-4 bg-slate-800 hover:bg-slate-700 transition-all text-white font-medium rounded-3xl text-center flex items-center justify-center gap-x-2">
                 <span>Message on X</span>
                 <i class="fa-brands fa-x-twitter"></i>
             </a>
-
-            <div class="text-center">
-                <p class="text-sm text-slate-400">Or use the training notification form above if you're interested in upcoming workshops.</p>
-            </div>
         </div>
     </div>
 </div>
@@ -602,6 +596,26 @@
         
         // Optional: Simple active nav highlighting on scroll (bonus)
         // Can be expanded later if desired
+    </script>
+
+    <script>
+    function copyEmailAddress() {
+        const email = "asimkins@watthoursolutions.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const btns = document.querySelectorAll('button');
+            btns.forEach(btn => {
+                if (btn.textContent.includes('Copy')) {
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Copied!</span>';
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                    }, 1800);
+                }
+            });
+        }).catch(() => {
+            alert("Email copied: " + email);
+        });
+    }
     </script>
 
     <!-- Formspree AJAX (for Training Signup Form) -->
