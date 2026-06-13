@@ -3,87 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <!-- SEO Meta Tags -->
+    
     <title>Watthour Solutions • Precision Metering & Utility Optimization</title>
-    <meta name="description" content="Expert metering audits, CT meter testing, field testing, billing corrections, and revenue recovery for Midwest utilities and electric cooperatives. 30+ years experience helping co-ops recover lost revenue.">
-    <meta name="keywords" content="metering audits, CT meter testing, revenue recovery, utility optimization, field testing, billing corrections, Midwest utilities, electric cooperatives, meter accuracy, ANSI C12.1">
-   
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:title" content="Watthour Solutions • Precision Metering & Utility Optimization">
-    <meta property="og:description" content="Expert metering audits, field testing, and revenue recovery for Midwest utilities. 30+ years experience. $1M+ revenue recovered for co-ops and utilities.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://watthoursolutions.com">
-    <meta property="og:image" content="https://watthoursolutions.com/logo.png">
-   
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Watthour Solutions • Precision Metering & Utility Optimization">
-    <meta name="twitter:description" content="Expert metering audits, CT testing, and revenue recovery for Midwest utilities.">
-   
-    <!-- Favicon -->
+    <meta name="description" content="Expert CT meter testing, metering audits, field testing, billing corrections, and revenue recovery for Midwest utilities and electric cooperatives. 30+ years experience.">
+    
     <link rel="icon" type="image/png" href="logo.png">
-   
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
-       
-        body {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-       
-        .heading-font {
-            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-        }
-        .nav-active {
-            position: relative;
-        }
-       
+        
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        
+        .nav-active { position: relative; }
         .nav-active:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
             background: linear-gradient(to right, #1e40af, #3b82f6);
         }
-        .service-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-       
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        .stat-number {
-            font-variant-numeric: tabular-nums;
-        }
-        .section-header {
-            position: relative;
-            display: inline-block;
-        }
-       
+        
+        .service-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        
+        .section-header { position: relative; display: inline-block; }
         .section-header:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(to right, #1e40af, #3b82f6);
-            border-radius: 3px;
-        }
-        .mobile-menu {
-            animation: slideDown 0.2s ease forwards;
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+            width: 60px; height: 3px; background: linear-gradient(to right, #1e40af, #3b82f6); border-radius: 3px;
         }
     </style>
 </head>
@@ -91,510 +38,237 @@
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-           <!-- Navbar Logo (25% larger) -->
             <div class="flex items-center gap-x-4">
-                <img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto">
+                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
             </div>
-           
+            
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
-                <a href="#video" class="hover:text-emerald-400 transition-colors text-emerald-400 font-medium">(New) Promotional Video</a>
-                <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#education" class="hover:text-blue-400 transition-colors">Training</a>
-                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                <a href="index.html" class="nav-active text-blue-400">Home</a>
+                <a href="services.html" class="hover:text-blue-400 transition-colors">Services</a>
+                <a href="training.html" class="hover:text-blue-400 transition-colors">Training</a>
+                <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
             </div>
-           
-            <div class="flex items-center gap-x-4">
-                <!-- Desktop CTA -->
-                <a href="#contact"
-                   class="hidden md:block px-6 py-2.5 bg-white text-slate-950 font-semibold text-sm rounded-3xl hover:bg-white/90 transition-all">
+            
+            <div class="hidden md:block">
+                <a href="contact.html" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
                     Get in Touch
                 </a>
-               
-                <!-- Mobile Hamburger -->
-                <button id="mobile-menu-btn"
-                        class="md:hidden w-10 h-10 flex items-center justify-center text-white hover:bg-white/10 rounded-xl transition-colors"
-                        aria-label="Toggle menu">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
             </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
         </div>
-       
+        
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-slate-950">
-            <div class="px-6 py-6 flex flex-col gap-y-4 text-sm font-medium">
-                <a href="#video" class="py-2 hover:text-emerald-400 transition-colors">Promotional Video</a>
-                <a href="#services" class="py-2 hover:text-blue-400 transition-colors">Services</a>
-                <a href="#about" class="py-2 hover:text-blue-400 transition-colors">About</a>
-                <a href="#education" class="py-2 hover:text-blue-400 transition-colors">Training &amp; Resources</a>
-                <a href="#contact" class="py-2 hover:text-blue-400 transition-colors">Contact</a>
-               
-                <a href="#contact"
-                   class="mt-2 px-6 py-3 bg-white text-slate-950 font-semibold text-center rounded-3xl hover:bg-white/90 transition-all">
-                    Request a Consultation
-                </a>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
+            <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
+                <a href="index.html" class="py-1 text-blue-400">Home</a>
+                <a href="services.html" class="py-1 hover:text-blue-400">Services</a>
+                <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
+                <a href="about.html" class="py-1 hover:text-blue-400">About</a>
+                <a href="contact.html" class="py-1 hover:text-blue-400">Contact</a>
+                <a href="contact.html" class="mt-2 px-5 py-2.5 bg-blue-600 text-center rounded-xl">Get in Touch</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <div class="min-h-screen pt-20 flex items-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(#1e3a8a_0.8px,transparent_1px)] bg-[length:5px_5px] opacity-30"></div>
-       
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
-            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/10 backdrop-blur border border-white/20 mb-8">
-                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                <span class="text-sm font-medium tracking-wider">REBRANDED &amp; UPGRADED FOR 2026</span>
+    <section class="pt-20 pb-16 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
+                REBRANDED & UPGRADED FOR 2026
             </div>
-           
-            <h1 class="text-7xl md:text-8xl font-semibold tracking-tighter heading-font leading-none mb-6">
+            
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter heading-font leading-none mb-6">
                 Precision<br>Metering.<br>Proven Results.
             </h1>
-           
-            <p class="max-w-2xl mx-auto text-2xl text-slate-300 mb-10">
+            
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
                 Expert CT meter testing, metering audits, field testing, and revenue recovery for Midwest utilities and electric cooperatives.
             </p>
-           
+            
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
-                        class="px-10 py-4 bg-white hover:bg-white/90 transition-all text-slate-950 font-semibold rounded-3xl text-lg flex items-center justify-center gap-x-3 group">
-                    <span>Request a Consultation</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </button>
-               
-                <a href="#services"
-                   class="px-10 py-4 border border-white/30 hover:bg-white/5 transition-all font-medium rounded-3xl text-lg flex items-center justify-center gap-x-2">
-                    <span>Explore Services</span>
+                <a href="#services" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl text-lg transition-all">
+                    Explore Services
+                </a>
+                <a href="training.html" class="px-8 py-4 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl text-lg transition-all">
+                    View Training Programs
                 </a>
             </div>
-           
-            <!-- Stats -->
-            <div class="mt-16 flex justify-center gap-x-12 text-sm">
-                <div class="text-center">
-                    <div class="stat-number text-4xl font-semibold text-emerald-400">30</div>
-                    <div class="text-slate-400 mt-1">Years Experience</div>
+            
+            <div class="mt-12 grid grid-cols-3 gap-8 max-w-md mx-auto text-center">
+                <div>
+                    <div class="text-3xl font-semibold">30</div>
+                    <div class="text-sm text-slate-400">Years Experience</div>
                 </div>
-                <div class="text-center">
-                    <div class="stat-number text-4xl font-semibold text-emerald-400">1</div>
-                    <div class="text-slate-400 mt-1">$1M+ Revenue Recovered</div>
+                <div>
+                    <div class="text-3xl font-semibold">$1M+</div>
+                    <div class="text-sm text-slate-400">Revenue Recovered</div>
                 </div>
-                <div class="text-center">
-                    <div class="stat-number text-4xl font-semibold text-emerald-400">20</div>
-                    <div class="text-slate-400 mt-1">Utilities Served</div>
+                <div>
+                    <div class="text-3xl font-semibold">20</div>
+                    <div class="text-sm text-slate-400">Utilities Served</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Featured Promotional Video -->
-    <div id="video" class="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
-        <div class="text-center mb-8">
-            <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">NOW SHOWING</div>
-            <h2 class="text-5xl font-semibold tracking-tight">See the Difference</h2>
-            <p class="mt-4 text-xl text-slate-400 max-w-lg mx-auto">Our latest promotional video highlighting precision metering and revenue recovery in action for Midwest utilities.</p>
-        </div>
-       
-        <div class="max-w-[900px] mx-auto">
-            <div class="bg-slate-900 border border-white/10 rounded-3xl p-4 shadow-2xl">
-                <video
-                    autoplay
-                    muted
-                    loop
-                    controls
-                    class="w-full rounded-2xl aspect-video bg-black shadow-inner"
-                    preload="metadata"
-                    playsinline
-                >
+    <!-- Video Section -->
+    <section class="max-w-5xl mx-auto px-6 pb-16">
+        <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
+            <div class="text-center mb-6">
+                <span class="text-blue-400 text-sm font-semibold tracking-widest">SEE THE DIFFERENCE</span>
+                <h3 class="text-2xl font-semibold mt-2">Precision Metering in Action</h3>
+            </div>
+            
+            <div class="aspect-video bg-black rounded-2xl overflow-hidden">
+                <video controls class="w-full h-full object-cover" preload="metadata">
                     <source src="watthour-ad.mp4" type="video/mp4">
                     Your browser does not support the video tag.
-                    <a href="watthour-ad.mp4" class="text-blue-400 hover:underline">Download the ad (11MB)</a>
                 </video>
             </div>
-            <p class="text-center text-xs text-slate-500 mt-4">11MB file • Autoplay muted • Click volume icon to hear audio</p>
+            <p class="text-center text-sm text-slate-400 mt-3">Promotional video highlighting precision metering and revenue recovery</p>
         </div>
-    </div>
+    </section>
 
-    <!-- Services -->
-    <div id="services" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="text-center mb-16">
-            <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">WHAT WE DELIVER</div>
-            <h2 class="text-5xl font-semibold tracking-tight">Expert Solutions for<br>Utility Excellence</h2>
-            <p class="mt-4 text-xl text-slate-400 max-w-md mx-auto">Precision metering and revenue optimization tailored for Midwest electric cooperatives and utilities.</p>
+    <!-- Services Overview -->
+    <section id="services" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <span class="text-blue-400 text-sm font-semibold tracking-widest">WHAT WE DELIVER</span>
+            <h2 class="text-4xl font-semibold heading-font tracking-tight mt-2">Expert Solutions for<br>Utility Excellence</h2>
         </div>
-       
+        
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
                 <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
                     <i class="fa-solid fa-search text-blue-400 text-3xl"></i>
                 </div>
                 <h3 class="font-semibold text-2xl mb-3">Meter Audits</h3>
-                <p class="text-slate-400">Comprehensive accuracy testing and billing error detection across your entire metering infrastructure using industry-standard methods.</p>
+                <p class="text-slate-400">Comprehensive accuracy testing and billing error detection across your entire metering infrastructure.</p>
             </div>
-           
+            
             <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
-                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-tools text-emerald-400 text-3xl"></i>
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-tools text-blue-400 text-3xl"></i>
                 </div>
                 <h3 class="font-semibold text-2xl mb-3">Field Testing</h3>
-                <p class="text-slate-400">On-site meter testing, calibration verification, and performance validation by experienced technicians with calibrated equipment.</p>
+                <p class="text-slate-400">On-site meter testing, calibration verification, and performance validation by experienced technicians.</p>
             </div>
-           
+            
             <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
-                <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-file-invoice-dollar text-amber-400 text-3xl"></i>
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-file-invoice-dollar text-blue-400 text-3xl"></i>
                 </div>
                 <h3 class="font-semibold text-2xl mb-3">Billing Corrections</h3>
-                <p class="text-slate-400">Identify and recover lost revenue through detailed tariff analysis, misbilling detection, and correction support.</p>
+                <p class="text-slate-400">Identify and recover lost revenue through detailed tariff analysis and misbilling detection.</p>
             </div>
-           
+            
             <div class="service-card bg-slate-900 border border-white/10 p-8 rounded-3xl">
-                <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-chart-line text-purple-400 text-3xl"></i>
+                <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-chart-line text-blue-400 text-3xl"></i>
                 </div>
                 <h3 class="font-semibold text-2xl mb-3">Revenue Recovery</h3>
-                <p class="text-slate-400">Proven track record of recovering significant lost revenue for co-ops and utilities through precise metering and billing analysis.</p>
+                <p class="text-slate-400">Proven track record of recovering significant lost revenue for co-ops and utilities.</p>
             </div>
         </div>
-    </div>
+        
+        <div class="text-center mt-10">
+            <a href="services.html" class="inline-flex items-center gap-x-2 text-blue-400 hover:text-blue-300 font-medium">
+                Learn more about our services <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
 
-    <!-- Testimonials / Results -->
-    <div class="bg-slate-900 border-y border-white/10 py-20">
+    <!-- Training Teaser -->
+    <section class="bg-slate-900 border-y border-white/10 py-16">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">REAL RESULTS</div>
-                <h2 class="text-4xl font-semibold tracking-tight">What Utilities Are Saying</h2>
-            </div>
-   
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-slate-950 border border-white/10 p-8 rounded-3xl">
-                    <p class="text-slate-300 italic">"Anthony helped us identify significant billing discrepancies we had missed for years. The audit paid for itself many times over."</p>
-                    <div class="mt-6 text-sm">
-                        <span class="font-semibold">— Operations Manager</span><br>
-                        <span class="text-slate-400">Missouri Electric Cooperative</span>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-blue-400 text-sm font-semibold tracking-widest">PROFESSIONAL DEVELOPMENT</span>
+                    <h2 class="text-4xl font-semibold heading-font tracking-tight mt-2 mb-4">Metering Training & Education</h2>
+                    <p class="text-slate-300 mb-6">We offer practical, field-focused training for utility personnel. Our flagship program is the <strong>2027 Metering Bootcamp</strong> — a 3-day intensive led by Matt Heath of Mergo Consulting.</p>
+                    
+                    <a href="training.html" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition-all">
+                        Explore Training Programs <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
-   
-                <div class="bg-slate-950 border border-white/10 p-8 rounded-3xl">
-                    <p class="text-slate-300 italic">"The custom training he delivered was the best metering training our technicians have ever received. Very practical and hands-on."</p>
-                    <div class="mt-6 text-sm">
-                        <span class="font-semibold">— Engineering Supervisor</span><br>
-                        <span class="text-slate-400">Kansas Electric Cooperative</span>
+                
+                <div class="bg-slate-950 border border-white/10 rounded-3xl p-8">
+                    <div class="flex items-center gap-x-4 mb-4">
+                        <i class="fa-solid fa-graduation-cap text-blue-400 text-2xl"></i>
+                        <div class="font-semibold">2027 Metering Bootcamp</div>
                     </div>
-                </div>
-   
-                <div class="bg-slate-950 border border-white/10 p-8 rounded-3xl">
-                    <p class="text-slate-300 italic">"We recovered substantial revenue after his CT meter audit. His attention to detail and clear reporting made the process easy for our team."</p>
-                    <div class="mt-6 text-sm">
-                        <span class="font-semibold">— General Manager</span><br>
-                        <span class="text-slate-400">Oklahoma Rural Electric Cooperative</span>
-                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>• 3-day hands-on intensive (planned early March)</li>
+                        <li>• Led by Matt Heath (Mergo Consulting)</li>
+                        <li>• Covers safety, CT/PT, demand, vector analysis & more</li>
+                        <li>• Limited seating • Register interest now</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- About -->
-    <div id="about" class="bg-slate-900 border-y border-white/10 py-24">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                <div class="md:col-span-7">
-                    <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">OUR STORY</div>
-                    <h2 class="text-5xl font-semibold tracking-tight leading-none mb-8">Decades of Expertise.<br>Rebranded for the Future.</h2>
-                   
-                    <div class="space-y-6 text-lg text-slate-300">
-                        <p>Watthour Solutions builds on more than 30 years of hands-on experience in electric metering and utility optimization. Founded by <strong>Anthony W. Simkins</strong>, we previously operated as Innovative Electric Services and have now rebranded to better reflect our expanded capabilities and commitment to serving Midwest utilities.</p>
-                       
-                        <p>We specialize in optimizing utility revenue through precise metering audits, accurate field testing, and strategic billing corrections. Our work has helped electric cooperatives and utilities recover substantial lost revenue while improving metering accuracy and operational efficiency.</p>
-                    </div>
-                </div>
-               
-                <div class="md:col-span-5 mt-12 md:mt-0">
-                    <div class="bg-slate-800 border border-white/10 rounded-3xl p-8">
-                        <h4 class="font-semibold mb-6 text-xl">Our Core Values</h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-x-4">
-                                <i class="fa-solid fa-shield-halved text-blue-400 mt-1.5"></i>
-                                <div>
-                                    <span class="font-semibold">Integrity</span><br>
-                                    <span class="text-sm text-slate-400">In every audit, test, and recommendation we deliver</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-x-4">
-                                <i class="fa-solid fa-medal text-blue-400 mt-1.5"></i>
-                                <div>
-                                    <span class="font-semibold">Excellence</span><br>
-                                    <span class="text-sm text-slate-400">In technical expertise, precision, and practical solutions</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-x-4">
-                                <i class="fa-solid fa-handshake text-blue-400 mt-1.5"></i>
-                                <div>
-                                    <span class="font-semibold">Partnership</span><br>
-                                    <span class="text-sm text-slate-400">Long-term success and trust with every client</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Education & Training Section -->
-    <div id="education" class="max-w-5xl mx-auto px-6 py-20">
+    <!-- Testimonials -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
         <div class="text-center mb-12">
-            <div class="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4">NOW OFFERING</div>
-            <h2 class="text-5xl font-semibold tracking-tight">Training &amp; Education</h2>
-            <p class="mt-4 text-xl text-slate-400 max-w-md mx-auto">
-                Practical education to help utility teams improve metering accuracy and protect revenue.
-            </p>
+            <span class="text-blue-400 text-sm font-semibold tracking-widest">REAL RESULTS</span>
+            <h2 class="text-4xl font-semibold heading-font tracking-tight mt-2">What Our Clients Say</h2>
         </div>
-       
+        
         <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
-                <div class="text-blue-400 mb-4"><i class="fa-solid fa-graduation-cap text-4xl"></i></div>
-                <h3 class="font-semibold text-xl mb-3">Metering Fundamentals</h3>
-                <p class="text-slate-400">Clear guides and resources covering meter accuracy, testing procedures, and billing best practices.</p>
-            </div>
-           
-            <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
-                <div class="text-emerald-400 mb-4"><i class="fa-solid fa-lightbulb text-4xl"></i></div>
-                <h3 class="font-semibold text-xl mb-3">Electric Meter &amp; Rate Training</h3>
-                <p class="text-slate-400">Workshops designed to help your team understand metering systems, rate structures, and identify optimization opportunities.</p>
-            </div>
-           
-            <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
-                <div class="text-amber-400 mb-4"><i class="fa-solid fa-users text-4xl"></i></div>
-                <h3 class="font-semibold text-xl mb-3">Custom Training Sessions</h3>
-                <p class="text-slate-400">On-site or virtual training tailored to your utility’s specific metering equipment and team needs.</p>
-            </div>
-        </div>
-
-        <!-- Training Notification Form + 3-Day Meter School -->
-        <div class="mt-10 bg-slate-900 border border-white/10 rounded-3xl p-8">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                
-                <!-- 3-Day Course Info -->
-                <div>
-                    <div class="flex items-center gap-x-3 mb-3">
-                        <span class="px-3 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-400 rounded-full">COMING 2027</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold tracking-tight mb-3">3-Day Meter School</h3>
-                    <p class="text-slate-400 mt-2">A deeper, hands-on program covering advanced metering topics, CT/PT applications, and revenue protection strategies. Date to be announced.</p>
+                <p class="text-slate-300 italic">"Anthony helped us identify significant billing discrepancies we had missed for years. The audit paid for itself many times over."</p>
+                <div class="mt-6 text-sm">
+                    <div class="font-semibold">Operations Manager</div>
+                    <div class="text-slate-400">Missouri Electric Cooperative</div>
                 </div>
-        
-                <!-- Training Form -->
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Be the first to know</h4>
-                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4" id="training-form">
-                        <input type="hidden" name="access_key" value="313fc86c-2e74-44f5-b46d-4805b46d8aac">
-                        <input type="hidden" name="_subject" value="New Training Signup - Watthour Solutions">
-                        <input type="hidden" name="_template" value="table">
-        
-                        <input type="text" name="name" placeholder="Your Name" required 
-                               class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500">
-        
-                        <input type="email" name="email" placeholder="Contact Email Address" required 
-                               class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500">
-        
-                        <input type="text" name="utility" placeholder="Utility or Company Name" 
-                               class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white placeholder:text-slate-500">
-        
-                        <!-- Number of Attendees -->
-                        <div>
-                            <label class="block text-sm mb-1.5 text-slate-400">How many people at your utility might attend?</label>
-                            <select name="attendees" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white">
-                                <option value="">Please select...</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10 or more</option>
-                            </select>
-                        </div>
-        
-                        <button type="submit" class="w-full px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2">
-                            <span>Notify Me About Training</span>
-                            <i class="fa-solid fa-bell"></i>
-                        </button>
-                    </form>
-
-                    <div id="training-success" class="hidden mt-4 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-400 text-center">
-                        Thank you! We'll notify you when new training is available.
-                    </div>
+            </div>
+            
+            <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <p class="text-slate-300 italic">"The custom training he delivered was the best metering training our technicians have ever received. Very practical and hands-on."</p>
+                <div class="mt-6 text-sm">
+                    <div class="font-semibold">Engineering Supervisor</div>
+                    <div class="text-slate-400">Kansas Electric Cooperative</div>
+                </div>
+            </div>
+            
+            <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl">
+                <p class="text-slate-300 italic">"We recovered substantial revenue after his CT meter audit. His attention to detail and clear reporting made the process easy for our team."</p>
+                <div class="mt-6 text-sm">
+                    <div class="font-semibold">General Manager</div>
+                    <div class="text-slate-400">Oklahoma Rural Electric Cooperative</div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Contact Section (Business Inquiries - CT/Meter Testing) -->
-    <div id="contact" class="bg-slate-900 border-t border-white/10 py-20">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <h2 class="text-4xl font-semibold tracking-tight mb-4">Contact Us for CT &amp; Meter Testing</h2>
-                <p class="text-xl text-slate-400 max-w-md mx-auto">
-                    Reach out for CT meter testing, meter audits, field testing, or other business inquiries.
-                </p>
-            </div>
-    
-            <!-- Business Contact Form -->
-            <form action="https://api.web3forms.com/submit" method="POST" class="max-w-md mx-auto space-y-5" id="business-contact-form">
-                <input type="hidden" name="access_key" value="a4977e05-2be4-4600-94fd-553c093ee57c">
-                <input type="hidden" name="_subject" value="New Business Inquiry - Watthour Solutions">
-                <input type="hidden" name="_template" value="table">
-            
-                <div>
-                    <label class="block text-sm mb-1.5 text-slate-400">Name</label>
-                    <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white">
-                </div>
-            
-                <div>
-                    <label class="block text-sm mb-1.5 text-slate-400">Title / Position</label>
-                    <input type="text" name="title" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white">
-                </div>
-            
-                <div>
-                    <label class="block text-sm mb-1.5 text-slate-400">Email Address</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white">
-                </div>
-            
-                <div>
-                    <label class="block text-sm mb-1.5 text-slate-400">Utility / Company</label>
-                    <input type="text" name="utility" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white">
-                </div>
-            
-                <div>
-                    <label class="block text-sm mb-1.5 text-slate-400">I'm interested in</label>
-                    <select name="interest" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white">
-                        <option value="">Please select...</option>
-                        <option value="CT Testing">CT Testing</option>
-                        <option value="Meter Testing / Audits">Meter Testing / Audits</option>
-                        <option value="Training">Training</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            
-                <div>
-                    <label class="block text-sm mb-1.5 text-slate-400">Message / Details</label>
-                    <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-2xl text-white"></textarea>
-                </div>
-            
-                <button type="submit" class="w-full px-8 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-white/90 transition-all">
-                    Send Inquiry
-                </button>
-            </form>
-            
-            <!-- Success Message -->
-            <div id="business-success" class="hidden max-w-md mx-auto mt-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl text-center">
-                <p class="text-emerald-400 font-medium">Thank you! Someone will get back with you shortly.</p>
-            </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 bg-slate-950 py-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-y-6 text-sm">
-                <div class="flex items-center gap-x-6 text-slate-400">
-                    <span>© 2026 Watthour Solutions, LLC</span>
-                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                    <a href="#" class="hover:text-white transition-colors">Legal</a>
-                </div>
-               
-                <div class="text-xs text-slate-500 font-mono">
-                    FOUNDED 2011 • REBRANDED 2026 • MIDWEST UTILITIES
-                </div>
+    <footer class="border-t border-white/10 py-10 text-sm text-slate-400">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <div>© 2026 Watthour Solutions. All rights reserved.</div>
+            <div class="flex gap-x-6">
+                <a href="services.html" class="hover:text-white">Services</a>
+                <a href="training.html" class="hover:text-white">Training</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
             </div>
+            <div>417-942-8370</div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile menu toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-       
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileBtn.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-        });
-       
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                const icon = mobileBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+        
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-        });
-
-        // Stat Animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const targetText = stat.textContent.trim();
-                const target = parseInt(targetText);
-                if (isNaN(target)) return;
-               
-                let current = 0;
-                const increment = Math.ceil(target / 30);
-               
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        stat.textContent = targetText;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = current;
-                    }
-                }, 80);
-            });
-        }
-       
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    observer.disconnect();
-                }
-            });
-        });
-       
-        window.onload = function() {
-            const statsSection = document.querySelector('.flex.justify-center.gap-x-12');
-            if (statsSection) observer.observe(statsSection);
-        }
-
-        // Training Form Success Message
-        const trainingForm = document.getElementById('training-form');
-        if (trainingForm) {
-            trainingForm.addEventListener('submit', function(e) {
-                setTimeout(() => {
-                    trainingForm.style.display = 'none';
-                    document.getElementById('training-success').classList.remove('hidden');
-                }, 800);
-            });
-        }
-
-        // Business Contact Form Success Message
-            const businessForm = document.getElementById('business-contact-form');
-            if (businessForm) {
-                businessForm.addEventListener('submit', function(e) {
-                    setTimeout(() => {
-                        businessForm.style.display = 'none';
-                        document.getElementById('business-success').classList.remove('hidden');
-                    }, 800);
-                });
         }
     </script>
 </body>
