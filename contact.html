@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Contact Us • Watthour Solutions</title>
+    <meta name="description" content="Contact Watthour Solutions for CT meter testing, metering audits, field testing, billing corrections, revenue recovery, or training inquiries.">
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        
+        .nav-active { position: relative; }
+        .nav-active:after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+                <a href="services.html" class="hover:text-blue-400 transition-colors">Services</a>
+                <a href="training.html" class="hover:text-blue-400 transition-colors">Training</a>
+                <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="contact.html" class="nav-active text-blue-400">Contact</a>
+            </div>
+            
+            <div class="hidden md:block">
+                <a href="#contact-form" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
+                    Send Message
+                </a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
+            <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
+                <a href="index.html" class="py-1 hover:text-blue-400">Home</a>
+                <a href="services.html" class="py-1 hover:text-blue-400">Services</a>
+                <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
+                <a href="about.html" class="py-1 hover:text-blue-400">About</a>
+                <a href="contact.html" class="py-1 text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-20 pb-12 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-blue-400 text-sm font-semibold tracking-widest">LET'S CONNECT</span>
+            <h1 class="text-5xl md:text-6xl font-semibold heading-font tracking-tight mt-3">
+                Get in Touch
+            </h1>
+            <p class="text-xl text-slate-300 mt-4 max-w-md mx-auto">
+                Have a question about services, training, or a project? Send us a message and we’ll get back to you within a few days.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form" class="max-w-2xl mx-auto px-6 pb-16">
+        <div class="bg-slate-900 border border-white/10 rounded-3xl p-10">
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                <!-- Web3Forms -->
+                <input type="hidden" name="access_key" value="313fc86c-2e74-44f5-b46d-4805b46d8aac">
+                <input type="hidden" name="subject" value="New Inquiry from Watthour Solutions Website">
+                <input type="hidden" name="from_name" value="Watthour Solutions Website">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-slate-300">Full Name *</label>
+                        <input type="text" name="name" required 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-slate-300">Utility / Company</label>
+                        <input type="text" name="utility" 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-slate-300">Email Address *</label>
+                        <input type="email" name="email" required 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-slate-300">Phone Number</label>
+                        <input type="tel" name="phone" 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-slate-300">How can we help you? *</label>
+                    <select name="inquiry_type" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
+                        <option value="">Please select</option>
+                        <option value="CT Meter Testing / Audit">CT Meter Testing or Audit</option>
+                        <option value="Field Testing">Field Testing</option>
+                        <option value="Billing Corrections / Revenue Recovery">Billing Corrections or Revenue Recovery</option>
+                        <option value="Training / Bootcamp">Training or 2027 Metering Bootcamp</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-slate-300">Message *</label>
+                    <textarea name="message" rows="6" required 
+                              class="w-full bg-slate-950 border border-white/20 rounded-3xl px-5 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 resize-y"
+                              placeholder="Tell us more about your needs or questions..."></textarea>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full py-4 bg-blue-600 hover:bg-blue-500 font-semibold text-lg rounded-2xl transition-all flex items-center justify-center gap-x-3">
+                    <span>Send Message</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+                
+                <p class="text-center text-xs text-slate-500">We typically respond within a few days.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Quick Contact Info -->
+    <section class="max-w-3xl mx-auto px-6 pb-16 text-center">
+        <div class="text-slate-400 text-sm">
+            <p class="mb-2">Prefer to call or text?</p>
+            <a href="tel:4179428370" class="text-xl font-semibold text-white hover:text-blue-400 transition-colors">417-942-8370</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-10 text-sm text-slate-400">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <div>© 2026 Watthour Solutions. All rights reserved.</div>
+            <div class="flex gap-x-6">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <a href="services.html" class="hover:text-white">Services</a>
+                <a href="training.html" class="hover:text-white">Training</a>
+            </div>
+            <div>417-942-8370</div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+    </script>
+</body>
+</html>
