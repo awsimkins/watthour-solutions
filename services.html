@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Our Services • Watthour Solutions</title>
+    <meta name="description" content="Expert CT meter testing, metering audits, field testing, billing corrections, and revenue recovery services for Midwest electric cooperatives and utilities.">
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        
+        .nav-active { position: relative; }
+        .nav-active:after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+        }
+        
+        .service-detail { transition: all 0.3s ease; }
+        .service-detail:hover { transform: translateY(-6px); }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+                <a href="services.html" class="nav-active text-blue-400">Services</a>
+                <a href="training.html" class="hover:text-blue-400 transition-colors">Training</a>
+                <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+            
+            <div class="hidden md:block">
+                <a href="contact.html" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
+                    Request Consultation
+                </a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
+            <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
+                <a href="index.html" class="py-1 hover:text-blue-400">Home</a>
+                <a href="services.html" class="py-1 text-blue-400">Services</a>
+                <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
+                <a href="about.html" class="py-1 hover:text-blue-400">About</a>
+                <a href="contact.html" class="py-1 hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-20 pb-12 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="text-blue-400 text-sm font-semibold tracking-widest">WHAT WE DELIVER</span>
+            <h1 class="text-5xl md:text-6xl font-semibold heading-font tracking-tight mt-3 mb-4">
+                Precision Services for<br>Midwest Utilities
+            </h1>
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+                Practical, field-proven solutions that improve metering accuracy and recover lost revenue for electric cooperatives.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="max-w-6xl mx-auto px-6 pb-16 space-y-16">
+        
+        <!-- Meter Audits -->
+        <div class="service-detail bg-slate-900 border border-white/10 rounded-3xl p-10">
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/3">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-search text-blue-400 text-4xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-semibold">Meter Audits</h2>
+                </div>
+                <div class="lg:w-2/3 text-slate-300 space-y-4">
+                    <p>Comprehensive accuracy testing and billing error detection across your entire metering infrastructure using industry-standard methods and ANSI C12.1 guidelines.</p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Full system accuracy reviews</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Billing discrepancy identification</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Detailed reporting with findings</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Recommendations for correction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Field Testing -->
+        <div class="service-detail bg-slate-900 border border-white/10 rounded-3xl p-10">
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/3">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-tools text-blue-400 text-4xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-semibold">Field Testing</h2>
+                </div>
+                <div class="lg:w-2/3 text-slate-300 space-y-4">
+                    <p>On-site meter testing and calibration verification performed by experienced technicians using properly calibrated equipment.</p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> CT and PT testing</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Self-contained meter testing</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> In-service testing</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Performance validation reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Billing Corrections -->
+        <div class="service-detail bg-slate-900 border border-white/10 rounded-3xl p-10">
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/3">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-file-invoice-dollar text-blue-400 text-4xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-semibold">Billing Corrections</h2>
+                </div>
+                <div class="lg:w-2/3 text-slate-300 space-y-4">
+                    <p>Identify and recover lost revenue through detailed tariff analysis, misbilling detection, and correction support.</p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Tariff and rate analysis</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Historical billing reviews</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Correction documentation</li>
+                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Support for utility staff</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Recovery -->
+        <div class="service-detail bg-slate-900 border border-white/10 rounded-3xl p-10">
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/3">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-chart-line text-blue-400 text-4xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-semibold">Revenue Recovery</h2>
+                </div>
+                <div class="lg:w-2/3 text-slate-300 space-y-4">
+                    <p>Proven track record of helping electric cooperatives and utilities recover significant lost revenue through precise metering and billing analysis.</p>
+                    <div class="pt-2">
+                        <div class="inline-flex items-center gap-x-2 text-emerald-400 text-sm font-medium">
+                            <i class="fa-solid fa-check-double"></i>
+                            <span>Over $1 Million in recovered revenue for our clients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CT Meter Testing Highlight -->
+    <section class="bg-slate-900 border-y border-white/10 py-16">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-blue-400 text-sm font-semibold tracking-widest">SPECIALIZED EXPERTISE</span>
+                <h2 class="text-4xl font-semibold heading-font tracking-tight mt-2">CT Meter Testing</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto text-center text-slate-300">
+                <p class="mb-6">We specialize in CT (Current Transformer) meter testing and audits. Our technicians are experienced with 3-phase CT metering, multiplier calculations, and identifying issues that commonly cause revenue loss in instrument transformer rated services.</p>
+                <a href="contact.html" class="inline-flex items-center px-6 py-3 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl transition-all">
+                    Request a CT Meter Testing Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-4xl mx-auto px-6 py-16 text-center">
+        <h2 class="text-3xl font-semibold mb-4">Ready to improve your metering accuracy?</h2>
+        <p class="text-slate-300 mb-8 max-w-md mx-auto">Let’s discuss how we can support your utility with audits, testing, or revenue recovery.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="contact.html" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition-all">
+                Request a Consultation
+            </a>
+            <a href="training.html" class="px-8 py-4 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl transition-all">
+                Explore Training Options
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-10 text-sm text-slate-400">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <div>© 2026 Watthour Solutions. All rights reserved.</div>
+            <div class="flex gap-x-6">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <a href="training.html" class="hover:text-white">Training</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
+            </div>
+            <div>417-942-8370</div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+    </script>
+</body>
+</html>
