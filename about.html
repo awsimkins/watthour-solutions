@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>About Us • Watthour Solutions</title>
+    <meta name="description" content="Learn about Watthour Solutions and founder Anthony W. Simkins. Over 30 years of experience providing precision metering, audits, and training for Midwest utilities and electric cooperatives.">
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        
+        .nav-active { position: relative; }
+        .nav-active:after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+        }
+        
+        .value-card { transition: all 0.3s ease; }
+        .value-card:hover { transform: translateY(-6px); }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+                <a href="services.html" class="hover:text-blue-400 transition-colors">Services</a>
+                <a href="training.html" class="hover:text-blue-400 transition-colors">Training</a>
+                <a href="about.html" class="nav-active text-blue-400">About</a>
+                <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+            
+            <div class="hidden md:block">
+                <a href="contact.html" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
+                    Get in Touch
+                </a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
+            <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
+                <a href="index.html" class="py-1 hover:text-blue-400">Home</a>
+                <a href="services.html" class="py-1 hover:text-blue-400">Services</a>
+                <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
+                <a href="about.html" class="py-1 text-blue-400">About</a>
+                <a href="contact.html" class="py-1 hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-20 pb-12 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="text-blue-400 text-sm font-semibold tracking-widest">OUR STORY</span>
+            <h1 class="text-5xl md:text-6xl font-semibold heading-font tracking-tight mt-3">
+                Built on Decades of<br>Hands-On Experience
+            </h1>
+        </div>
+    </section>
+
+    <!-- Main Story -->
+    <section class="max-w-5xl mx-auto px-6 pb-16">
+        <div class="prose prose-invert max-w-none text-lg text-slate-300">
+            <p class="text-xl">Watthour Solutions was founded by <strong>Anthony W. Simkins</strong>, who brings more than 30 years of real-world experience in electric metering and utility operations.</p>
+            
+            <p>Previously operating as Innovative Electric Services, we rebranded in 2025–2026 to better reflect our expanded focus on precision metering, revenue optimization, and practical training for Midwest utilities and electric cooperatives.</p>
+            
+            <p>Our work centers on helping utilities improve metering accuracy, identify billing errors, and recover lost revenue through detailed audits, field testing, and CT meter expertise. We believe in practical, field-tested solutions rather than theoretical approaches.</p>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="bg-slate-900 border-y border-white/10 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-blue-400 text-sm font-semibold tracking-widest">WHAT DRIVES US</span>
+                <h2 class="text-4xl font-semibold heading-font tracking-tight mt-2">Core Values</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="value-card bg-slate-950 border border-white/10 rounded-3xl p-8">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-handshake text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Integrity</h3>
+                    <p class="text-slate-300">We deliver honest findings and clear recommendations in every audit, test, and training session.</p>
+                </div>
+                
+                <div class="value-card bg-slate-950 border border-white/10 rounded-3xl p-8">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-medal text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Excellence</h3>
+                    <p class="text-slate-300">We bring technical precision and practical experience to every project and training opportunity.</p>
+                </div>
+                
+                <div class="value-card bg-slate-950 border border-white/10 rounded-3xl p-8">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Partnership</h3>
+                    <p class="text-slate-300">We work alongside utilities as trusted partners focused on long-term success and measurable results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="max-w-5xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-5 gap-x-12 gap-y-10">
+            <div class="md:col-span-2">
+                <h2 class="text-3xl font-semibold heading-font tracking-tight">30+ Years of<br>Real-World Experience</h2>
+            </div>
+            <div class="md:col-span-3 text-slate-300 space-y-6 text-[15px]">
+                <p>Our founder has spent more than three decades working directly with electric meters, CT metering, billing systems, and utility operations across the Midwest.</p>
+                
+                <p>This deep field experience allows us to quickly identify issues, provide practical recommendations, and deliver training that actually helps technicians in their daily work.</p>
+                
+                <p>In addition to direct utility work, we also develop and deliver hands-on metering training programs, including the upcoming 2027 Metering Bootcamp in partnership with Matt Heath of Mergo Consulting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-slate-900 border-t border-white/10 py-16">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold mb-4">Let’s work together</h2>
+            <p class="text-slate-300 mb-8">Whether you need metering support, an audit, or training for your team, we’re here to help.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition-all">
+                    Contact Us
+                </a>
+                <a href="training.html" class="px-8 py-4 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl transition-all">
+                    View Training Programs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-10 text-sm text-slate-400">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <div>© 2026 Watthour Solutions. All rights reserved.</div>
+            <div class="flex gap-x-6">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <a href="services.html" class="hover:text-white">Services</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
+            </div>
+            <div>417-942-8370</div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+    </script>
+</body>
+</html>
