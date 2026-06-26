@@ -9,300 +9,246 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        .nav-link { transition: color 0.2s; }
-        .nav-link:hover { color: #1e40af; }
-        .section-heading { font-size: 1.35rem; font-weight: 700; color: #1e3a8a; margin-bottom: 1rem; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        .nav-active { position: relative; }
+        .nav-active:after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-slate-950 text-white">
 
-    <!-- Header / Nav -->
-    <nav class="bg-white border-b border-gray-200">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-x-3">
-                <img src="logo.png" alt="Watthour Solutions" class="h-10 w-auto">
-                <span class="font-bold text-xl text-gray-900">Watthour Solutions</span>
-            </div>
-            
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="index.html" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
-                <a href="services.html" class="nav-link text-gray-600 hover:text-gray-900">Services</a>
-                <a href="training.html" class="nav-link text-gray-600 hover:text-gray-900">Training</a>
-                <a href="about.html" class="nav-link text-gray-600 hover:text-gray-900">About</a>
-                <a href="contact.html" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
-                <a href="careers.html" class="nav-link text-blue-700 font-semibold">Careers</a>
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900 text-2xl">
-                <i class="fas fa-bars"></i>
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+                <a href="services.html" class="hover:text-blue-400 transition-colors">Services</a>
+                <a href="training.html" class="hover:text-blue-400 transition-colors">Training</a>
+                <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="careers.html" class="nav-active text-blue-400">Careers</a>
+                <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#apply-section" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
+                    Apply Now
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
             <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
-                <a href="index.html" class="py-1">Home</a>
-                <a href="services.html" class="py-1">Services</a>
-                <a href="training.html" class="py-1">Training</a>
-                <a href="about.html" class="py-1">About</a>
-                <a href="contact.html" class="py-1">Contact</a>
-                <a href="careers.html" class="py-1 font-semibold text-blue-700">Careers</a>
+                <a href="index.html" class="py-1 hover:text-blue-400">Home</a>
+                <a href="services.html" class="py-1 hover:text-blue-400">Services</a>
+                <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
+                <a href="about.html" class="py-1 hover:text-blue-400">About</a>
+                <a href="careers.html" class="py-1 text-blue-400">Careers</a>
+                <a href="contact.html" class="py-1 hover:text-blue-400">Contact</a>
+                <a href="#apply-section" class="mt-2 px-5 py-2.5 bg-blue-600 text-center rounded-xl">Apply Now</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <div class="bg-white border-b">
-        <div class="max-w-4xl mx-auto px-6 py-12 text-center">
-            <div class="inline-flex items-center gap-x-2 bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full mb-4">
-                <i class="fas fa-hard-hat"></i>
+    <section class="pt-20 pb-12 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
+                <i class="fa-solid fa-hard-hat"></i>
                 <span>NOW HIRING — SEASONAL POSITION</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Seasonal Field Technician Assistant</h1>
-            <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-semibold heading-font tracking-tight">
+                Seasonal Field Technician Assistant
+            </h1>
+            <p class="text-xl text-slate-300 mt-4 max-w-2xl mx-auto">
                 Support utility field inspections and metering work across the Midwest
             </p>
         </div>
-    </div>
+    </section>
 
-    <div class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+    <div class="max-w-4xl mx-auto px-6 pb-16 space-y-10">
 
         <!-- Position Overview -->
-        <div>
-            <h2 class="section-heading">Position Overview</h2>
-            <div class="prose max-w-none text-gray-700">
-                <p>Watthour Solutions is seeking reliable and professional individuals to join our team as Seasonal Field Technician Assistants. In this role, you will perform field inspections and support utility-related work at customer and member sites for electric utilities and cooperatives. This is hands-on, outdoor work that requires strong communication skills, attention to safety, and a professional demeanor when interacting with utility personnel and the public.</p>
-            </div>
-        </div>
+        <section>
+            <h2 class="text-2xl font-semibold heading-font mb-4 text-blue-400">Position Overview</h2>
+            <p class="text-slate-300 leading-relaxed">
+                Watthour Solutions is seeking reliable and professional individuals to join our team as Seasonal Field Technician Assistants. In this role, you will perform field inspections and support utility-related work at customer and member sites for electric utilities and cooperatives. This is hands-on, outdoor work that requires strong communication skills, attention to safety, and a professional demeanor when interacting with utility personnel and the public.
+            </p>
+        </section>
 
         <!-- Key Responsibilities -->
-        <div>
-            <h2 class="section-heading">Key Responsibilities</h2>
-            <div class="bg-white border border-gray-200 rounded-xl p-6">
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check text-blue-600 mt-1"></i>
-                        <span>Perform field inspections at utility customer and member sites</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check text-blue-600 mt-1"></i>
-                        <span>Support metering and utility fieldwork alongside experienced technicians</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check text-blue-600 mt-1"></i>
-                        <span>Interact professionally and courteously with utility staff and customers</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check text-blue-600 mt-1"></i>
-                        <span>Follow all safety protocols and properly use required PPE and uniforms</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check text-blue-600 mt-1"></i>
-                        <span>Maintain accurate records and documentation as needed</span>
-                    </li>
+        <section>
+            <h2 class="text-2xl font-semibold heading-font mb-4 text-blue-400">Key Responsibilities</h2>
+            <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
+                <ul class="space-y-3 text-slate-300">
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-check text-blue-400 mt-1"></i><span>Perform field inspections at utility customer and member sites</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-check text-blue-400 mt-1"></i><span>Support metering and utility fieldwork alongside experienced technicians</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-check text-blue-400 mt-1"></i><span>Interact professionally and courteously with utility staff and customers</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-check text-blue-400 mt-1"></i><span>Follow all safety protocols and properly use required PPE and uniforms</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-check text-blue-400 mt-1"></i><span>Maintain accurate records and documentation as needed</span></li>
                 </ul>
             </div>
-        </div>
+        </section>
 
         <!-- Requirements -->
-        <div>
-            <h2 class="section-heading">Requirements</h2>
-            <div class="bg-white border border-gray-200 rounded-xl p-6">
-                <h3 class="font-semibold text-red-700 mb-3">Required Qualifications</h3>
-                <ul class="space-y-2.5 text-gray-700 mb-6">
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>High school diploma or equivalent</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>Valid driver’s license and reliable personal transportation</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>Must live within reasonable commuting distance of Mount Vernon, Missouri</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>Able to pass a background check</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>Physically able to lift and carry 50 lbs repeatedly</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>Comfortable working outdoors in all weather conditions, including extreme heat</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>Willing to wear required PPE and company uniforms at all times</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-red-600 mt-1"></i>
-                        <span>Strong communication skills with a professional and courteous demeanor</span>
-                    </li>
+        <section>
+            <h2 class="text-2xl font-semibold heading-font mb-4 text-blue-400">Requirements</h2>
+            <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
+                <h3 class="font-semibold text-amber-400 mb-4">Required Qualifications</h3>
+                <ul class="space-y-2.5 text-slate-300 mb-8">
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>High school diploma or equivalent</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>Valid driver's license and reliable personal transportation</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>Must live within reasonable commuting distance of Mount Vernon, Missouri</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>Able to pass a background check</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>Physically able to lift and carry 50 lbs repeatedly</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>Comfortable working outdoors in all weather conditions, including extreme heat</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>Willing to wear required PPE and company uniforms at all times</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-amber-400/80 mt-1"></i><span>Strong communication skills with a professional and courteous demeanor</span></li>
                 </ul>
-
-                <h3 class="font-semibold text-green-700 mb-3">Preferred</h3>
-                <ul class="space-y-2.5 text-gray-700">
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                        <span>Basic knowledge of electricity or utility operations</span>
-                    </li>
-                    <li class="flex items-start gap-x-3">
-                        <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                        <span>Previous field, construction, or utility experience</span>
-                    </li>
+                <h3 class="font-semibold text-emerald-400 mb-4">Preferred</h3>
+                <ul class="space-y-2.5 text-slate-300">
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-emerald-400/80 mt-1"></i><span>Basic knowledge of electricity or utility operations</span></li>
+                    <li class="flex items-start gap-x-3"><i class="fa-solid fa-circle-check text-emerald-400/80 mt-1"></i><span>Previous field, construction, or utility experience</span></li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <!-- Schedule & Work Conditions -->
-        <div>
-            <h2 class="section-heading">Schedule &amp; Work Conditions</h2>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 text-gray-700">
-                <ul class="space-y-3">
-                    <li><strong>Work Location:</strong> All work is performed in the field at utility sites.</li>
-                    <li><strong>Seasonal Nature:</strong> This is a seasonal position. Work typically slows significantly after Christmas, with an expected layoff period of several months.</li>
-                    <li><strong>Schedule:</strong> Typical workweek is 3–4 days with approximately 10-hour shifts. A 5-day week is possible depending on project needs. No weekend work is expected under normal circumstances.</li>
-                    <li><strong>Weather:</strong> Work is performed outdoors and is dependent on weather conditions.</li>
-                    <li><strong>Travel:</strong> Overnight travel is required for many projects.</li>
-                    <li><strong>Customer Interaction:</strong> This role involves significant interaction with utility personnel and customers. Professional communication and courtesy are required at all times.</li>
-                </ul>
+        <!-- Schedule -->
+        <section>
+            <h2 class="text-2xl font-semibold heading-font mb-4 text-blue-400">Schedule &amp; Work Conditions</h2>
+            <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 text-slate-300 space-y-3">
+                <p><strong class="text-white">Work Location:</strong> All work is performed in the field at utility sites.</p>
+                <p><strong class="text-white">Seasonal Nature:</strong> This is a seasonal position. Work typically slows significantly after Christmas, with an expected layoff period of several months.</p>
+                <p><strong class="text-white">Schedule:</strong> Typical workweek is 3–4 days with approximately 10-hour shifts. A 5-day week is possible depending on project needs. No weekend work is expected under normal circumstances.</p>
+                <p><strong class="text-white">Weather:</strong> Work is performed outdoors and is dependent on weather conditions.</p>
+                <p><strong class="text-white">Travel:</strong> Overnight travel is required for many projects.</p>
+                <p><strong class="text-white">Customer Interaction:</strong> This role involves significant interaction with utility personnel and customers. Professional communication and courtesy are required at all times.</p>
             </div>
-        </div>
+        </section>
 
         <!-- What We Provide -->
-        <div>
-            <h2 class="section-heading">What We Provide</h2>
-            <div class="bg-white border border-gray-200 rounded-xl p-6">
-                <div class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-gray-700">
-                    <div class="flex items-center gap-x-3">
-                        <i class="fas fa-check-circle text-blue-600"></i>
-                        <span>Company work vehicle and fuel</span>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-                        <i class="fas fa-check-circle text-blue-600"></i>
-                        <span>Per diem for overnight travel</span>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-                        <i class="fas fa-check-circle text-blue-600"></i>
-                        <span>All required PPE</span>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-                        <i class="fas fa-check-circle text-blue-600"></i>
-                        <span>Company uniforms (provided and paid for by employer)</span>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-                        <i class="fas fa-check-circle text-blue-600"></i>
-                        <span>All necessary tools and equipment</span>
-                    </div>
-                    <div class="flex items-center gap-x-3">
-                        <i class="fas fa-check-circle text-blue-600"></i>
-                        <span>On-the-job training and mentorship</span>
-                    </div>
+        <section>
+            <h2 class="text-2xl font-semibold heading-font mb-4 text-blue-400">What We Provide</h2>
+            <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-slate-300">
+                    <div class="flex items-center gap-x-3"><i class="fa-solid fa-circle-check text-blue-400"></i><span>Company work vehicle and fuel</span></div>
+                    <div class="flex items-center gap-x-3"><i class="fa-solid fa-circle-check text-blue-400"></i><span>Per diem for overnight travel</span></div>
+                    <div class="flex items-center gap-x-3"><i class="fa-solid fa-circle-check text-blue-400"></i><span>All required PPE</span></div>
+                    <div class="flex items-center gap-x-3"><i class="fa-solid fa-circle-check text-blue-400"></i><span>Company uniforms (provided and paid for by employer)</span></div>
+                    <div class="flex items-center gap-x-3"><i class="fa-solid fa-circle-check text-blue-400"></i><span>All necessary tools and equipment</span></div>
+                    <div class="flex items-center gap-x-3"><i class="fa-solid fa-circle-check text-blue-400"></i><span>On-the-job training and mentorship</span></div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Compensation & Benefits -->
-        <div>
-            <h2 class="section-heading">Compensation &amp; Benefits</h2>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 text-gray-700">
-                <ul class="space-y-3">
-                    <li><strong>Pay:</strong> Competitive hourly compensation based on experience. Specific rate will be discussed during the interview process.</li>
-                    <li><strong>Vacation &amp; Holiday Pay:</strong> Eligible for vacation and holiday pay.</li>
-                    <li><strong>Holidays:</strong> No work on most federal holidays.</li>
-                    <li><strong>Health Insurance:</strong> Not provided at this time.</li>
-                </ul>
+        <!-- Compensation -->
+        <section>
+            <h2 class="text-2xl font-semibold heading-font mb-4 text-blue-400">Compensation &amp; Benefits</h2>
+            <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 text-slate-300 space-y-3">
+                <p><strong class="text-white">Pay:</strong> Competitive hourly compensation based on experience. Specific rate will be discussed during the interview process.</p>
+                <p><strong class="text-white">Vacation &amp; Holiday Pay:</strong> Eligible for vacation and holiday pay.</p>
+                <p><strong class="text-white">Holidays:</strong> No work on most federal holidays.</p>
+                <p><strong class="text-white">Health Insurance:</strong> Not provided at this time.</p>
             </div>
-        </div>
+        </section>
 
         <!-- Application Form -->
-        <div id="apply-section">
-            <h2 class="section-heading">Apply Now</h2>
-            <p class="text-gray-600 mb-6">We review applications on a rolling basis. Qualified candidates will be contacted for further steps.</p>
+        <section id="apply-section" class="pt-4">
+            <h2 class="text-2xl font-semibold heading-font mb-2">Apply Now</h2>
+            <p class="text-slate-400 mb-8">We review applications on a rolling basis. Qualified candidates will be contacted for further steps.</p>
 
-            <!-- Success Message -->
-            <div id="success-message" class="hidden mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+            <div id="success-message" class="hidden mb-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl">
                 <div class="flex items-start gap-x-3">
-                    <i class="fas fa-check-circle text-green-600 text-xl mt-0.5"></i>
+                    <i class="fa-solid fa-circle-check text-emerald-400 text-xl mt-0.5"></i>
                     <div>
-                        <p class="font-semibold text-green-800">Application Received</p>
-                        <p class="text-green-700 text-sm">Thank you. We will review your application and contact you if there is a good fit.</p>
+                        <p class="font-semibold text-emerald-300">Application Received</p>
+                        <p class="text-slate-300 text-sm mt-1">Thank you. We will review your application and contact you if there is a good fit.</p>
                     </div>
                 </div>
             </div>
 
-            <form id="application-form" data-wh-form="careers" data-wh-success="success-message" method="POST" enctype="multipart/form-data" class="bg-white border border-gray-200 rounded-2xl p-8 space-y-6" novalidate>
+            <form id="application-form" data-wh-form="careers" data-wh-success="success-message" method="POST" enctype="multipart/form-data" class="bg-slate-900 border border-white/10 rounded-3xl p-8 md:p-10 space-y-6" novalidate>
                 <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" name="name" required class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500">
+                        <label class="block text-sm font-medium mb-2 text-slate-300">Full Name *</label>
+                        <input type="text" name="name" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number <span class="text-red-500">*</span></label>
-                        <input type="tel" name="phone" required class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500">
+                        <label class="block text-sm font-medium mb-2 text-slate-300">Phone Number *</label>
+                        <input type="tel" name="phone" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address <span class="text-red-500">*</span></label>
-                    <input type="email" name="email" required class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500">
+                    <label class="block text-sm font-medium mb-2 text-slate-300">Email Address *</label>
+                    <input type="email" name="email" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Upload Resume <span class="text-red-500">*</span></label>
+                    <label class="block text-sm font-medium mb-2 text-slate-300">Upload Resume *</label>
                     <input type="file" name="resume" accept=".pdf,.doc,.docx" required
-                           class="w-full px-4 py-2.5 border border-gray-300 rounded-xl file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
-                    <p class="text-xs text-gray-500 mt-1">PDF, DOC, or DOCX preferred.</p>
+                           class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-500">
+                    <p class="text-xs text-slate-500 mt-2">PDF, DOC, or DOCX preferred.</p>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Additional Information (Optional)</label>
+                    <label class="block text-sm font-medium mb-2 text-slate-300">Additional Information (Optional)</label>
                     <textarea name="message" rows="3" placeholder="Relevant experience, availability, or questions..."
-                              class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500"></textarea>
+                              class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 resize-y"></textarea>
                 </div>
 
-                <div class="flex items-start gap-x-3 pt-1">
-                    <input type="checkbox" id="confirm-requirements" name="confirm_requirements" required
-                           class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                    <label for="confirm-requirements" class="text-sm text-gray-700">
+                <div class="flex items-start gap-x-3">
+                    <input type="checkbox" id="confirm-requirements" name="confirm_requirements" required class="mt-1 accent-blue-600">
+                    <label for="confirm-requirements" class="text-sm text-slate-300">
                         I confirm that I meet all the required qualifications listed above and understand this is a seasonal, weather-dependent field position with overnight travel.
                     </label>
                 </div>
 
                 <div id="turnstile-widget" class="flex justify-center"></div>
+                <p data-wh-form-error class="hidden text-center text-sm text-red-400"></p>
 
-                <p data-wh-form-error class="hidden text-center text-sm text-red-600"></p>
-
-                <button type="submit"
-                        class="w-full md:w-auto px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-xl transition flex items-center justify-center gap-x-2">
-                    <i class="fas fa-paper-plane"></i>
+                <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-500 font-semibold text-lg rounded-2xl transition-all flex items-center justify-center gap-x-3">
                     <span>Submit Application</span>
+                    <i class="fa-solid fa-paper-plane"></i>
                 </button>
-                
-                <p class="text-xs text-gray-500">Your information will only be used for hiring purposes.</p>
+
+                <p class="text-center text-xs text-slate-500">Your information will only be used for hiring purposes.</p>
             </form>
-        </div>
+        </section>
 
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white border-t py-8">
-        <div class="max-w-4xl mx-auto px-6 text-center text-sm text-gray-500">
-            <p>Watthour Solutions is an Equal Opportunity Employer.</p>
-            <p class="mt-1">We evaluate all applicants based on qualifications, experience, and fit for the role.</p>
+    <footer class="border-t border-white/10 py-10 text-sm text-slate-400">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <div>© 2026 Watthour Solutions. All rights reserved.</div>
+            <div class="flex gap-x-6">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
+            </div>
+            <div class="text-center md:text-right">
+                <p>Equal Opportunity Employer</p>
+                <p class="text-xs mt-1">417-942-8370</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/forms-config.js?v=1"></script>
+    <script src="js/forms-config.js?v=2"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="js/forms.js?v=1"></script>
+    <script src="js/forms.js?v=2"></script>
     <script>
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
