@@ -14,8 +14,8 @@ Official website for **Watthour Solutions** — precision metering, CT meter tes
 | **Founded by** | Anthony W. Simkins |
 | **Experience** | 30+ years in electric metering and utility operations |
 | **Service area** | Midwest utilities and electric cooperatives |
-| **Phone** | [417-942-8370](tel:4179428370) |
-| **Email** | [contact@watthoursolutions.com](mailto:contact@watthoursolutions.com) |
+| **Contact** | [watthoursolutions.com/contact.html](https://watthoursolutions.com/contact.html) |
+| **Email (notifications)** | `contact@watthoursolutions.com` (Formspark — not displayed on site) |
 
 Previously **Innovative Electric Services**, rebranded in 2025–2026 as Watthour Solutions.
 
