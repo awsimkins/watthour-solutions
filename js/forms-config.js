@@ -5,7 +5,7 @@
 // Turnstile: add watthoursolutions.com to your widget's allowed hostnames in Cloudflare,
 // or create a separate widget for this site.
 window.WH_FORMS = {
-    turnstileSiteKey: '0x4AAAAAADqkWYqdYOQq78_v',
+    turnstileSiteKey: '0x4AAAAAADrY__8JcwJg7-i9',
     contact: {
         formId: 'form_v1_XDr3rzLmlcH4XAciA5xiLMuC'
     },
