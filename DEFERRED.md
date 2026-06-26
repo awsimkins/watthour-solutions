@@ -43,7 +43,8 @@ Items intentionally held for later. Last updated: June 2026.
 
 ## Site improvements (not urgent)
 
-- [ ] **Homepage video** — move `watthour-ad.mp4` (~11 MB) to YouTube embed; shrinks repo and speeds load
+- [ ] **Create Watthour Solutions YouTube channel** — for promo video, bootcamp clips, metering content, etc.
+- [ ] **Upload `watthour-ad.mp4` to YouTube** — then embed on homepage (replaces ~11 MB file in repo; faster loads)
 - [ ] **Shared partials** — extract nav + footer into `partials/` (like Spoken Devotion) to avoid editing 6 HTML files per change
 - [ ] **Open Graph images** — custom share image per section (currently `logo.png` everywhere)
 - [ ] **GitHub repo description** — remove any stale "placeholder website" text if still showing
