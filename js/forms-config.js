@@ -7,7 +7,7 @@
 window.WH_FORMS = {
     turnstileSiteKey: '0x4AAAAAADqkWYqdYOQq78_v',
     contact: {
-        formId: 'YOUR_CONTACT_FORM_ID'
+        formId: 'form_v1_XDr3rzLmlcH4XAciA5xiLMuC'
     },
     training: {
         formId: 'YOUR_TRAINING_FORM_ID'
