@@ -2,77 +2,119 @@
 
 Official website for **Watthour Solutions** — precision metering, CT meter testing, audits, field testing, billing corrections, revenue recovery, and professional training for Midwest electric cooperatives and utilities.
 
-**Live Site:** [https://watthoursolutions.com](https://watthoursolutions.com)
+**Live site:** [https://watthoursolutions.com](https://watthoursolutions.com)  
+**Repository:** [github.com/awsimkins/watthour-solutions](https://github.com/awsimkins/watthour-solutions)
+
+---
+
+## Company
+
+| | |
+|---|---|
+| **Founded by** | Anthony W. Simkins |
+| **Experience** | 30+ years in electric metering and utility operations |
+| **Service area** | Midwest utilities and electric cooperatives |
+| **Phone** | [417-942-8370](tel:4179428370) |
+| **Email** | [contact@watthoursolutions.com](mailto:contact@watthoursolutions.com) |
+
+Previously **Innovative Electric Services**, rebranded in 2025–2026 as Watthour Solutions.
 
 ---
 
 ## Pages
 
-| File              | Description                              |
-|-------------------|------------------------------------------|
-| `index.html`      | Home page with hero, video, services overview, and training teaser |
-| `services.html`   | Detailed services (Meter Audits, Field Testing, Billing Corrections, Revenue Recovery + CT focus) |
-| `training.html`   | Training hub + 2027 Metering Bootcamp interest form |
-| `about.html`      | Company story, founder background, and core values |
-| `contact.html`    | Contact form and inquiry options |
-| `careers.html`    | Seasonal Field Technician Assistant posting + application form |
+| File | URL | Description |
+|------|-----|-------------|
+| `index.html` | `/` | Home — hero, promo video, services overview, training teaser, testimonials |
+| `services.html` | `/services.html` | Meter audits, field testing, billing corrections, revenue recovery, CT expertise |
+| `training.html` | `/training.html` | 2027 Metering Bootcamp details + interest form |
+| `about.html` | `/about.html` | Company story, founder background, core values |
+| `contact.html` | `/contact.html` | General inquiries and project contact form |
+| `careers.html` | `/careers.html` | Seasonal Field Technician Assistant posting + application form |
 
 ---
 
-## Tech Stack
+## Tech stack
 
-- **Pure HTML + CSS** (Tailwind via CDN)
-- **Vanilla JavaScript** (mobile menu, form handling)
-- **Formspark** — Contact, training interest, and careers application forms
-- **Cloudflare Turnstile** — Spam protection on forms (optional but recommended)
-- **GitHub Pages** — Hosting with custom domain (`watthoursolutions.com`)
-- No build tools or frameworks required
+- **HTML + Tailwind CSS** (CDN)
+- **Vanilla JavaScript** — mobile menu, Formspark form handling (`js/forms.js`)
+- **Formspark** — all site forms
+- **Cloudflare Turnstile** — spam protection on forms
+- **GitHub Pages** — hosting with custom domain via `CNAME`
 
----
-
-## Form Setup (Formspark)
-
-Create **three forms** at [formspark.io](https://formspark.io) and paste each form ID into `js/forms-config.js`:
-
-| Form | Config key | Page |
-|------|------------|------|
-| Contact inquiries | `contact.formId` | `contact.html` |
-| 2027 Bootcamp interest | `training.formId` | `training.html` |
-| Careers applications | `careers.formId` | `careers.html` |
-
-Set notification email to **asimkins@watthoursolutions.com** in each form's Formspark dashboard.
-
-**Turnstile:** Add `watthoursolutions.com` to your Cloudflare Turnstile widget's allowed hostnames, then paste the site key in `js/forms-config.js`. Add the Turnstile **secret key** only in the Formspark dashboard (per form).
-
-**Careers resume uploads:** Formspark accepts file attachments via multipart upload. Enable file uploads in the careers form settings if prompted.
+No build step required.
 
 ---
 
-## How to Make Updates
+## Forms (Formspark + Turnstile)
 
-1. Edit the `.html` files directly in your code editor.
-2. Update navigation links across pages when adding new content.
-3. Commit and push changes to the `main` branch.
-4. GitHub Pages will automatically deploy the updates.
+All form IDs live in `js/forms-config.js`:
 
-**Assets:**
-- `logo.png` — Company logo (used in navbar and favicon)
-- `watthour-ad.mp4` — Promotional video (currently on home page)
+| Form | Config key | Formspark ID | Page |
+|------|------------|--------------|------|
+| Contact | `contact.formId` | `form_v1_XDr3rzLmlcH4XAciA5xiLMuC` | `contact.html` |
+| 2027 Bootcamp interest | `training.formId` | `form_v1_skGpnkEJeUacRlevaT5BMMPX` | `training.html` |
+| Careers application | `careers.formId` | `form_v1_qSDKbwiHcEha7g8qgONPBDIO` | `careers.html` |
+
+**Turnstile site key** (public, in `js/forms-config.js`): `0x4AAAAAADrY__8JcwJg7-i9`  
+**Turnstile secret key:** Formspark dashboard only — never commit to the repo.
+
+### Notification emails (Formspark dashboard)
+
+Add **both** addresses to each form until `contact@watthoursolutions.com` is fully verified:
+
+1. `contact@watthoursolutions.com`
+2. `anthonysimkins@gmail.com`
+
+### Careers resume uploads
+
+The careers form uses multipart file upload. Ensure **file uploads are enabled** in that Formspark form's settings.
 
 ---
 
-## Local Development
+## Assets
 
-You can preview changes in two ways:
+| File | Purpose |
+|------|---------|
+| `logo.png` | Navbar logo and favicon |
+| `watthour-ad.mp4` | Homepage promotional video (~11 MB) |
+| `CNAME` | Custom domain: `watthoursolutions.com` |
+| `js/forms-config.js` | Form IDs and Turnstile site key |
+| `js/forms.js` | Shared form submit handler |
 
-**Option 1 (Simplest):**  
-Just open any `.html` file directly in your browser.
+---
 
-**Option 2 (Recommended):**  
-Use a local server so links and assets work correctly:
+## Local development
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`
+Open [http://localhost:8000](http://localhost:8000). Use a local server (not `file://`) so form scripts and assets load correctly.
+
+---
+
+## Deploy
+
+1. Edit files locally.
+2. Commit and push to `main`.
+3. GitHub Pages deploys automatically to [watthoursolutions.com](https://watthoursolutions.com).
+
+---
+
+## GitHub repository settings
+
+Recommended **description** (paste in repo Settings → General):
+
+> Official website for Watthour Solutions — precision metering, CT testing, revenue recovery, and utility training for Midwest cooperatives.
+
+**Website URL:** `https://watthoursolutions.com`
+
+---
+
+## Deferred (not urgent)
+
+- Move homepage video to YouTube embed (reduces repo size)
+- Shared `partials/` nav and footer (reduce duplication across HTML files)
+- Open Graph images beyond `logo.png`
+- Remove Careers "Hiring" badge when position is filled
