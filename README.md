@@ -112,9 +112,6 @@ Recommended **description** (paste in repo Settings → General):
 
 ---
 
-## Deferred (not urgent)
+## Deferred / future work
 
-- Move homepage video to YouTube embed (reduces repo size)
-- Shared `partials/` nav and footer (reduce duplication across HTML files)
-- Open Graph images beyond `logo.png`
-- Remove Careers "Hiring" badge when position is filled
+See **[DEFERRED.md](DEFERRED.md)** for the full backlog (forms testing, bootcamp, careers, WSApp, and related projects).
