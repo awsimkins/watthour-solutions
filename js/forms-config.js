@@ -10,7 +10,7 @@ window.WH_FORMS = {
         formId: 'form_v1_XDr3rzLmlcH4XAciA5xiLMuC'
     },
     training: {
-        formId: 'YOUR_TRAINING_FORM_ID'
+        formId: 'form_v1_skGpnkEJeUacRlevaT5BMMPX'
     },
     careers: {
         formId: 'YOUR_CAREERS_FORM_ID'
