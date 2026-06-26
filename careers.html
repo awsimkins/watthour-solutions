@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers • Watthour Solutions</title>
+    <meta name="description" content="Seasonal Field Technician Assistant — Watthour Solutions is hiring for utility field work across the Midwest.">
+    <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -33,11 +35,19 @@
                 <a href="careers.html" class="nav-link text-blue-700 font-semibold">Careers</a>
             </div>
 
-            <!-- Mobile Menu -->
-            <div class="md:hidden">
-                <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
+                <a href="index.html" class="py-1">Home</a>
+                <a href="services.html" class="py-1">Services</a>
+                <a href="training.html" class="py-1">Training</a>
+                <a href="about.html" class="py-1">About</a>
+                <a href="contact.html" class="py-1">Contact</a>
+                <a href="careers.html" class="py-1 font-semibold text-blue-700">Careers</a>
             </div>
         </div>
     </nav>
@@ -226,13 +236,8 @@
                 </div>
             </div>
 
-            <form id="application-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="bg-white border border-gray-200 rounded-2xl p-8 space-y-6">
-                
-                <!-- Web3Forms Hidden Fields -->
-                <input type="hidden" name="access_key" value="313fc86c-2e74-44f5-b46d-4805b46d8aac">
-                <input type="hidden" name="subject" value="Seasonal Field Technician Application">
-                <input type="hidden" name="from_name" value="Watthour Solutions Careers">
-                <input type="hidden" name="redirect" value="https://watthoursolutions.com/careers.html?submitted=true">
+            <form id="application-form" data-wh-form="careers" data-wh-success="success-message" method="POST" enctype="multipart/form-data" class="bg-white border border-gray-200 rounded-2xl p-8 space-y-6" novalidate>
+                <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
@@ -271,6 +276,10 @@
                     </label>
                 </div>
 
+                <div id="turnstile-widget" class="flex justify-center"></div>
+
+                <p data-wh-form-error class="hidden text-center text-sm text-red-600"></p>
+
                 <button type="submit"
                         class="w-full md:w-auto px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-xl transition flex items-center justify-center gap-x-2">
                     <i class="fas fa-paper-plane"></i>
@@ -291,54 +300,14 @@
         </div>
     </footer>
 
+    <script src="js/forms-config.js?v=1"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="js/forms.js?v=1"></script>
     <script>
-        // Check for successful submission via redirect
-        function checkForSuccess() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('submitted') === 'true') {
-                const successMsg = document.getElementById('success-message');
-                const form = document.getElementById('application-form');
-                if (successMsg && form) {
-                    successMsg.classList.remove('hidden');
-                    form.style.display = 'none';
-                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
-        }
-
-        // Basic mobile menu
-        function setupMobileMenu() {
-            const btn = document.getElementById('mobile-menu-btn');
-            if (!btn) return;
-
-            btn.addEventListener('click', () => {
-                const nav = document.createElement('div');
-                nav.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden';
-                nav.innerHTML = `
-                    <div class="bg-white w-64 h-full p-6">
-                        <div class="flex justify-between items-center mb-8">
-                            <span class="font-bold text-xl">Menu</span>
-                            <button class="text-2xl">&times;</button>
-                        </div>
-                        <div class="flex flex-col gap-y-4 text-lg">
-                            <a href="index.html" class="py-2">Home</a>
-                            <a href="services.html" class="py-2">Services</a>
-                            <a href="training.html" class="py-2">Training</a>
-                            <a href="about.html" class="py-2">About</a>
-                            <a href="contact.html" class="py-2">Contact</a>
-                            <a href="careers.html" class="py-2 font-semibold text-blue-700">Careers</a>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(nav);
-                nav.querySelector('button').addEventListener('click', () => nav.remove());
-                nav.addEventListener('click', (e) => { if (e.target === nav) nav.remove(); });
-            });
-        }
-
-        window.onload = function() {
-            checkForSuccess();
-            setupMobileMenu();
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
     </script>
 </body>
