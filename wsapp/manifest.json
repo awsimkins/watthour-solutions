@@ -2,7 +2,7 @@
   "name": "WSApp Field Operations",
   "short_name": "WSApp",
   "description": "Offline field test data capture for Watthour Solutions",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "start_url": "./launch.html",
   "scope": "./",
   "display": "standalone",
