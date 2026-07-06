@@ -631,7 +631,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div>
                         <label for="dashboard-truck" class="field-label block">Truck #</label>
-                        <input id="dashboard-truck" type="text" disabled class="wsapp-input border rounded-2xl w-full font-medium bg-slate-100" placeholder="107">
+                        <input id="dashboard-truck" type="text" disabled class="wsapp-input border rounded-2xl w-full font-medium bg-slate-100" placeholder="">
                     </div>
                     <div>
                         <label for="dashboard-test-reason" class="field-label block">Default Test Reason</label>
@@ -642,7 +642,7 @@
                         <div id="dashboard-techs-panel" class="flex flex-wrap gap-x-4 gap-y-2 items-center p-2.5 border border-slate-200 rounded-2xl bg-slate-100" style="min-height: var(--wsapp-touch-min);">
                             <label class="wsapp-check-label text-sm text-slate-500 cursor-not-allowed" title="You are always on site">
                                 <input type="checkbox" checked disabled class="wsapp-check rounded border-slate-300">
-                                <span id="dashboard-owner-tech" class="font-semibold">AWS</span>
+                                <span id="dashboard-owner-tech" class="font-semibold"></span>
                                 <span class="text-xs">(you)</span>
                             </label>
                             <label id="dashboard-employee-label" class="wsapp-check-label text-sm text-slate-700 opacity-60">
@@ -1201,7 +1201,7 @@
                     <i class="fa-solid fa-file-export mr-1"></i> Export
                 </button>
                 <button onclick="backupAllDataJson()" class="px-4 py-2 text-sm bg-white border rounded-2xl hover:bg-slate-50"
-                    title="Save downloaded JSON to E:\wsapp_backup on your data drive">
+                    title="Save downloaded JSON to your backup folder">
                     <i class="fa-solid fa-download mr-1"></i> Backup JSON
                 </button>
                 <button onclick="restoreFromBackupJson()" class="px-4 py-2 text-sm bg-white border rounded-2xl hover:bg-slate-50">
@@ -1276,12 +1276,12 @@
                     <div class="field-label">Select Next Location (from current utility master list)</div>
                     <input id="nav-location-search" type="search" enterkeyhint="search"
                         class="w-full border px-3 py-2 rounded-2xl text-lg mb-2"
-                        placeholder="Search order, location, customer, or meter # (e.g. copeland, 23090739)"
+                        placeholder="Search order, location, customer, or meter #"
                         autocomplete="off" autocapitalize="off" spellcheck="false"
                         oninput="filterNavLocations(this.value)"
                         onkeydown="onNavLocationSearchKeydown(event)">
                     <p id="nav-search-hint" class="text-xs text-slate-500 mb-2 hidden"></p>
-                    <p class="text-xs text-slate-500 mb-2">✓ Completed matches by <strong>meter #</strong> — search <em>10741383</em> or <em>lyle</em> if list position changed after a new master upload.</p>
+                    <p class="text-xs text-slate-500 mb-2">✓ Completed matches by <strong>meter #</strong> — by meter # if list position changed after a new master upload.</p>
                     <select id="nav-location-select" class="w-full border px-3 py-2 rounded-2xl text-lg mb-2" onchange="selectNavLocation(this.value)">
                         <option value="">— Choose location from list —</option>
                     </select>
@@ -1388,7 +1388,7 @@
         const WSAPP_VERSION = '1.7.1';
         const WSAPP_SCHEMA_VERSION = 1;
         /** Desktop backup save location (browser download dialog — user picks this folder). */
-        const WSAPP_BACKUP_FOLDER_HINT = 'E:\\wsapp_backup';
+        const WSAPP_BACKUP_FOLDER_HINT = 'your backup folder';
         const WSAPP_LAST_BACKUP_KEY = 'wsapp_last_backup';
 
         // Dropdowns — AUTO-INLINED from references/wsapp_dropdowns.json (edit that file, then: npm run sync-dropdowns)
@@ -1966,9 +1966,9 @@
             window.WSAPP_TEST_REPORT_SKIP_AUTO_INIT = true;
             var scripts = [
                 'shared/scripts/wsapp-utility-profiles.js',
-                'companions/charts/scripts/wsapp-chart-bundle.js',
+                '../companions/charts/scripts/wsapp-chart-bundle.js',
                 'shared/scripts/wsapp-test-report-snapshot-css.js',
-                'companions/test-report/scripts/wsapp-test-report.js'
+                '../companions/test-report/scripts/wsapp-test-report.js'
             ];
             _testReportBuilderReady = scripts.reduce(function(chain, src) {
                 return chain.then(function() { return loadWsappScriptOnce(src); });
@@ -2166,13 +2166,13 @@
                 return P.resolve(P.paths.companions[pageKey]);
             }
             var legacy = {
-                testReport: 'companions/test-report/test-report.html',
-                vectorDiagram: 'companions/charts/vector-diagram.html',
-                ctAccuracy: 'companions/charts/ct-accuracy-graph.html',
-                ctDrop: 'companions/charts/ct-drop-graph.html',
-                ctParallelogram: 'companions/charts/ct-parallelogram.html',
-                ptAccuracy: 'companions/charts/pt-accuracy-graph.html',
-                ptDrop: 'companions/charts/pt-drop-graph.html'
+                testReport: '../companions/test-report/test-report.html',
+                vectorDiagram: '../companions/charts/vector-diagram.html',
+                ctAccuracy: '../companions/charts/ct-accuracy-graph.html',
+                ctDrop: '../companions/charts/ct-drop-graph.html',
+                ctParallelogram: '../companions/charts/ct-parallelogram.html',
+                ptAccuracy: '../companions/charts/pt-accuracy-graph.html',
+                ptDrop: '../companions/charts/pt-drop-graph.html'
             };
             return legacy[pageKey] || pageKey;
         }
@@ -3134,8 +3134,8 @@
 
         // Session defaults — source: references/field_defaults.json; overrides in localStorage
         const WSAPP_FIELD_DEFAULTS_FACTORY = {
-            owner_tech_initials: 'AWS',
-            truck_number: '107',
+            owner_tech_initials: '',
+            truck_number: '',
             test_reason: 'FT (Field Test)',
             employee_on_site: false
         };
@@ -3172,11 +3172,11 @@
         }
 
         function getOwnerTechInitials() {
-            return (loadFieldDefaults().owner_tech_initials || 'AWS').trim() || 'AWS';
+            return (loadFieldDefaults().owner_tech_initials || '').trim() || '';
         }
 
         function getDefaultTruckNumber() {
-            return String(loadFieldDefaults().truck_number || '107').trim() || '107';
+            return String(loadFieldDefaults().truck_number || '').trim() || '';
         }
 
         function getDefaultTestReason() {
@@ -11544,7 +11544,7 @@
         function openRouteMap() {
             var mapUrl = (window.WSAPP_PATHS && window.WSAPP_PATHS.resolve)
                 ? window.WSAPP_PATHS.resolve(window.WSAPP_PATHS.paths.companions.routeMap)
-                : 'companions/route-map/route-map.html';
+                : '../companions/route-map/route-map.html';
             window.location.href = mapUrl;
         }
 

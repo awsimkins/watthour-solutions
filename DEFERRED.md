@@ -10,7 +10,7 @@ Items intentionally held for later. Last updated: June 2026.
 - [ ] **Test careers resume upload** — submit a small PDF; confirm it arrives in Formspark/email
 - [ ] **Formspark dashboard — each form:**
   - Turnstile **secret key** (Watthour widget)
-  - Notification emails: `contact@watthoursolutions.com` + `anthonysimkins@gmail.com`
+  - Notification email: `contact@watthoursolutions.com`
 - [ ] **GitHub repo settings** (manual):
   - Description: *Official website for Watthour Solutions — precision metering, CT testing, revenue recovery, and utility training for Midwest cooperatives.*
   - Website: `https://watthoursolutions.com`
@@ -20,7 +20,6 @@ Items intentionally held for later. Last updated: June 2026.
 
 ## After contact@watthoursolutions.com is verified
 
-- [ ] Remove `anthonysimkins@gmail.com` from Formspark notification lists (keep only `contact@`)
 - [ ] Confirm form reply-to / `_email` fields behave as expected
 
 ---

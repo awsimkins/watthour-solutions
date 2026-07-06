@@ -61,10 +61,7 @@ All form IDs live in `js/forms-config.js`:
 
 ### Notification emails (Formspark dashboard)
 
-Add **both** addresses to each form until `contact@watthoursolutions.com` is fully verified:
-
-1. `contact@watthoursolutions.com`
-2. `anthonysimkins@gmail.com`
+Set notification email to `contact@watthoursolutions.com` on each form.
 
 ### Careers resume uploads
 

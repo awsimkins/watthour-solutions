@@ -1,8 +1,6 @@
 // Formspark + Cloudflare Turnstile (public site key only — secret stays in Formspark dashboard)
 //
-// Notification emails — set BOTH in each form's Formspark dashboard until contact@ is verified:
-//   contact@watthoursolutions.com
-//   anthonysimkins@gmail.com
+// Notification email — set in each form's Formspark dashboard: contact@watthoursolutions.com
 //
 // Turnstile secret key: Formspark dashboard only (per form), not in this file.
 window.WH_FORMS = {
