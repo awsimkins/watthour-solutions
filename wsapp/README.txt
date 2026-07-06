@@ -1,6 +1,6 @@
 WSApp field app (v1.7.1) — hosted at https://watthoursolutions.com/wsapp/
 
-Open: https://watthoursolutions.com/wsapp/app/index.html
+Open: https://watthoursolutions.com/wsapp/field/index.html
 Add to Home Screen on iPad for field use.
 
 Client data (tests, master lists) stays on the device — not on this server.

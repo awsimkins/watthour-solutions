@@ -5,12 +5,12 @@
 (function () {
     'use strict';
 
-    /** Paths relative to deploy root (parent of app/, shared/, companions/). */
+    /** Paths relative to deploy root (parent of field/, shared/, companions/). */
     var PATHS = {
         app: {
-            index: 'app/index.html',
-            manifest: 'app/manifest.json',
-            sw: 'app/sw.js'
+            index: 'field/index.html',
+            manifest: 'field/manifest.json',
+            sw: 'field/sw.js'
         },
         shared: {
             calc: 'shared/scripts/wsapp-calculations.js',
@@ -61,6 +61,7 @@
     function getDeployRootPrefix() {
         try {
             var p = (window.location.pathname || '').replace(/\\/g, '/');
+            if (p.indexOf('/field/') !== -1) return p.split('/field/')[0].replace(/\/?$/, '/') || './';
             if (p.indexOf('/app/') !== -1) return p.split('/app/')[0].replace(/\/?$/, '/') || './';
             if (p.indexOf('/companions/') !== -1) return p.split('/companions/')[0].replace(/\/?$/, '/') || '../../';
         } catch (e) { /* ignore */ }
@@ -68,7 +69,7 @@
         var parts = path.split('/').filter(Boolean);
         if (!parts.length) return './';
         if (parts[parts.length - 1].indexOf('.') !== -1) parts.pop();
-        if (parts.length && parts[parts.length - 1] === 'app') return '../';
+        if (parts.length && (parts[parts.length - 1] === 'field' || parts[parts.length - 1] === 'app')) return '../';
         if (parts.length >= 2 && parts[parts.length - 2] === 'companions') return '../../';
         if (parts.length >= 3 && parts[parts.length - 3] === 'companions') return '../../../';
         return './';
