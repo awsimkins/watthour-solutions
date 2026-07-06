@@ -1,0 +1,13 @@
+WSApp v1.1.260628 — logo file:
+
+Drop your file here as:
+
+  assets/logo.png   (recommended — supports transparent background)
+  assets/logo.jpg   (fallback if PNG is missing)
+
+Tips for the teal header bar:
+  - Square image, roughly 80–200 px wide
+  - Light or white logo on transparent PNG looks best
+  - If no file is present, the lightning bolt icon is shown instead
+
+iPad home screen icon uses the same file (apple-touch-icon).

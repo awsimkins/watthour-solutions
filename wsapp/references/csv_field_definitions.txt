@@ -1,0 +1,261 @@
+WSApp — CSV Field Definitions
+==============================
+Canonical field names used across batch exports and the master list template.
+Use these exact snake_case tags everywhere for consistency.
+
+Review and extend this file as new batches or columns are added.
+Full batch (fullbatch) is listed at a high level only — column set still under review.
+
+Last updated: 2026-07-05
+
+
+SHARED CORE FIELDS (used across multiple CSVs)
+----------------------------------------------
+utility              Example: CITY OF AVA
+                     Dashboard utility tag. First column on most batch files.
+
+test_date            Example: 20260610
+                     Visit / test date as yyyymmdd (no separators).
+
+start_time           Example: 14:19
+                     Time in or time out as HH:MM (24-hour).
+
+location_id          Example: 103 STADIUM RD
+                     MAP # / site location from master list (invoice_batch).
+                     Same value as field report location_number.
+
+map_location_id      Example: 913 SPRINGFIELD RD
+                     MAP # / site location (master list template, newlist_batch,
+                     mileage_expense_batch auto rows, skipped_batch).
+                     Legacy imports may alias location_id → map_location_id.
+
+customer_member_id   Example: BK Foods LLC
+                     Member / customer name from master list or field report.
+
+meter_id             Example: 10741388
+                     Meter serial number.
+
+billing_code         Example: 3PhCT
+                     Invoice billing tier (SC, 1PhCT, 1Ph2CT, 3PhCTPT, etc.).
+
+billing_rate         Example: 123
+                     Dollar rate for billing_code (utility surcharges applied in app).
+
+meter_form           Example: 9S
+                     Meter form (self-contained, CT meter, etc.).
+
+service_description  Example: 3-phase 4 wire wye
+                     Service description from master list / field report service_desc.
+
+transformer_type     Example: Pad Mount
+                     Pole Mount / Pad Mount / Primary Service.
+
+ct_ratio             Example: 200
+                     CT1 ratio_size (blank if no CT).
+
+pt_ratio             Example: 7200:120
+                     PT1 ratio_size (blank if no PT).
+
+drive_time           Example: 19
+                     Drive minutes (rounded up from navigation timer).
+
+test_time            Example: 57
+                     On-site test minutes (rounded up from test timer).
+
+latitude             Example: 36.952987
+                     Site GPS latitude.
+
+longitude            Example: -92.682237
+                     Site GPS longitude (leading minus preserved).
+
+service_address      Example: 103 Stadium Rd
+                     Street / service address.
+
+field_notes          Example: Socket ground is overlimit and should be repaired.
+                     Field report notes (info + high priority combined) on mileage
+                     rows from completed tests. Expense/skip notes on other mileage rows.
+
+skip_reason          Example: Gate locked
+                     Skip-test dropdown reason (skipped_batch only).
+
+skip_notes           Example: Called office — reschedule next week
+                     User-entered skip notes only (skipped_batch only).
+
+reminder             Example: Order socket seals before Monday route
+                     Quick-note reminder text (reminders_batch only).
+
+
+1. invoice_batch
+----------------
+Completed field tests only. One row per completed test.
+
+utility, test_date, start_time, location_id, customer_member_id, meter_id, billing_code, billing_rate
+
+  utility              CITY OF AVA
+  test_date            20260610
+  start_time           15:16
+  location_id          N SPRING ST
+  customer_member_id   AVA SCHOOL (NEW)
+  meter_id             10741401
+  billing_code         3PhCT
+  billing_rate         123
+
+
+2. mileage_expense_batch
+------------------------
+All mileage_event entries (manual expense, auto from field test, auto from skip).
+
+date, start_time, truck_id, mileage, blank, utility, map_location_id, service_address, city, state, b_p, amount, latitude, longitude, field_notes
+
+  date                 06/10/26          (MM/DD/YY — same calendar day as test_date)
+  start_time           11:15             (HH:MM)
+  truck_id             107
+  mileage              55858             (odometer reading)
+  blank                (empty column)
+  utility              CITY OF AVA       (auto field-test / skip rows)
+  map_location_id      103 STADIUM RD    (auto rows) or CASEYS (manual vendor)
+  service_address      103 STADIUM RD
+  city                 (empty on auto field-test rows; filled on manual expense)
+  state                (empty on auto field-test rows; e.g. MO on manual)
+  b_p                  BUSINESS          (always BUSINESS on auto field-test rows)
+  amount               (empty on auto field-test rows; e.g. 57.00 on fuel purchase)
+  latitude             36.952987
+  longitude            -92.682237
+  field_notes          JIMMY RUN A GROUND FROM SOCKET TO PAD GROUND.
+
+
+3. time_batch
+-------------
+Completed field tests only. Drive and test duration summary.
+
+utility, test_date, start_time, meter_form, service_description, transformer_type, ct_ratio, pt_ratio, drive_time, test_time
+
+  utility              CITY OF AVA
+  test_date            20260610
+  start_time           14:19
+  meter_form           9S
+  service_description  3-phase 4 wire wye
+  transformer_type     Pad Mount
+  ct_ratio             200
+  pt_ratio             (blank)
+  drive_time           19
+  test_time            57
+
+
+4. skipped_batch
+----------------
+All unable_event (skip test) entries.
+
+utility, test_date, start_time, map_location_id, customer_member_id, meter_id, drive_time, skip_reason, skip_notes
+
+  utility              CITY OF AVA
+  test_date            20260610
+  start_time           09:30
+  map_location_id      1400 LYLE ST
+  customer_member_id   COPELAND
+  meter_id             10741395
+  drive_time           12
+  skip_reason          Gate locked
+  skip_notes           Will return Thursday
+
+
+5. reminders_batch
+------------------
+Quick notes only (blank reminder text omitted). Formerly notes_batch.
+
+date, time, reminder
+
+  date                 06/28/26          (MM/DD/YY)
+  time                 08:15             (HH:MM)
+  reminder             Pick up seals at warehouse before route
+
+
+6. utility_batch
+----------------
+Utility company meter test import. NO header row — data rows only.
+Column 1 (utility tag) is for office sort; delete before sending to utility.
+
+  Col 1   utility tag       CITY OF AVA
+  Col 2   record type       ELEC
+  Col 3   meter_id          L1905560
+  Col 4   test_date         20260617
+  Col 5   kwh register      00123
+  Col 9   as-found full     100.051
+  Col 10  as-found light    100.173
+  Col 14  test reason       FT
+  Col 15  tech initials     AWS
+  Col 16  test company      WS
+  Col 22–23 as-left loads   (same as as-found for solid-state meters)
+
+
+7. newlist_batch
+----------------
+Updated master list after field week. Matches wsapp_master_list_template.csv exactly
+(utility column omitted — set at upload).
+
+map_location_id, account_id, customer_member_id, meter_id, meter_form, ct_size, pt_size, list_multiplier, previous_kw, latitude, longitude, last_test_date, service_voltage, service_description, total_kva, transformer_type, service_address, service_location, load_type, list_notes, phone_number_1, phone_number_2
+
+  map_location_id      913 SPRINGFIELD RD
+  account_id           100804
+  customer_member_id   BK Foods LLC
+  meter_id             10741388
+  meter_form           9S
+  ct_size              200
+  pt_size              (blank)
+  list_multiplier      40
+  previous_kw          120
+  latitude             36.960653
+  longitude            -92.670388
+  last_test_date       06/03/26
+  service_voltage      277/480
+  service_description  3-phase 4 wire wye
+  total_kva            75
+  transformer_type     Pad Mount
+  service_address      913 SPRINGFIELD RD
+  service_location     ON POLE NEAR ROAD
+  load_type            WAREHOUSE
+  list_notes           Call if gate locked
+  phone_number_1       555-555-5555
+  phone_number_2       (blank)
+
+
+8. fullbatch
+------------
+Complete field test capture — one row per completed test. Wide layout.
+See references/batch_exports.md for meter/socket/CT/PT/usage prefix groups.
+
+ACCOUNT / VISIT (leading columns, fixed order):
+  utility, yearly_test_number, test_date, drive_time, test_time,
+  start_time, end_time, tech_initials, employee_initials, employee_on_site,
+  truck_id, mileage, test_reason, latitude, longitude,
+  location_id, account_id, customer_member_id, meter_id,
+  service_address, service_location, service_description, load_type,
+  meter_form, ct_size, pt_size, list_multiplier, calculated_multiplier,
+  calculated_multiplier_formula, multiplier_match, previous_kw, service_voltage,
+  list_notes, phone_number_1, phone_number_2
+
+METER (meter_* prefix): meter_mfg, meter_type, meter_class, meter_kh, meter_kt,
+  meter_voltage, meter_test_volts, meter_test_amps, meter_kwh, meter_kw, …,
+  meter_as_found_*, meter_as_left_*, meter_initial_timed_revolution,
+  meter_final_timed_revolution
+
+SOCKET (socket_* prefix): socket_mfg, socket_bypass, seals, ground readings,
+  wire colors. (socket_location, socket_surge_protector, socket_damaged removed)
+
+TRANSFORMER: transformer_type, trans_centertapped, trans_in_enclosure_or_ground,
+  trans_open_front, locking_device, pad_bolt_type, trans_1_size … trans_3_*,
+  trans_total_size, trans_ground_status, trans_ground_impedance, trans_ground_amps
+  (loose_guy_wires and per-T front_type removed — note flags only)
+
+CT / PT / USAGE / BILLING: ct1_* … ct3_*, pt1_* … pt3_*, usage_*,
+  billing_code, billing_rate
+
+NOTES (always last): field_report_notes_high, field_report_notes_info
+
+Removed from fullbatch (no longer in WSApp or replaced):
+  phase (use service_description), time_in/time_out (→ start_time/end_time),
+  location_number/customer_name/meter_number (→ *_id / *_member_id),
+  address (→ service_address), form (→ meter_form), truck_number (→ truck_id),
+  listed_multiplier (→ list_multiplier), trans_type (→ transformer_type),
+  phone (→ phone_number_1), weekly_test_number, socket_surge_protector,
+  socket_location, socket_damaged, loose_guy_wires, num_conductors (CT)

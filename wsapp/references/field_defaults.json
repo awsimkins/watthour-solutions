@@ -1,0 +1,7 @@
+{
+  "_comment": "Factory defaults for field session. Dashboard saves overrides to localStorage wsapp_field_defaults.",
+  "owner_tech_initials": "AWS",
+  "truck_number": "107",
+  "test_reason": "FT (Field Test)",
+  "employee_on_site": false
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WSApp Route Map</title>
+    <link rel="apple-touch-icon" href="../../shared/assets/logo.png">
+    <meta name="apple-mobile-web-app-title" content="WSApp Map">
+    <script src="../../shared/scripts/wsapp-paths.js"></script>
+    <script src="../../shared/assets/tailwindcdn.js" onerror="(function(){var s=document.createElement('script');s.src='https://cdn.tailwindcss.com';document.head.appendChild(s);})();"></script>
+    <link rel="stylesheet" href="../../shared/assets/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
+    <link rel="stylesheet" href="../../shared/assets/leaflet/leaflet.css">
+    <style>
+        html, body { height: 100%; margin: 0; }
+        body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+        .wsapp-map-header {
+            background: linear-gradient(135deg, #0f766e, #134e4b);
+        }
+        #map-root { height: calc(100vh - 3.5rem); }
+        #map-canvas { height: 100%; width: 100%; z-index: 0; }
+        .leaflet-popup-content { margin: 10px 12px; }
+        .leaflet-popup-content button { cursor: pointer; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <header class="wsapp-map-header text-white px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 shadow-md relative z-10">
+        <div class="flex items-center gap-3 min-w-0">
+            <img src="../../shared/assets/logo.png" alt="" class="w-8 h-8 rounded-lg bg-white/10 shrink-0" onerror="this.style.display='none'">
+            <div class="min-w-0">
+                <div class="font-semibold text-sm leading-tight truncate">WSApp Route Map</div>
+                <div class="text-[11px] text-emerald-100/90 truncate">
+                    <span id="map-utility">—</span>
+                    <span class="opacity-60"> · </span>
+                    <span id="map-list-name">Master list</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-1.5 shrink-0">
+            <span id="gps-status" class="text-[10px] text-emerald-100/80 hidden sm:inline">GPS…</span>
+            <button type="button" id="btn-back-wsapp" class="px-3 py-1.5 bg-white/15 hover:bg-white/25 text-xs font-semibold rounded-xl flex items-center gap-1">
+                <i class="fa-solid fa-arrow-left"></i> WSApp
+            </button>
+        </div>
+    </header>
+
+    <div id="map-root" class="relative flex flex-col lg:flex-row">
+        <div class="lg:w-72 xl:w-80 shrink-0 bg-white border-b lg:border-b-0 lg:border-r border-slate-200 p-3 space-y-3 overflow-auto max-h-[40vh] lg:max-h-none z-[1]">
+            <p id="map-stats" class="text-xs text-slate-500">Loading…</p>
+
+            <div class="flex flex-wrap gap-1.5">
+                <button type="button" id="btn-nearest" class="flex-1 min-w-[7rem] px-2 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-xl">
+                    <i class="fa-solid fa-location-crosshairs"></i> Nearest Pending
+                </button>
+                <button type="button" id="btn-center-me" class="px-2 py-1.5 border border-slate-300 hover:bg-slate-50 text-xs rounded-xl">
+                    <i class="fa-solid fa-crosshairs"></i> Center Me
+                </button>
+                <button type="button" id="btn-refresh" class="px-2 py-1.5 border border-slate-300 hover:bg-slate-50 text-xs rounded-xl" title="Reload from WSApp storage">
+                    <i class="fa-solid fa-rotate"></i>
+                </button>
+            </div>
+
+            <input id="map-search" type="search" enterkeyhint="search" placeholder="Search location, customer, meter…"
+                class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" autocomplete="off" autocapitalize="off" spellcheck="false">
+
+            <div class="text-xs font-semibold text-slate-600">Show on map</div>
+            <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-700">
+                <label class="inline-flex items-center gap-1.5"><input type="checkbox" id="filter-pending" checked class="rounded"> <span class="inline-block w-2.5 h-2.5 rounded-full bg-green-600"></span> Pending</label>
+                <label class="inline-flex items-center gap-1.5"><input type="checkbox" id="filter-completed" checked class="rounded"> <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-500"></span> Done</label>
+                <label class="inline-flex items-center gap-1.5"><input type="checkbox" id="filter-skipped" checked class="rounded"> <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600"></span> Skipped</label>
+            </div>
+
+            <div id="site-detail-empty" class="text-xs text-slate-500 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                Tap a pin to see site details. Use <strong>Navigate</strong> for Google Maps, or <strong>Back to WSApp</strong> when you arrive.
+            </div>
+            <div id="site-detail" class="hidden p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-sm space-y-1">
+                <div class="font-semibold text-emerald-900" id="detail-title">—</div>
+                <div class="text-slate-700" id="detail-customer">—</div>
+                <div class="text-xs text-slate-500">Meter <span id="detail-meter">—</span></div>
+                <div class="text-xs text-slate-600" id="detail-address">—</div>
+                <div class="text-xs"><span class="font-medium">Status:</span> <span id="detail-status">—</span></div>
+                <div id="detail-distance" class="text-xs text-emerald-700 font-medium hidden"></div>
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <button type="button" id="btn-detail-navigate" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded-xl">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Navigate
+                    </button>
+                    <button type="button" id="btn-detail-wsapp" class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs rounded-xl">
+                        <i class="fa-solid fa-arrow-left"></i> Back to WSApp
+                    </button>
+                </div>
+            </div>
+
+            <p class="text-[10px] text-slate-400 leading-snug">
+                Companion page — reads master list and visit status from WSApp storage. Map tiles still need internet; Leaflet library is bundled offline.
+            </p>
+        </div>
+
+        <div class="flex-1 min-h-[50vh] lg:min-h-0 relative">
+            <div id="map-canvas"></div>
+        </div>
+    </div>
+
+    <script src="../../shared/assets/leaflet/leaflet.js"></script>
+    <script src="scripts/wsapp-route-map.js"></script>
+</body>
+</html>

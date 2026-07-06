@@ -1,0 +1,64 @@
+{
+    "ct_replacement": 300,
+    "socket_replacement": 300,
+    "25kva_transformer": {
+        "pad_mount": 4800,
+        "pole_mount": 2400
+    },
+    "50kva_transformer": {
+        "pad_mount": 6800,
+        "pole_mount": 3400
+    },
+    "75kva_transformer": {
+        "pad_mount": 8400,
+        "pole_mount": 4200
+    },
+    "100kva_transformer": {
+        "pad_mount": 12000,
+        "pole_mount": 6000
+    },
+    "150kva_transformer": {
+        "pad_mount": 14800,
+        "pole_mount": 7400
+    },
+    "200kva_transformer": {
+        "pad_mount": 17200,
+        "pole_mount": 8600
+    },
+    "225kva_transformer": {
+        "pad_mount": 18000,
+        "pole_mount": 9000
+    },
+    "300kva_transformer": {
+        "pad_mount": 20800,
+        "pole_mount": 10400
+    },
+    "400kva_transformer": {
+        "pad_mount": 28000,
+        "pole_mount": 14000
+    },
+    "500kva_transformer": {
+        "pad_mount": 33936,
+        "pole_mount": 16968
+    },
+    "750kva_transformer": {
+        "pad_mount": 37200,
+        "pole_mount": 18600
+    },
+    "1000kva_transformer": {
+        "pad_mount": 48000,
+        "pole_mount": 24000
+    },
+    "1250kva_transformer": {
+        "pad_mount": 53600,
+        "pole_mount": 26800
+    },
+    "1500kva_transformer": {
+        "pad_mount": 58800,
+        "pole_mount": 29400
+    },
+    "2000kva_transformer": {
+        "pad_mount": 68000,
+        "pole_mount": 34000
+    }
+}
