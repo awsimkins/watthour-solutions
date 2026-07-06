@@ -6,14 +6,14 @@
     <title>WSApp — Field Operations</title>
     <link rel="manifest" href="manifest.json" id="wsapp-manifest-link">
     <script>if (location.protocol === 'file:') { var _m = document.getElementById('wsapp-manifest-link'); if (_m) _m.remove(); }</script>
-    <script src="../shared/scripts/wsapp-paths.js"></script>
-    <link rel="apple-touch-icon" href="../shared/assets/logo.png">
+    <script src="shared/scripts/wsapp-paths.js"></script>
+    <link rel="apple-touch-icon" href="shared/assets/logo.png">
     <meta name="apple-mobile-web-app-title" content="WSApp">
     <meta name="application-name" content="WSApp">
     <!-- Local assets for offline use (see assets/). CDN fallbacks if opened without assets folder. -->
-    <script src="../shared/assets/tailwindcdn.js" onerror="(function(){var s=document.createElement('script');s.src='https://cdn.tailwindcss.com';document.head.appendChild(s);})();"></script>
-    <link rel="stylesheet" href="../shared/assets/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
-    <script src="../shared/assets/xlsx.full.min.js" onerror="(function(){var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';document.head.appendChild(s);})();"></script>
+    <script src="shared/assets/tailwindcdn.js" onerror="(function(){var s=document.createElement('script');s.src='https://cdn.tailwindcss.com';document.head.appendChild(s);})();"></script>
+    <link rel="stylesheet" href="shared/assets/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
+    <script src="shared/assets/xlsx.full.min.js" onerror="(function(){var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';document.head.appendChild(s);})();"></script>
     <style>
         :root {
             --primary: #0f766e;
@@ -569,9 +569,9 @@
             <div class="flex flex-col items-center text-center">
                 <div class="flex items-center justify-center gap-x-3">
                     <div class="w-10 h-10 bg-white/20 rounded-2xl flex items-center justify-center overflow-hidden shrink-0">
-                        <img id="wsapp-logo" src="../shared/assets/logo.png" alt="WSApp" class="wsapp-logo-img hidden"
+                        <img id="wsapp-logo" src="shared/assets/logo.png" alt="WSApp" class="wsapp-logo-img hidden"
                              onload="this.classList.remove('hidden');var f=document.getElementById('wsapp-logo-fallback');if(f)f.classList.add('hidden');"
-                             onerror="if(!this.dataset.triedJpg){this.dataset.triedJpg='1';this.src='../shared/assets/logo.jpg';}else{this.classList.add('hidden');}">
+                             onerror="if(!this.dataset.triedJpg){this.dataset.triedJpg='1';this.src='shared/assets/logo.jpg';}else{this.classList.add('hidden');}">
                         <i id="wsapp-logo-fallback" class="fa-solid fa-bolt-lightning text-3xl" title="Add assets/logo.png to show your logo"></i>
                     </div>
                     <div class="font-display text-3xl tracking-tighter font-semibold">WSApp</div>
@@ -1381,7 +1381,7 @@
 
     <div id="wsapp-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] px-5 py-3 bg-slate-800 text-white text-sm font-medium rounded-2xl shadow-lg max-w-lg text-center"></div>
 
-        <script src="../shared/scripts/wsapp-calculations.js"></script>
+        <script src="shared/scripts/wsapp-calculations.js"></script>
 
     <script>
         const WSAPP_NAME = 'wsapp';
@@ -1965,10 +1965,10 @@
             if (_testReportBuilderReady) return _testReportBuilderReady;
             window.WSAPP_TEST_REPORT_SKIP_AUTO_INIT = true;
             var scripts = [
-                '../shared/scripts/wsapp-utility-profiles.js',
-                '../companions/charts/scripts/wsapp-chart-bundle.js',
-                '../shared/scripts/wsapp-test-report-snapshot-css.js',
-                '../companions/test-report/scripts/wsapp-test-report.js'
+                'shared/scripts/wsapp-utility-profiles.js',
+                'companions/charts/scripts/wsapp-chart-bundle.js',
+                'shared/scripts/wsapp-test-report-snapshot-css.js',
+                'companions/test-report/scripts/wsapp-test-report.js'
             ];
             _testReportBuilderReady = scripts.reduce(function(chain, src) {
                 return chain.then(function() { return loadWsappScriptOnce(src); });
@@ -2166,13 +2166,13 @@
                 return P.resolve(P.paths.companions[pageKey]);
             }
             var legacy = {
-                testReport: '../companions/test-report/test-report.html',
-                vectorDiagram: '../companions/charts/vector-diagram.html',
-                ctAccuracy: '../companions/charts/ct-accuracy-graph.html',
-                ctDrop: '../companions/charts/ct-drop-graph.html',
-                ctParallelogram: '../companions/charts/ct-parallelogram.html',
-                ptAccuracy: '../companions/charts/pt-accuracy-graph.html',
-                ptDrop: '../companions/charts/pt-drop-graph.html'
+                testReport: 'companions/test-report/test-report.html',
+                vectorDiagram: 'companions/charts/vector-diagram.html',
+                ctAccuracy: 'companions/charts/ct-accuracy-graph.html',
+                ctDrop: 'companions/charts/ct-drop-graph.html',
+                ctParallelogram: 'companions/charts/ct-parallelogram.html',
+                ptAccuracy: 'companions/charts/pt-accuracy-graph.html',
+                ptDrop: 'companions/charts/pt-drop-graph.html'
             };
             return legacy[pageKey] || pageKey;
         }
@@ -11544,7 +11544,7 @@
         function openRouteMap() {
             var mapUrl = (window.WSAPP_PATHS && window.WSAPP_PATHS.resolve)
                 ? window.WSAPP_PATHS.resolve(window.WSAPP_PATHS.paths.companions.routeMap)
-                : '../companions/route-map/route-map.html';
+                : 'companions/route-map/route-map.html';
             window.location.href = mapUrl;
         }
 
