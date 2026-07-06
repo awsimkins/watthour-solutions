@@ -8,9 +8,9 @@
     /** Paths relative to deploy root (parent of field/, shared/, companions/). */
     var PATHS = {
         app: {
-            index: 'field/index.html',
-            manifest: 'field/manifest.json',
-            sw: 'field/sw.js'
+            index: 'launch.html',
+            manifest: 'manifest.json',
+            sw: 'sw.js'
         },
         shared: {
             calc: 'shared/scripts/wsapp-calculations.js',
@@ -61,6 +61,7 @@
     function getDeployRootPrefix() {
         try {
             var p = (window.location.pathname || '').replace(/\\/g, '/');
+            if (p.indexOf('/wsapp/') !== -1 && p.indexOf('/companions/') === -1) return p.split('/wsapp/')[0].replace(/\/?$/, '/') + '/wsapp/';
             if (p.indexOf('/field/') !== -1) return p.split('/field/')[0].replace(/\/?$/, '/') || './';
             if (p.indexOf('/app/') !== -1) return p.split('/app/')[0].replace(/\/?$/, '/') || './';
             if (p.indexOf('/companions/') !== -1) return p.split('/companions/')[0].replace(/\/?$/, '/') || '../../';
