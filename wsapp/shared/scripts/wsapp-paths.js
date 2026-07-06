@@ -58,13 +58,32 @@
         }
     };
 
+    function deployPrefixBefore(segment) {
+        var needle = '/' + segment + '/';
+        var p = (window.location.pathname || '').replace(/\\/g, '/');
+        if (p.indexOf(needle) === -1 || p.indexOf('/companions/') !== -1) return null;
+        var before = p.split(needle)[0];
+        if (!before || before === '/') return '/' + segment + '/';
+        return before.replace(/\/?$/, '/') + segment + '/';
+    }
+
     function getDeployRootPrefix() {
         try {
             var p = (window.location.pathname || '').replace(/\\/g, '/');
-            if (p.indexOf('/wsapp/') !== -1 && p.indexOf('/companions/') === -1) return p.split('/wsapp/')[0].replace(/\/?$/, '/') + '/wsapp/';
-            if (p.indexOf('/field/') !== -1) return p.split('/field/')[0].replace(/\/?$/, '/') || './';
-            if (p.indexOf('/app/') !== -1) return p.split('/app/')[0].replace(/\/?$/, '/') || './';
-            if (p.indexOf('/companions/') !== -1) return p.split('/companions/')[0].replace(/\/?$/, '/') || '../../';
+            var wsappRoot = deployPrefixBefore('wsapp');
+            if (wsappRoot) return wsappRoot;
+            var fieldRoot = deployPrefixBefore('field');
+            if (fieldRoot) return fieldRoot;
+            if (p.indexOf('/app/') !== -1 && p.indexOf('/companions/') === -1) {
+                var beforeApp = p.split('/app/')[0];
+                if (!beforeApp || beforeApp === '/') return '/app/';
+                return beforeApp.replace(/\/?$/, '/') + 'app/';
+            }
+            if (p.indexOf('/companions/') !== -1) {
+                var beforeComp = p.split('/companions/')[0];
+                if (!beforeComp || beforeComp === '/') return '/';
+                return beforeComp.replace(/\/?$/, '/');
+            }
         } catch (e) { /* ignore */ }
         var path = window.location.pathname || '';
         var parts = path.split('/').filter(Boolean);
@@ -78,11 +97,17 @@
 
     function resolve(relPath) {
         var root = getDeployRootPrefix();
-        if (root === './' || root === '') return relPath;
-        if (root === '../') return '../' + relPath;
-        if (root === '../../') return '../../' + relPath;
-        if (root === '../../../') return '../../../' + relPath;
-        return root + relPath;
+        var url;
+        if (root === './' || root === '') url = relPath;
+        else if (root === '../') url = '../' + relPath;
+        else if (root === '../../') url = '../../' + relPath;
+        else if (root === '../../../') url = '../../../' + relPath;
+        else url = root + relPath;
+        // Avoid protocol-relative URLs like //wsapp/... (Safari treats "wsapp" as hostname).
+        if (url.indexOf('//') === 0 && url.charAt(2) !== '/') {
+            url = '/' + url.replace(/^\/+/, '');
+        }
+        return url;
     }
 
     function companionUrl(pageKey, query) {
