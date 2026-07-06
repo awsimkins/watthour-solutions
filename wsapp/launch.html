@@ -2166,8 +2166,23 @@
             ptDrop: 'fa-chart-area text-blue-600'
         };
 
+        const WSAPP_GEO_OPTIONS = { enableHighAccuracy: true, maximumAge: 0, timeout: 60000 };
+
+        function explainGeolocationError(err) {
+            if (!err) return 'Could not get GPS location.';
+            if (err.code === 1) {
+                return 'Location permission denied.\n\nOn iPad: Settings → Privacy & Security → Location Services → ON.\nThen allow location for Safari (or WSApp if you used Add to Home Screen).\n\nAlso check Settings → Safari → Location → Allow.';
+            }
+            if (err.code === 2) return 'Location unavailable. Turn on Location Services and try again with a clear view of the sky or Wi‑Fi.';
+            if (err.code === 3) return 'GPS timed out. Wait a few seconds and tap Capture GPS again (outdoors helps).';
+            return 'Could not get GPS location (error ' + err.code + ').';
+        }
+
         function resolveCompanionPage(pageKey) {
             var P = window.WSAPP_PATHS;
+            if (P && P.absoluteUrl && P.paths && P.paths.companions && P.paths.companions[pageKey]) {
+                return P.absoluteUrl(P.paths.companions[pageKey]);
+            }
             if (P && P.paths && P.paths.companions && P.paths.companions[pageKey]) {
                 return P.resolve(P.paths.companions[pageKey]);
             }
@@ -2181,7 +2196,12 @@
                 ptAccuracy: 'companions/charts/pt-accuracy-graph.html',
                 ptDrop: 'companions/charts/pt-drop-graph.html'
             };
-            return legacy[pageKey] ? resolveWsappAsset(legacy[pageKey]) : pageKey;
+            var rel = legacy[pageKey] ? resolveWsappAsset(legacy[pageKey]) : pageKey;
+            try { return new URL(rel, window.location.href).href; } catch (e) { return rel; }
+        }
+
+        function navigateToCompanion(pageKey) {
+            window.location.href = resolveCompanionPage(pageKey);
         }
 
         function openVisualPage(pageKey, opts) {
@@ -9010,6 +9030,7 @@
                 alert('Geolocation not supported by this browser');
                 return;
             }
+            showToast('Getting GPS… allow location if prompted.');
             navigator.geolocation.getCurrentPosition(pos => {
                 currentFieldReport.latitude = pos.coords.latitude.toFixed(6);
                 currentFieldReport.longitude = pos.coords.longitude.toFixed(6);
@@ -9022,9 +9043,8 @@
                 showToast('Site GPS captured — exported to CSV.');
                 renderFrNav();
             }, (err) => {
-                const msg = err && err.code === 1 ? 'Location permission was denied. Please allow location access in your browser/iPad settings and try again.' : 'Could not get GPS location.';
-                alert(msg);
-            });
+                alert(explainGeolocationError(err));
+            }, WSAPP_GEO_OPTIONS);
         }
 
         function captureAdhocGPS() {
@@ -9032,6 +9052,7 @@
                 alert('Geolocation not supported by this browser');
                 return;
             }
+            showToast('Getting GPS… allow location if prompted.');
             navigator.geolocation.getCurrentPosition(pos => {
                 const lat = pos.coords.latitude.toFixed(6);
                 const lon = pos.coords.longitude.toFixed(6);
@@ -9041,9 +9062,8 @@
                 if (lonEl) lonEl.value = lon;
                 showToast('Site GPS captured — this is the value exported to CSV.');
             }, (err) => {
-                const msg = err && err.code === 1 ? 'Location permission was denied. Please allow location access in your browser/iPad settings and try again.' : 'Could not get GPS location.';
-                alert(msg);
-            });
+                alert(explainGeolocationError(err));
+            }, WSAPP_GEO_OPTIONS);
         }
 
         function captureExpenseGPS() {
@@ -9051,6 +9071,7 @@
                 alert('Geolocation not supported by this browser');
                 return;
             }
+            showToast('Getting GPS… allow location if prompted.');
             navigator.geolocation.getCurrentPosition(pos => {
                 const lat = pos.coords.latitude.toFixed(6);
                 const lon = pos.coords.longitude.toFixed(6);
@@ -9060,9 +9081,8 @@
                 if (lonEl) lonEl.value = lon;
                 alert('GPS captured for this expense log.');
             }, (err) => {
-                const msg = err && err.code === 1 ? 'Location permission was denied. Enter coordinates manually or allow access in settings.' : 'Could not get GPS location. Enter coordinates manually.';
-                alert(msg);
-            });
+                alert(explainGeolocationError(err) + '\n\nYou can enter coordinates manually.');
+            }, WSAPP_GEO_OPTIONS);
         }
         
         function autoSaveFieldReportDraft(options) {
@@ -11549,7 +11569,7 @@
         }
 
         function openRouteMap() {
-            window.location.href = resolveCompanionPage('routeMap');
+            navigateToCompanion('routeMap');
         }
 
         function handleRouteMapReturn() {

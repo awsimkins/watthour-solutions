@@ -1,5 +1,5 @@
 /* WSApp offline cache — wsapp root deploy at watthoursolutions.com/wsapp/ */
-const WSAPP_CACHE = 'wsapp-v1.7.1-companions';
+const WSAPP_CACHE = 'wsapp-v1.7.1-map-gps';
 const CACHE_URLS = [
   './',
   './launch.html',
@@ -45,6 +45,15 @@ const CACHE_URLS = [
   './manifest.json'
 ];
 
+function isNetworkFirst(url) {
+  if (url.indexOf('tile.openstreetmap.org') !== -1) return true;
+  if (/\.html(\?|#|$)/.test(url)) return true;
+  if (url.indexOf('wsapp-paths.js') !== -1) return true;
+  if (url.indexOf('wsapp-route-map.js') !== -1) return true;
+  if (url.indexOf('launch.html') !== -1) return true;
+  return false;
+}
+
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(WSAPP_CACHE).then(function(cache) {
@@ -65,9 +74,19 @@ self.addEventListener('fetch', function(event) {
   if (event.request.method !== 'GET') return;
   var url = event.request.url;
 
-  if (url.indexOf('tile.openstreetmap.org') !== -1) {
+  if (isNetworkFirst(url)) {
     event.respondWith(
-      fetch(event.request).catch(function() { return caches.match(event.request); })
+      fetch(event.request).then(function(response) {
+        if (response && response.status === 200 && response.type === 'basic') {
+          var clone = response.clone();
+          caches.open(WSAPP_CACHE).then(function(cache) { cache.put(event.request, clone); });
+        }
+        return response;
+      }).catch(function() {
+        return caches.match(event.request).then(function(cached) {
+          return cached || caches.match('./launch.html');
+        });
+      })
     );
     return;
   }

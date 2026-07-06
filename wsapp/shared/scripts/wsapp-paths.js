@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    /** Paths relative to deploy root (parent of field/, shared/, companions/). */
+    /** Paths relative to deploy root (parent of launch.html, shared/, companions/). */
     var PATHS = {
         app: {
             index: 'launch.html',
@@ -89,7 +89,7 @@
         var parts = path.split('/').filter(Boolean);
         if (!parts.length) return './';
         if (parts[parts.length - 1].indexOf('.') !== -1) parts.pop();
-        if (parts.length && (parts[parts.length - 1] === 'field' || parts[parts.length - 1] === 'app')) return '../';
+        if (parts.length && parts[parts.length - 1] === 'app') return '../';
         if (parts.length >= 2 && parts[parts.length - 2] === 'companions') return '../../';
         if (parts.length >= 3 && parts[parts.length - 3] === 'companions') return '../../../';
         return './';
@@ -103,17 +103,24 @@
         else if (root === '../../') url = '../../' + relPath;
         else if (root === '../../../') url = '../../../' + relPath;
         else url = root + relPath;
-        // Avoid protocol-relative URLs like //wsapp/... (Safari treats "wsapp" as hostname).
         if (url.indexOf('//') === 0 && url.charAt(2) !== '/') {
             url = '/' + url.replace(/^\/+/, '');
         }
         return url;
     }
 
+    function absoluteUrl(relPath) {
+        try {
+            return new URL(resolve(relPath), window.location.href).href;
+        } catch (e) {
+            return resolve(relPath);
+        }
+    }
+
     function companionUrl(pageKey, query) {
         var rel = PATHS.companions[pageKey];
         if (!rel) return '';
-        var url = resolve(rel);
+        var url = absoluteUrl(rel);
         if (query) url += (url.indexOf('?') === -1 ? '?' : '&') + query;
         return url;
     }
@@ -121,7 +128,8 @@
     window.WSAPP_PATHS = {
         paths: PATHS,
         resolve: resolve,
+        absoluteUrl: absoluteUrl,
         companionUrl: companionUrl,
-        appIndex: function () { return resolve(PATHS.app.index); }
+        appIndex: function () { return absoluteUrl(PATHS.app.index); }
     };
 })();

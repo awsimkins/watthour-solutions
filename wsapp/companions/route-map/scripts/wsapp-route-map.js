@@ -264,7 +264,7 @@
         }
         var appUrl = (window.WSAPP_PATHS && window.WSAPP_PATHS.appIndex)
             ? window.WSAPP_PATHS.appIndex()
-            : '../../app/index.html';
+            : '../../launch.html';
         window.location.href = appUrl;
     }
 
@@ -467,10 +467,14 @@
             }
             var statusEl = document.getElementById('gps-status');
             if (statusEl) statusEl.textContent = 'GPS active';
-        }, function () {
+        }, function (err) {
             var statusEl = document.getElementById('gps-status');
-            if (statusEl) statusEl.textContent = 'GPS unavailable';
-        }, { enableHighAccuracy: true, maximumAge: 15000, timeout: 20000 });
+            if (statusEl) {
+                if (err && err.code === 1) statusEl.textContent = 'GPS denied — allow in Settings';
+                else if (err && err.code === 3) statusEl.textContent = 'GPS timed out — try Center Me';
+                else statusEl.textContent = 'GPS unavailable';
+            }
+        }, { enableHighAccuracy: true, maximumAge: 0, timeout: 60000 });
     }
 
     function applySearch(query) {
