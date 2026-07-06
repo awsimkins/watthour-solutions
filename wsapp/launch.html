@@ -1943,6 +1943,12 @@
         }
 
         var _testReportBuilderReady = null;
+        function resolveWsappAsset(relPath) {
+            var P = window.WSAPP_PATHS;
+            if (P && P.resolve) return P.resolve(relPath);
+            return '../' + String(relPath || '').replace(/^\//, '');
+        }
+
         function loadWsappScriptOnce(src) {
             return new Promise(function(resolve, reject) {
                 if (document.querySelector('script[data-wsapp-src="' + src + '"]')) {
@@ -1965,10 +1971,10 @@
             if (_testReportBuilderReady) return _testReportBuilderReady;
             window.WSAPP_TEST_REPORT_SKIP_AUTO_INIT = true;
             var scripts = [
-                'shared/scripts/wsapp-utility-profiles.js',
-                '../companions/charts/scripts/wsapp-chart-bundle.js',
-                'shared/scripts/wsapp-test-report-snapshot-css.js',
-                '../companions/test-report/scripts/wsapp-test-report.js'
+                resolveWsappAsset('shared/scripts/wsapp-utility-profiles.js'),
+                resolveWsappAsset('companions/charts/scripts/wsapp-chart-bundle.js'),
+                resolveWsappAsset('shared/scripts/wsapp-test-report-snapshot-css.js'),
+                resolveWsappAsset('companions/test-report/scripts/wsapp-test-report.js')
             ];
             _testReportBuilderReady = scripts.reduce(function(chain, src) {
                 return chain.then(function() { return loadWsappScriptOnce(src); });
@@ -2162,19 +2168,20 @@
 
         function resolveCompanionPage(pageKey) {
             var P = window.WSAPP_PATHS;
-            if (P && P.companionUrl && P.paths && P.paths.companions[pageKey]) {
+            if (P && P.paths && P.paths.companions && P.paths.companions[pageKey]) {
                 return P.resolve(P.paths.companions[pageKey]);
             }
             var legacy = {
-                testReport: '../companions/test-report/test-report.html',
-                vectorDiagram: '../companions/charts/vector-diagram.html',
-                ctAccuracy: '../companions/charts/ct-accuracy-graph.html',
-                ctDrop: '../companions/charts/ct-drop-graph.html',
-                ctParallelogram: '../companions/charts/ct-parallelogram.html',
-                ptAccuracy: '../companions/charts/pt-accuracy-graph.html',
-                ptDrop: '../companions/charts/pt-drop-graph.html'
+                testReport: 'companions/test-report/test-report.html',
+                routeMap: 'companions/route-map/route-map.html',
+                vectorDiagram: 'companions/charts/vector-diagram.html',
+                ctAccuracy: 'companions/charts/ct-accuracy-graph.html',
+                ctDrop: 'companions/charts/ct-drop-graph.html',
+                ctParallelogram: 'companions/charts/ct-parallelogram.html',
+                ptAccuracy: 'companions/charts/pt-accuracy-graph.html',
+                ptDrop: 'companions/charts/pt-drop-graph.html'
             };
-            return legacy[pageKey] || pageKey;
+            return legacy[pageKey] ? resolveWsappAsset(legacy[pageKey]) : pageKey;
         }
 
         function openVisualPage(pageKey, opts) {
@@ -11542,10 +11549,7 @@
         }
 
         function openRouteMap() {
-            var mapUrl = (window.WSAPP_PATHS && window.WSAPP_PATHS.resolve)
-                ? window.WSAPP_PATHS.resolve(window.WSAPP_PATHS.paths.companions.routeMap)
-                : '../companions/route-map/route-map.html';
-            window.location.href = mapUrl;
+            window.location.href = resolveCompanionPage('routeMap');
         }
 
         function handleRouteMapReturn() {
