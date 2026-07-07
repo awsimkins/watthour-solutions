@@ -287,15 +287,10 @@
         var skipNote = (site.visit && site.status === STATUS.skipped)
             ? '<div class="text-xs text-red-600">' + escapeHtml(site.visit.reason) + '</div>' : '';
 
-        var gpsLine = site.coords
-            ? '<div class="text-xs font-mono text-slate-600 mt-1">' + site.coords.lat.toFixed(6) + ', ' + site.coords.lon.toFixed(6) + '</div>'
-            : '';
-
         return '<div class="text-sm min-w-[200px]">' +
             '<div class="font-semibold text-slate-800">' + escapeHtml(getMasterLocationId(site.rec)) + '</div>' +
             '<div class="text-slate-600">' + escapeHtml(getMasterCustomerMemberId(site.rec)) + '</div>' +
             '<div class="text-xs text-slate-500">Meter ' + escapeHtml(getMasterMeterId(site.rec) || '—') + '</div>' +
-            gpsLine +
             '<div class="mt-1"><span class="text-xs font-medium px-1.5 py-0.5 rounded-full ' +
             (site.status === STATUS.pending ? 'bg-green-100 text-green-800' :
                 site.status === STATUS.completed ? 'bg-slate-200 text-slate-700' : 'bg-red-100 text-red-800') +
@@ -394,12 +389,6 @@
         document.getElementById('detail-customer').textContent = getMasterCustomerMemberId(site.rec) || '—';
         document.getElementById('detail-meter').textContent = getMasterMeterId(site.rec) || '—';
         document.getElementById('detail-address').textContent = site.rec.service_address || site.rec.address || '—';
-        var gpsEl = document.getElementById('detail-gps');
-        if (gpsEl) {
-            gpsEl.textContent = site.coords
-                ? site.coords.lat.toFixed(6) + ', ' + site.coords.lon.toFixed(6)
-                : '—';
-        }
         document.getElementById('detail-status').textContent = statusLabel(site.status);
 
         var distEl = document.getElementById('detail-distance');
