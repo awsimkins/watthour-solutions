@@ -1,5 +1,5 @@
 /* WSApp offline cache — wsapp root deploy at watthoursolutions.com/wsapp/ */
-const WSAPP_CACHE = 'wsapp-v1.7.2-tablet';
+const WSAPP_CACHE = 'wsapp-v1.7.3-field-fixes';
 const CACHE_URLS = [
   './',
   './launch.html',
