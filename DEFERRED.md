@@ -50,16 +50,12 @@ Items intentionally held for later. Last updated: June 2026.
 
 ---
 
-## WSApp (separate project — `Desktop/wsapp`)
+## WSApp (retired from website — 2026-07-12)
 
-Field data capture PWA; not in this repo.
+The HTML field app was removed from `/wsapp` on this site. Field work uses the Android app **WSApp2** on the Samsung tablet.
 
-- [ ] Push `wsapp` to GitHub when ready
-- [ ] Field-test on iPad: complete test → Export All Batches (7 CSVs)
-- [ ] Backend / Excel import pipeline (after field validation)
-
----
-
+- Archived copy: `F:\old_wsapp\02_website_github_pages\`
+- Active app project: `F:\wsapp2`
 ## Spoken Devotion (sibling site — `awsimkins/spokendevotion`)
 
 - [ ] Facebook Page username → update homepage link (DistroKid needs vanity URL, not numeric ID)
