@@ -1,9 +1,9 @@
 // Form backend: FormSubmit (Watthour only — not shared with Spoken Devotion)
-// Inbox: anthonysimkins@gmail.com via FormSubmit hash (email is not on the page)
-// First-time: click the FormSubmit "Activate Form" email if a test is held
+// Inbox: asimkins@watthoursolutions.com
+// First-time: click the FormSubmit "Activate Form" email on that inbox
 window.WH_FORMS = {
     provider: 'formsubmit',
-    formsubmitId: 'a63df40f40e87aea248a17dfbeb0c05e',
+    formsubmitId: 'asimkins@watthoursolutions.com',
     turnstileSiteKey: '0x4AAAAAADrY__8JcwJg7-i9',
     contact: {
         formId: 'contact'
