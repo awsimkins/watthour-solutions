@@ -1,17 +1,17 @@
-// Formspark + Cloudflare Turnstile (public site key only — secret stays in Formspark dashboard)
-//
-// Notification email — set in each form's Formspark dashboard: contact@watthoursolutions.com
-//
-// Turnstile secret key: Formspark dashboard only (per form), not in this file.
+// Form backend: FormSubmit (Watthour only — not shared with Spoken Devotion)
+// Inbox: anthonysimkins@gmail.com via FormSubmit hash (email is not on the page)
+// First-time: click the FormSubmit "Activate Form" email if a test is held
 window.WH_FORMS = {
+    provider: 'formsubmit',
+    formsubmitId: 'a63df40f40e87aea248a17dfbeb0c05e',
     turnstileSiteKey: '0x4AAAAAADrY__8JcwJg7-i9',
     contact: {
-        formId: 'form_v1_XDr3rzLmlcH4XAciA5xiLMuC'
+        formId: 'contact'
     },
     training: {
-        formId: 'form_v1_skGpnkEJeUacRlevaT5BMMPX'
+        formId: 'training'
     },
     careers: {
-        formId: 'form_v1_qSDKbwiHcEha7g8qgONPBDIO'
+        formId: 'careers'
     }
 };
