@@ -15,6 +15,13 @@
         return 'https://api.formspark.io/' + encodeURIComponent(cfg.formId);
     }
 
+    function getFormSubmitAction() {
+        var wh = window.WH_FORMS || {};
+        var id = wh.formsubmitId || wh.notifyEmail;
+        if (!id) return null;
+        return 'https://formsubmit.co/' + encodeURIComponent(id);
+    }
+
     function isFormSubmit() {
         return !!(window.WH_FORMS && window.WH_FORMS.provider === 'formsubmit');
     }
@@ -121,6 +128,18 @@
         return el.value || '';
     }
 
+    function upsertHidden(form, name, value) {
+        var el = form.querySelector('input[type="hidden"][name="' + name + '"]');
+        if (!el) {
+            el = document.createElement('input');
+            el.type = 'hidden';
+            el.name = name;
+            form.appendChild(el);
+        }
+        el.value = value;
+        return el;
+    }
+
     function applyFormSubmitMeta(target, subject) {
         if (target instanceof FormData) {
             target.append('_subject', subject);
@@ -174,32 +193,28 @@
         }, '2027 Metering Bootcamp Interest \u2014 ' + (fieldValue(form, 'utility') || name));
     }
 
-    function buildCareersFormData(form, turnstileToken) {
-        var fd = new FormData();
+    function submitCareersNative(form, turnstileToken) {
+        var action = getFormSubmitAction();
+        if (!action) return false;
+
         var name = fieldValue(form, 'name');
-        var email = fieldValue(form, 'email');
-
-        applyFormSubmitMeta(fd, 'Careers Application: ' + name);
-        fd.append('form_type', 'careers');
-        fd.append('name', name);
-        fd.append('phone', fieldValue(form, 'phone'));
-        fd.append('email', email);
-        fd.append('message', fieldValue(form, 'message') || 'None');
-        fd.append('confirm_requirements', fieldValue(form, 'confirm_requirements') ? 'Yes' : 'No');
-        fd.append('_honey', '');
-        fd.append('_gotcha', '');
-
-        var resume = form.querySelector('[name="resume"]');
-        if (resume && resume.files && resume.files[0]) {
-            fd.append('attachment', resume.files[0], resume.files[0].name);
-            fd.append('resume_filename', resume.files[0].name);
-        }
-
+        upsertHidden(form, '_subject', 'Careers Application: ' + name);
+        upsertHidden(form, '_template', 'table');
+        upsertHidden(form, '_captcha', 'false');
+        upsertHidden(form, '_next', 'https://watthoursolutions.com/careers.html?applied=1#apply-section');
+        upsertHidden(form, 'form_type', 'careers');
         if (turnstileToken) {
-            fd.append('cf-turnstile-response', turnstileToken);
+            upsertHidden(form, 'cf-turnstile-response', turnstileToken);
         }
 
-        return fd;
+        var resume = form.querySelector('input[type="file"][name="resume"], input[type="file"][name="attachment"]');
+        if (resume) resume.name = 'attachment';
+
+        form.setAttribute('action', action);
+        form.setAttribute('method', 'POST');
+        form.setAttribute('enctype', 'multipart/form-data');
+        form.submit();
+        return true;
     }
 
     function submitJson(endpoint, payload, turnstileToken) {
@@ -214,16 +229,6 @@
                 Accept: 'application/json'
             },
             body: JSON.stringify(payload)
-        });
-    }
-
-    function submitMultipart(endpoint, formData) {
-        return fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json'
-            },
-            body: formData
         });
     }
 
@@ -264,6 +269,17 @@
         return 'Something went wrong. Please try again in a moment.';
     }
 
+    function showAppliedFromQuery() {
+        if (window.location.search.indexOf('applied=1') === -1) return;
+        var form = document.querySelector('form[data-wh-form="careers"]');
+        if (!form) return;
+        var successEl = document.getElementById(form.getAttribute('data-wh-success'));
+        showSuccess(form, successEl);
+        if (window.history && window.history.replaceState) {
+            window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+        }
+    }
+
     function initForm(form) {
         var formKey = form.getAttribute('data-wh-form');
         if (!formKey) return;
@@ -273,7 +289,7 @@
         var errorEl = form.querySelector('[data-wh-form-error]');
         var successEl = document.getElementById(form.getAttribute('data-wh-success'));
         var modalId = form.getAttribute('data-wh-modal-target');
-        var useMultipart = formKey === 'careers';
+        var isCareers = formKey === 'careers';
         var needsTurnstile = !!(window.WH_FORMS && window.WH_FORMS.turnstileSiteKey && window.WH_FORMS.turnstileSiteKey.indexOf('YOUR_') !== 0);
 
         form.addEventListener('submit', function (e) {
@@ -287,12 +303,6 @@
                 return;
             }
 
-            var endpoint = getEndpoint(formKey);
-            if (!endpoint) {
-                showError(errorEl, 'Form is not configured yet. Please check back soon.');
-                return;
-            }
-
             var turnstileToken = getTurnstileToken();
             if (needsTurnstile && !turnstileToken) {
                 showError(errorEl, 'Please complete the security check below, then try again.');
@@ -300,19 +310,29 @@
             }
 
             hideError(errorEl);
-            setSubmitting(submitBtn, true, idleHtml);
 
-            var request;
-            if (useMultipart) {
-                request = submitMultipart(endpoint, buildCareersFormData(form, turnstileToken));
-            } else {
-                var payload = formKey === 'training'
-                    ? buildTrainingPayload(form)
-                    : buildContactPayload(form);
-                request = submitJson(endpoint, payload, turnstileToken);
+            if (isCareers && isFormSubmit()) {
+                setSubmitting(submitBtn, true, idleHtml);
+                if (!submitCareersNative(form, turnstileToken)) {
+                    setSubmitting(submitBtn, false, idleHtml);
+                    showError(errorEl, 'Form is not configured yet. Please check back soon.');
+                }
+                return;
             }
 
-            request
+            var endpoint = getEndpoint(formKey);
+            if (!endpoint) {
+                showError(errorEl, 'Form is not configured yet. Please check back soon.');
+                return;
+            }
+
+            setSubmitting(submitBtn, true, idleHtml);
+
+            var payload = formKey === 'training'
+                ? buildTrainingPayload(form)
+                : buildContactPayload(form);
+
+            submitJson(endpoint, payload, turnstileToken)
                 .then(parseSubmitResponse)
                 .then(function () {
                     form.reset();
@@ -337,6 +357,7 @@
     function init() {
         initModals();
         initTurnstile();
+        showAppliedFromQuery();
         document.querySelectorAll('form[data-wh-form]').forEach(initForm);
     }
 
