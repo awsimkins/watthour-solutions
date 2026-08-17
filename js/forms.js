@@ -2,11 +2,21 @@
     'use strict';
 
     function getEndpoint(formKey) {
-        var cfg = window.WH_FORMS && window.WH_FORMS[formKey];
-        if (!cfg || !cfg.formId || cfg.formId.indexOf('YOUR_') === 0) {
+        var wh = window.WH_FORMS || {};
+        if (wh.provider === 'formsubmit') {
+            var id = wh.formsubmitId || wh.notifyEmail;
+            if (!id) return null;
+            return 'https://formsubmit.co/ajax/' + encodeURIComponent(id);
+        }
+        var cfg = wh[formKey];
+        if (!cfg || !cfg.formId || String(cfg.formId).indexOf('YOUR_') === 0) {
             return null;
         }
         return 'https://api.formspark.io/' + encodeURIComponent(cfg.formId);
+    }
+
+    function isFormSubmit() {
+        return !!(window.WH_FORMS && window.WH_FORMS.provider === 'formsubmit');
     }
 
     function getTurnstileToken() {
@@ -111,14 +121,27 @@
         return el.value || '';
     }
 
+    function applyFormSubmitMeta(target, subject) {
+        if (target instanceof FormData) {
+            target.append('_subject', subject);
+            target.append('_template', 'table');
+            target.append('_captcha', 'false');
+            return target;
+        }
+        target._subject = subject;
+        if (isFormSubmit()) {
+            target._template = 'table';
+            target._captcha = 'false';
+        }
+        return target;
+    }
+
     function buildContactPayload(form) {
         var name = fieldValue(form, 'name');
         var email = fieldValue(form, 'email');
         var inquiry = fieldValue(form, 'inquiry_type') || 'General Inquiry';
 
-        return {
-            _subject: 'Watthour Contact: ' + inquiry,
-            _email: email,
+        return applyFormSubmitMeta({
             form_type: 'contact',
             name: name,
             email: email,
@@ -127,7 +150,7 @@
             inquiry_type: inquiry,
             message: fieldValue(form, 'message'),
             _gotcha: ''
-        };
+        }, 'Watthour Contact: ' + inquiry);
     }
 
     function buildTrainingPayload(form) {
@@ -136,9 +159,7 @@
         var notify = form.querySelector('[name="notify_me"]');
         var contact = form.querySelector('[name="contact_me"]');
 
-        return {
-            _subject: '2027 Metering Bootcamp Interest — ' + (fieldValue(form, 'utility') || name),
-            _email: email,
+        return applyFormSubmitMeta({
             form_type: 'training',
             utility: fieldValue(form, 'utility'),
             name: name,
@@ -150,7 +171,7 @@
             contact_me: contact && contact.checked ? contact.value : 'No',
             message: fieldValue(form, 'message') || 'None',
             _gotcha: ''
-        };
+        }, '2027 Metering Bootcamp Interest \u2014 ' + (fieldValue(form, 'utility') || name));
     }
 
     function buildCareersFormData(form, turnstileToken) {
@@ -158,19 +179,20 @@
         var name = fieldValue(form, 'name');
         var email = fieldValue(form, 'email');
 
-        fd.append('_subject', 'Careers Application: ' + name);
-        fd.append('_email', email);
+        applyFormSubmitMeta(fd, 'Careers Application: ' + name);
         fd.append('form_type', 'careers');
         fd.append('name', name);
         fd.append('phone', fieldValue(form, 'phone'));
         fd.append('email', email);
         fd.append('message', fieldValue(form, 'message') || 'None');
         fd.append('confirm_requirements', fieldValue(form, 'confirm_requirements') ? 'Yes' : 'No');
+        fd.append('_honey', '');
         fd.append('_gotcha', '');
 
         var resume = form.querySelector('[name="resume"]');
         if (resume && resume.files && resume.files[0]) {
-            fd.append('resume', resume.files[0]);
+            fd.append('attachment', resume.files[0], resume.files[0].name);
+            fd.append('resume_filename', resume.files[0].name);
         }
 
         if (turnstileToken) {
@@ -198,13 +220,30 @@
     function submitMultipart(endpoint, formData) {
         return fetch(endpoint, {
             method: 'POST',
+            headers: {
+                Accept: 'application/json'
+            },
             body: formData
         });
     }
 
-    function handleResponseError(response) {
+    function parseSubmitResponse(response) {
         return response.text().then(function (text) {
-            throw new Error(text || 'Submit failed');
+            var data = null;
+            try {
+                data = text ? JSON.parse(text) : null;
+            } catch (e) {
+                data = null;
+            }
+
+            var ok = response.ok;
+            if (data && (data.success === 'false' || data.success === false)) ok = false;
+            if (data && (data.success === 'true' || data.success === true)) ok = true;
+
+            if (!ok) {
+                throw new Error((data && data.message) ? data.message : (text || 'Submit failed'));
+            }
+            return data || response;
         });
     }
 
@@ -212,6 +251,12 @@
         var msg = (err && err.message) ? String(err.message) : '';
         if (msg.indexOf('does not exist') !== -1) {
             return 'The form is not configured correctly yet. Please try again later.';
+        }
+        if (msg.indexOf('Activation') !== -1 || msg.indexOf('Activate Form') !== -1) {
+            return 'The application inbox still needs a one-time email confirmation. Please try again in a few minutes.';
+        }
+        if (msg.indexOf('file uploads are not supported') !== -1) {
+            return 'Resume upload is not available on this form yet. Please try again shortly.';
         }
         if (msg.indexOf('Turnstile') !== -1 || msg.indexOf('captcha') !== -1) {
             return 'Security check failed. Please complete the check and try again.';
@@ -268,10 +313,7 @@
             }
 
             request
-                .then(function (response) {
-                    if (!response.ok) return handleResponseError(response);
-                    return response;
-                })
+                .then(parseSubmitResponse)
                 .then(function () {
                     form.reset();
                     resetTurnstile();
