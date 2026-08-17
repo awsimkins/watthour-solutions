@@ -26,6 +26,17 @@
         return !!(window.WH_FORMS && window.WH_FORMS.provider === 'formsubmit');
     }
 
+    var MAX_RESUME_BYTES = 1 * 1024 * 1024;
+
+    function getResumeInput(form) {
+        return form.querySelector('input[type="file"][name="resume"], input[type="file"][name="attachment"]');
+    }
+
+    function resumeTooLarge(form) {
+        var input = getResumeInput(form);
+        return !!(input && input.files && input.files[0] && input.files[0].size > MAX_RESUME_BYTES);
+    }
+
     function getTurnstileToken() {
         if (!window.turnstile || window.WH_FORMS.turnstileWidgetId == null) {
             return '';
@@ -292,6 +303,18 @@
         var isCareers = formKey === 'careers';
         var needsTurnstile = !!(window.WH_FORMS && window.WH_FORMS.turnstileSiteKey && window.WH_FORMS.turnstileSiteKey.indexOf('YOUR_') !== 0);
 
+        var resumeInput = getResumeInput(form);
+        if (isCareers && resumeInput) {
+            resumeInput.addEventListener('change', function () {
+                if (resumeTooLarge(form)) {
+                    showError(errorEl, 'Resume must be 1 MB or smaller. Please choose a smaller PDF, DOC, or DOCX file.');
+                    resumeInput.value = '';
+                } else {
+                    hideError(errorEl);
+                }
+            });
+        }
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -300,6 +323,11 @@
 
             if (!form.checkValidity()) {
                 form.reportValidity();
+                return;
+            }
+
+            if (isCareers && resumeTooLarge(form)) {
+                showError(errorEl, 'Resume must be 1 MB or smaller. Please choose a smaller PDF, DOC, or DOCX file.');
                 return;
             }
 
