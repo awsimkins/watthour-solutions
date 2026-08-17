@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
         body { font-family: 'Inter', system_ui, sans-serif; }
         .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
         
@@ -32,7 +32,6 @@
     </style>
 </head>
 <body class="bg-slate-950 text-white">
-    <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-x-4">
@@ -74,7 +73,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="pt-20 pb-12 bg-gradient-to-b from-slate-950 to-slate-900">
         <div class="max-w-3xl mx-auto px-6 text-center">
             <span class="text-blue-400 text-sm font-semibold tracking-widest">LET'S CONNECT</span>
@@ -87,10 +85,9 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
     <section id="contact-form" class="max-w-2xl mx-auto px-6 pb-16">
         <div class="bg-slate-900 border border-white/10 rounded-3xl p-10">
-            <form id="contact-form" data-wh-form="contact" data-wh-modal-target="contact-success-modal" method="POST" class="space-y-6" novalidate>
+            <form id="contact-form-fields" data-wh-form="contact" data-wh-modal-target="contact-success-modal" method="POST" class="space-y-6" novalidate>
                 <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -153,7 +150,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-t border-white/10 py-10 text-sm text-slate-400">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4">
             <div>© 2026 Watthour Solutions. All rights reserved.</div>
@@ -170,7 +166,6 @@
         </div>
     </footer>
 
-    <!-- Success Modal -->
     <div id="contact-success-modal" data-wh-modal class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/70">
         <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 max-w-md w-full text-center">
             <i class="fa-solid fa-circle-check text-emerald-400 text-4xl mb-4"></i>
@@ -180,9 +175,9 @@
         </div>
     </div>
 
-    <script src="js/forms-config.js?v=2"></script>
+    <script src="js/forms-config.js?v=3"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="js/forms.js?v=2"></script>
+    <script src="js/forms.js?v=3"></script>
     <script>
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
