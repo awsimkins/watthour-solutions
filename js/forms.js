@@ -275,6 +275,9 @@
         if (msg.indexOf('Turnstile') !== -1 || msg.indexOf('captcha') !== -1) {
             return 'Security check failed. Please complete the check and try again.';
         }
+        if (msg && msg.length < 220 && msg.indexOf('{') === -1 && msg.indexOf('<') === -1) {
+            return msg;
+        }
         return 'Something went wrong. Please try again in a moment.';
     }
 
