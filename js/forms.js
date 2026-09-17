@@ -4,9 +4,7 @@
     function getEndpoint(formKey) {
         var wh = window.WH_FORMS || {};
         if (wh.provider === 'formsubmit') {
-            var id = wh.formsubmitId || wh.notifyEmail;
-            if (!id) return null;
-            return 'https://formsubmit.co/ajax/' + encodeURIComponent(id);
+            return '/api/form';
         }
         var cfg = wh[formKey];
         if (!cfg || !cfg.formId || String(cfg.formId).indexOf('YOUR_') === 0) {
@@ -221,7 +219,7 @@
         var resume = form.querySelector('input[type="file"][name="resume"], input[type="file"][name="attachment"]');
         if (resume) resume.name = 'attachment';
 
-        form.setAttribute('action', action);
+        form.setAttribute('action', '/api/form');
         form.setAttribute('method', 'POST');
         form.setAttribute('enctype', 'multipart/form-data');
         form.submit();
