@@ -120,11 +120,12 @@
                     <label class="block text-sm font-medium mb-2 text-slate-300">How can we help you? *</label>
                     <select name="inquiry_type" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                         <option value="">Please select</option>
+                        <option value="Billing Corrections / Revenue Recovery">Billing Corrections or Revenue Recovery</option>
                         <option value="CT Meter Testing / Audit">CT Meter Testing or Audit</option>
                         <option value="Field Testing">Field Testing</option>
-                        <option value="Billing Corrections / Revenue Recovery">Billing Corrections or Revenue Recovery</option>
-                        <option value="Training / Bootcamp">Training or 2027 Metering Bootcamp</option>
                         <option value="General Inquiry">General Inquiry</option>
+                        <option value="Training / Bootcamp">Training or 2027 Metering Bootcamp</option>
+                        <option value="Watthour Solutions Vault Issue">Watthour Solutions Vault Issue</option>
                     </select>
                 </div>
                 
@@ -184,6 +185,15 @@
         if (mobileBtn) {
             mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         }
+    </script>
+    <script>
+        (function () {
+            const q = new URLSearchParams(location.search).get('inquiry');
+            if (q === 'vault') {
+                const sel = document.querySelector('select[name="inquiry_type"]');
+                if (sel) sel.value = 'Watthour Solutions Vault Issue';
+            }
+        })();
     </script>
 </body>
 </html>
