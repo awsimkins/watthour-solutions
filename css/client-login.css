@@ -9,9 +9,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.42rem 0.85rem;
-    border-radius: 0.6rem;
-    font-size: 0.8125rem;
+    padding: 0.525rem 1.0625rem;
+    border-radius: 0.7rem;
+    font-size: 1.015625rem;
     font-weight: 600;
     letter-spacing: 0.01em;
     line-height: 1.2;
@@ -65,9 +65,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.7rem 1rem;
+    padding: 0.875rem 1.25rem;
     border-radius: 0.75rem;
-    font-size: 0.875rem;
+    font-size: 1.09375rem;
     font-weight: 600;
     color: #1c1917;
     text-decoration: none;
@@ -84,6 +84,6 @@
 /* Keep the logo clear of the absolute control on mid widths only. */
 @media (min-width: 768px) and (max-width: 1536px) {
     nav > .max-w-7xl {
-        padding-left: 9.75rem;
+        padding-left: 12.25rem;
     }
 }
