@@ -1,0 +1,89 @@
+/* Client Login — viewport-left of the fixed nav only. Do not restyle other buttons. */
+
+.wh-client-login {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.42rem 0.85rem;
+    border-radius: 0.6rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    color: #1c1917;
+    text-decoration: none;
+    white-space: nowrap;
+    background: linear-gradient(180deg, #fde68a 0%, #fbbf24 48%, #d97706 100%);
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.wh-client-login::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.55) 50%,
+        transparent 65%
+    );
+    transform: translateX(-130%);
+    pointer-events: none;
+}
+
+.wh-client-login:hover,
+.wh-client-login:focus-visible {
+    transform: translateY(calc(-50% - 3px)) scale(1.06);
+    filter: brightness(1.08);
+    box-shadow:
+        0 0 0 1px rgba(253, 230, 138, 0.55),
+        0 10px 26px rgba(245, 158, 11, 0.5),
+        0 0 34px rgba(251, 191, 36, 0.45);
+    outline: none;
+}
+
+.wh-client-login:hover::after,
+.wh-client-login:focus-visible::after {
+    animation: wh-client-login-shine 0.7s ease forwards;
+}
+
+@keyframes wh-client-login-shine {
+    to {
+        transform: translateX(130%);
+    }
+}
+
+.wh-client-login-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1c1917;
+    text-decoration: none;
+    background: linear-gradient(180deg, #fde68a 0%, #fbbf24 48%, #d97706 100%);
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+}
+
+@media (max-width: 767px) {
+    .wh-client-login {
+        display: none;
+    }
+}
+
+/* Keep the logo clear of the absolute control on mid widths only. */
+@media (min-width: 768px) and (max-width: 1536px) {
+    nav > .max-w-7xl {
+        padding-left: 9.75rem;
+    }
+}

@@ -18,6 +18,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/client-login.css">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
@@ -44,6 +45,7 @@
 <body class="bg-slate-950 text-white">
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur-lg">
+        <a class="wh-client-login" href="https://clients.watthoursolutions.com">Client Login</a>
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-x-4">
                 <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
@@ -77,6 +79,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
             <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
+                <a class="wh-client-login-mobile" href="https://clients.watthoursolutions.com">Client Login</a>
                 <a href="index.html" class="py-1 text-blue-400">Home</a>
                 <a href="services.html" class="py-1 hover:text-blue-400">Services</a>
                 <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
@@ -90,43 +93,36 @@
 
     <!-- Hero -->
     <section class="pt-20 pb-16 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div class="max-w-6xl mr-auto ml-0 pl-3 md:pl-4 pr-6 grid md:grid-cols-12 gap-6 md:gap-8 items-start">
-            <div class="md:col-span-3">
-                <a href="https://clients.watthoursolutions.com" class="block rounded-2xl px-5 py-3 bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500 text-slate-950 font-semibold text-xl heading-font tracking-tight text-center shadow-[0_12px_28px_rgba(245,158,11,0.28)] hover:brightness-105 transition-all">
-                    Client Login
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
+                REBRANDED &amp; UPGRADED FOR 2026
+            </div>
+            <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter heading-font leading-none mb-6">
+                Precision<br>Metering.<br>Proven Results.
+            </h1>
+            <p class="text-xl text-slate-300 max-w-2xl mb-8">
+                Expert CT meter testing, metering audits, field testing, and revenue recovery for Midwest utilities and electric cooperatives.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#services" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl text-lg transition-all text-center">
+                    Explore Services
+                </a>
+                <a href="training.html" class="px-8 py-4 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl text-lg transition-all text-center">
+                    View Training Programs
                 </a>
             </div>
-            <div class="md:col-span-9 flex flex-col justify-center text-left">
-                <div class="inline-block self-start px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
-                    REBRANDED &amp; UPGRADED FOR 2026
+            <div class="mt-12 grid grid-cols-3 gap-8 max-w-md text-left">
+                <div>
+                    <div class="text-3xl font-semibold">30</div>
+                    <div class="text-sm text-slate-400">Years Experience</div>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter heading-font leading-none mb-6">
-                    Precision<br>Metering.<br>Proven Results.
-                </h1>
-                <p class="text-xl text-slate-300 max-w-2xl mb-8">
-                    Expert CT meter testing, metering audits, field testing, and revenue recovery for Midwest utilities and electric cooperatives.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#services" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl text-lg transition-all text-center">
-                        Explore Services
-                    </a>
-                    <a href="training.html" class="px-8 py-4 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl text-lg transition-all text-center">
-                        View Training Programs
-                    </a>
+                <div>
+                    <div class="text-3xl font-semibold">$1M+</div>
+                    <div class="text-sm text-slate-400">Revenue Recovered</div>
                 </div>
-                <div class="mt-12 grid grid-cols-3 gap-8 max-w-md text-left">
-                    <div>
-                        <div class="text-3xl font-semibold">30</div>
-                        <div class="text-sm text-slate-400">Years Experience</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-semibold">$1M+</div>
-                        <div class="text-sm text-slate-400">Revenue Recovered</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-semibold">20</div>
-                        <div class="text-sm text-slate-400">Utilities Served</div>
-                    </div>
+                <div>
+                    <div class="text-3xl font-semibold">20</div>
+                    <div class="text-sm text-slate-400">Utilities Served</div>
                 </div>
             </div>
         </div>
