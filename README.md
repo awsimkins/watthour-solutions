@@ -15,7 +15,7 @@ Official website for **Watthour Solutions** — precision metering, CT meter tes
 | **Experience** | 30+ years in electric metering and utility operations |
 | **Service area** | Midwest utilities and electric cooperatives |
 | **Contact** | [watthoursolutions.com/contact.html](https://watthoursolutions.com/contact.html) |
-| **Email (notifications)** | `contact@watthoursolutions.com` (Formspark — not displayed on site) |
+| **Email (notifications)** | `asimkins@watthoursolutions.com` (FormSubmit) |
 
 Previously **Innovative Electric Services**, rebranded in 2025–2026 as Watthour Solutions.
 
@@ -37,35 +37,25 @@ Previously **Innovative Electric Services**, rebranded in 2025–2026 as Watthou
 ## Tech stack
 
 - **HTML + Tailwind CSS** (CDN)
-- **Vanilla JavaScript** — mobile menu, Formspark form handling (`js/forms.js`)
-- **Formspark** — all site forms
-- **Cloudflare Turnstile** — spam protection on forms
+- **Vanilla JavaScript** — mobile menu, form handling (`js/forms.js`)
+- **FormSubmit** — all site forms
+- **Cloudflare Turnstile** — spam protection on forms (business account widget `watthour-solutions`)
 - **GitHub Pages** — hosting with custom domain via `CNAME`
 
 No build step required.
 
 ---
 
-## Forms (Formspark + Turnstile)
+## Forms (FormSubmit + Turnstile)
 
-All form IDs live in `js/forms-config.js`:
+All form IDs live in `js/forms-config.js`. Contact, training (meter school), and careers share one Turnstile site key.
 
-| Form | Config key | Formspark ID | Page |
-|------|------------|--------------|------|
-| Contact | `contact.formId` | `form_v1_XDr3rzLmlcH4XAciA5xiLMuC` | `contact.html` |
-| 2027 Bootcamp interest | `training.formId` | `form_v1_skGpnkEJeUacRlevaT5BMMPX` | `training.html` |
-| Careers application | `careers.formId` | `form_v1_qSDKbwiHcEha7g8qgONPBDIO` | `careers.html` |
-
-**Turnstile site key** (public, in `js/forms-config.js`): `0x4AAAAAADrY__8JcwJg7-i9`  
-**Turnstile secret key:** Formspark dashboard only — never commit to the repo.
-
-### Notification emails (Formspark dashboard)
-
-Set notification email to `contact@watthoursolutions.com` on each form.
+**Turnstile site key** (public, in `js/forms-config.js`): `0x4AAAAAAE6bVfFEsjSahtZF`  
+**Turnstile secret key:** Cloudflare Turnstile dashboard only — never commit to the repo.
 
 ### Careers resume uploads
 
-The careers form uses multipart file upload. Ensure **file uploads are enabled** in that Formspark form's settings.
+The careers form uses multipart file upload.
 
 ---
 
@@ -96,16 +86,6 @@ Open [http://localhost:8000](http://localhost:8000). Use a local server (not `fi
 1. Edit files locally.
 2. Commit and push to `main`.
 3. GitHub Pages deploys automatically to [watthoursolutions.com](https://watthoursolutions.com).
-
----
-
-## GitHub repository settings
-
-Recommended **description** (paste in repo Settings → General):
-
-> Official website for Watthour Solutions — precision metering, CT testing, revenue recovery, and utility training for Midwest cooperatives.
-
-**Website URL:** `https://watthoursolutions.com`
 
 ---
 
