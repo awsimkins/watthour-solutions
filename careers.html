@@ -11,15 +11,16 @@
     <meta property="og:title" content="Careers • Watthour Solutions">
     <meta property="og:description" content="Now hiring a temporary Seasonal Field Technician Assistant. Weekdays only. May lead to a full-time position.">
     <meta property="og:url" content="https://watthoursolutions.com/careers.html">
+    <link rel="canonical" href="https://watthoursolutions.com/careers.html">
     <meta property="og:image" content="https://watthoursolutions.com/logo.png">
     <link rel="icon" type="image/png" href="logo.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/tailwind.min.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/client-login.css?v=10">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
         .nav-active { position: relative; }
         .nav-active:after {
             content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
@@ -51,8 +52,8 @@
                 </a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
-                <i class="fa-solid fa-bars text-xl"></i>
+            <button id="mobile-menu-btn" type="button" class="md:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
             </button>
         </div>
 
@@ -173,7 +174,7 @@
             <h2 class="text-2xl font-semibold heading-font mb-2">Apply Now</h2>
             <p class="text-slate-400 mb-8">We review applications on a rolling basis. Qualified candidates will be contacted for further steps.</p>
 
-            <div id="success-message" class="hidden mb-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl">
+            <div id="success-message" role="status" class="hidden mb-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl">
                 <div class="flex items-start gap-x-3">
                     <i class="fa-solid fa-circle-check text-emerald-400 text-xl mt-0.5"></i>
                     <div>
@@ -188,31 +189,31 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-slate-300">Full Name *</label>
-                        <input type="text" name="name" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
+                        <label for="careers-name" class="block text-sm font-medium mb-2 text-slate-300">Full Name *</label>
+                        <input type="text" id="careers-name" name="name" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-slate-300">Phone Number *</label>
-                        <input type="tel" name="phone" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
+                        <label for="careers-phone" class="block text-sm font-medium mb-2 text-slate-300">Phone Number *</label>
+                        <input type="tel" id="careers-phone" name="phone" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium mb-2 text-slate-300">Email Address *</label>
-                    <input type="email" name="email" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
+                    <label for="careers-email" class="block text-sm font-medium mb-2 text-slate-300">Email Address *</label>
+                    <input type="email" id="careers-email" name="email" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium mb-2 text-slate-300">Upload Resume *</label>
-                    <input type="file" name="resume" accept=".pdf,.doc,.docx" required
+                    <label for="careers-resume" class="block text-sm font-medium mb-2 text-slate-300">Upload Resume *</label>
+                    <input type="file" id="careers-resume" name="resume" accept=".pdf,.doc,.docx" required
                            class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-500">
-                    <p class="text-xs text-slate-500 mt-2">PDF, DOC, or DOCX only. Maximum file size: 1 MB.</p>
+                    <p class="text-xs text-slate-400 mt-2">PDF, DOC, or DOCX only. Maximum file size: 1 MB.</p>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium mb-2 text-slate-300">Additional Information (Optional)</label>
-                    <textarea name="message" rows="3" placeholder="Relevant experience, availability, or questions..."
-                              class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 resize-y"></textarea>
+                    <label for="careers-message" class="block text-sm font-medium mb-2 text-slate-300">Additional Information (Optional)</label>
+                    <textarea id="careers-message" name="message" rows="3" placeholder="Relevant experience, availability, or questions..."
+                              class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500 resize-y"></textarea>
                 </div>
 
                 <div class="flex items-start gap-x-3">
@@ -223,14 +224,14 @@
                 </div>
 
                 <div id="turnstile-widget" class="flex justify-center"></div>
-                <p data-wh-form-error class="hidden text-center text-sm text-red-400"></p>
+                <p data-wh-form-error role="alert" aria-live="assertive" class="hidden text-center text-sm text-red-400"></p>
 
                 <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-500 font-semibold text-lg rounded-2xl transition-all flex items-center justify-center gap-x-3">
                     <span>Submit Application</span>
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
 
-                <p class="text-center text-xs text-slate-500">Your information will only be used for hiring purposes.</p>
+                <p class="text-center text-xs text-slate-400">Your information will only be used for hiring purposes.</p>
             </form>
         </section>
 
@@ -254,12 +255,16 @@
 
     <script src="js/forms-config.js?v=8"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="js/forms.js?v=9"></script>
+    <script src="js/forms.js?v=10"></script>
     <script>
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileBtn.addEventListener('click', () => {
+                const open = mobileMenu.classList.toggle('hidden') === false;
+                mobileBtn.setAttribute('aria-expanded', String(open));
+                mobileBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
         }
     </script>
 </body>

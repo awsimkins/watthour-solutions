@@ -12,18 +12,19 @@
     <meta property="og:title" content="Contact Us • Watthour Solutions">
     <meta property="og:description" content="Get in touch about metering services, audits, training, or project inquiries.">
     <meta property="og:url" content="https://watthoursolutions.com/contact.html">
+    <link rel="canonical" href="https://watthoursolutions.com/contact.html">
     <meta property="og:image" content="https://watthoursolutions.com/logo.png">
     
     <link rel="icon" type="image/png" href="logo.png">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/tailwind.min.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/client-login.css?v=10">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
         
         .nav-active { position: relative; }
         .nav-active:after {
@@ -58,8 +59,8 @@
                 </a>
             </div>
             
-            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
-                <i class="fa-solid fa-bars text-xl"></i>
+            <button id="mobile-menu-btn" type="button" class="md:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
             </button>
         </div>
         
@@ -95,33 +96,33 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-slate-300">Full Name *</label>
-                        <input type="text" name="name" required 
-                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                        <label for="contact-name" class="block text-sm font-medium mb-2 text-slate-300">Full Name *</label>
+                        <input type="text" id="contact-name" name="name" required 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-slate-300">Utility / Company</label>
-                        <input type="text" name="utility" 
-                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                        <label for="contact-utility" class="block text-sm font-medium mb-2 text-slate-300">Utility / Company</label>
+                        <input type="text" id="contact-utility" name="utility" 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-slate-300">Email Address *</label>
-                        <input type="email" name="email" required 
-                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                        <label for="contact-email" class="block text-sm font-medium mb-2 text-slate-300">Email Address *</label>
+                        <input type="email" id="contact-email" name="email" required 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-slate-300">Phone Number</label>
-                        <input type="tel" name="phone" 
-                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500">
+                        <label for="contact-phone" class="block text-sm font-medium mb-2 text-slate-300">Phone Number</label>
+                        <input type="tel" id="contact-phone" name="phone" 
+                               class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                 </div>
                 
                 <div>
-                    <label class="block text-sm font-medium mb-2 text-slate-300">How can we help you? *</label>
-                    <select name="inquiry_type" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
+                    <label for="contact-inquiry-type" class="block text-sm font-medium mb-2 text-slate-300">How can we help you? *</label>
+                    <select id="contact-inquiry-type" name="inquiry_type" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                         <option value="">Please select</option>
                         <option value="Billing Corrections / Revenue Recovery">Billing Corrections or Revenue Recovery</option>
                         <option value="CT Meter Testing / Audit">CT Meter Testing or Audit</option>
@@ -133,15 +134,15 @@
                 </div>
                 
                 <div>
-                    <label class="block text-sm font-medium mb-2 text-slate-300">Message *</label>
-                    <textarea name="message" rows="6" required 
-                              class="w-full bg-slate-950 border border-white/20 rounded-3xl px-5 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 resize-y"
+                    <label for="contact-message" class="block text-sm font-medium mb-2 text-slate-300">Message *</label>
+                    <textarea id="contact-message" name="message" rows="6" required 
+                              class="w-full bg-slate-950 border border-white/20 rounded-3xl px-5 py-4 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500 resize-y"
                               placeholder="Tell us more about your needs or questions..."></textarea>
                 </div>
                 
                 <div id="turnstile-widget" class="flex justify-center"></div>
 
-                <p id="contact-form-error" data-wh-form-error class="hidden text-center text-sm text-red-400"></p>
+                <p id="contact-form-error" data-wh-form-error role="alert" aria-live="assertive" class="hidden text-center text-sm text-red-400"></p>
 
                 <button type="submit" 
                         class="w-full py-4 bg-blue-600 hover:bg-blue-500 font-semibold text-lg rounded-2xl transition-all flex items-center justify-center gap-x-3">
@@ -149,7 +150,7 @@
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
                 
-                <p class="text-center text-xs text-slate-500">We typically respond within a few days.</p>
+                <p class="text-center text-xs text-slate-400">We typically respond within a few days.</p>
             </form>
         </div>
     </section>
@@ -170,10 +171,10 @@
         </div>
     </footer>
 
-    <div id="contact-success-modal" data-wh-modal class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/70">
+    <div id="contact-success-modal" data-wh-modal role="dialog" aria-modal="true" aria-labelledby="contact-success-title" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/70">
         <div class="bg-slate-900 border border-white/10 rounded-3xl p-8 max-w-md w-full text-center">
-            <i class="fa-solid fa-circle-check text-emerald-400 text-4xl mb-4"></i>
-            <h3 class="text-xl font-semibold mb-2">Message Sent</h3>
+            <i class="fa-solid fa-circle-check text-emerald-400 text-4xl mb-4" aria-hidden="true"></i>
+            <h3 id="contact-success-title" class="text-xl font-semibold mb-2">Message Sent</h3>
             <p class="text-slate-300 text-sm mb-6">Thank you — we'll get back to you within a few days.</p>
             <button type="button" onclick="closeWhModal('contact-success-modal')" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-xl font-medium transition-all">Close</button>
         </div>
@@ -181,12 +182,16 @@
 
     <script src="js/forms-config.js?v=8"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="js/forms.js?v=9"></script>
+    <script src="js/forms.js?v=10"></script>
     <script>
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileBtn) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileBtn.addEventListener('click', () => {
+                const open = mobileMenu.classList.toggle('hidden') === false;
+                mobileBtn.setAttribute('aria-expanded', String(open));
+                mobileBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
         }
     </script>
     <script>
