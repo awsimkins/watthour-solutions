@@ -12,18 +12,19 @@
     <meta property="og:title" content="About Us • Watthour Solutions">
     <meta property="og:description" content="Founded by Anthony W. Simkins — 30+ years of precision metering and utility expertise across the Midwest.">
     <meta property="og:url" content="https://watthoursolutions.com/about.html">
+    <link rel="canonical" href="https://watthoursolutions.com/about.html">
     <meta property="og:image" content="https://watthoursolutions.com/logo.png">
     
     <link rel="icon" type="image/png" href="logo.png">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/tailwind.min.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/client-login.css?v=10">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
         
         .nav-active { position: relative; }
         .nav-active:after {
@@ -62,8 +63,8 @@
                 </a>
             </div>
             
-            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
-                <i class="fa-solid fa-bars text-xl"></i>
+            <button id="mobile-menu-btn" type="button" class="md:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
             </button>
         </div>
         
@@ -191,7 +192,11 @@
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileBtn) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileBtn.addEventListener('click', () => {
+                const open = mobileMenu.classList.toggle('hidden') === false;
+                mobileBtn.setAttribute('aria-expanded', String(open));
+                mobileBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
         }
     </script>
 </body>
