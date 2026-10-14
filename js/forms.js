@@ -1,27 +1,12 @@
 (function () {
     'use strict';
 
-    function getEndpoint(formKey) {
-        var wh = window.WH_FORMS || {};
-        if (wh.provider === 'formsubmit') {
-            return '/api/form';
-        }
-        var cfg = wh[formKey];
-        if (!cfg || !cfg.formId || String(cfg.formId).indexOf('YOUR_') === 0) {
-            return null;
-        }
-        return 'https://api.formspark.io/' + encodeURIComponent(cfg.formId);
-    }
+    // All forms post to the site's /api/form relay (FormSubmit backend).
+    var FORM_ENDPOINT = '/api/form';
 
-    function getFormSubmitAction() {
+    function getEndpoint() {
         var wh = window.WH_FORMS || {};
-        var id = wh.formsubmitId || wh.notifyEmail;
-        if (!id) return null;
-        return 'https://formsubmit.co/' + encodeURIComponent(id);
-    }
-
-    function isFormSubmit() {
-        return !!(window.WH_FORMS && window.WH_FORMS.provider === 'formsubmit');
+        return wh.provider === 'formsubmit' ? FORM_ENDPOINT : null;
     }
 
     var MAX_RESUME_BYTES = 1 * 1024 * 1024;
@@ -62,7 +47,9 @@
             }
             window.WH_FORMS.turnstileWidgetId = window.turnstile.render('#turnstile-widget', {
                 sitekey: siteKey,
-                theme: 'dark'
+                theme: 'dark',
+                // Tokens expire after ~5 minutes; get a fresh one automatically.
+                'expired-callback': resetTurnstile
             });
         }
 
@@ -92,10 +79,14 @@
     function showSuccess(form, successEl) {
         if (successEl) {
             successEl.classList.remove('hidden');
+            successEl.setAttribute('tabindex', '-1');
+            successEl.focus({ preventScroll: true });
             successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         if (form) form.classList.add('hidden');
     }
+
+    var lastFocused = null;
 
     function showModal(modalId) {
         var modal = document.getElementById(modalId);
@@ -103,6 +94,9 @@
         modal.classList.remove('hidden');
         modal.classList.add('is-open');
         document.body.style.overflow = 'hidden';
+        lastFocused = document.activeElement;
+        var focusTarget = modal.querySelector('button, [href], input, select, textarea');
+        if (focusTarget) focusTarget.focus();
     }
 
     window.closeWhModal = function (modalId) {
@@ -111,6 +105,10 @@
         modal.classList.remove('is-open');
         modal.classList.add('hidden');
         document.body.style.overflow = '';
+        if (lastFocused && typeof lastFocused.focus === 'function') {
+            lastFocused.focus();
+        }
+        lastFocused = null;
     };
 
     function initModals() {
@@ -137,30 +135,10 @@
         return el.value || '';
     }
 
-    function upsertHidden(form, name, value) {
-        var el = form.querySelector('input[type="hidden"][name="' + name + '"]');
-        if (!el) {
-            el = document.createElement('input');
-            el.type = 'hidden';
-            el.name = name;
-            form.appendChild(el);
-        }
-        el.value = value;
-        return el;
-    }
-
     function applyFormSubmitMeta(target, subject) {
-        if (target instanceof FormData) {
-            target.append('_subject', subject);
-            target.append('_template', 'table');
-            target.append('_captcha', 'false');
-            return target;
-        }
         target._subject = subject;
-        if (isFormSubmit()) {
-            target._template = 'table';
-            target._captcha = 'false';
-        }
+        target._template = 'table';
+        target._captcha = 'false';
         return target;
     }
 
@@ -202,28 +180,34 @@
         }, '2027 Metering Bootcamp Interest \u2014 ' + (fieldValue(form, 'utility') || name));
     }
 
-    function submitCareersNative(form, turnstileToken) {
-        var action = getFormSubmitAction();
-        if (!action) return false;
-
+    function buildCareersFormData(form, turnstileToken) {
         var name = fieldValue(form, 'name');
-        upsertHidden(form, '_subject', 'Careers Application: ' + name);
-        upsertHidden(form, '_template', 'table');
-        upsertHidden(form, '_captcha', 'false');
-        upsertHidden(form, '_next', 'https://watthoursolutions.com/careers.html?applied=1#apply-section');
-        upsertHidden(form, 'form_type', 'careers');
+        var data = new FormData(form);
+        data.set('_subject', 'Careers Application: ' + name);
+        data.set('_template', 'table');
+        data.set('_captcha', 'false');
+        data.set('_next', 'https://watthoursolutions.com/careers.html?applied=1#apply-section');
+        data.set('form_type', 'careers');
         if (turnstileToken) {
-            upsertHidden(form, 'cf-turnstile-response', turnstileToken);
+            data.set('cf-turnstile-response', turnstileToken);
         }
+        // FormSubmit expects the uploaded file under "attachment".
+        var resume = getResumeInput(form);
+        if (resume && resume.name !== 'attachment') {
+            data.delete(resume.name);
+            if (resume.files && resume.files[0]) {
+                data.append('attachment', resume.files[0], resume.files[0].name);
+            }
+        }
+        return data;
+    }
 
-        var resume = form.querySelector('input[type="file"][name="resume"], input[type="file"][name="attachment"]');
-        if (resume) resume.name = 'attachment';
-
-        form.setAttribute('action', '/api/form');
-        form.setAttribute('method', 'POST');
-        form.setAttribute('enctype', 'multipart/form-data');
-        form.submit();
-        return true;
+    function submitMultipart(endpoint, formData) {
+        return fetch(endpoint, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: formData
+        });
     }
 
     function submitJson(endpoint, payload, turnstileToken) {
@@ -274,6 +258,9 @@
         }
         if (msg.indexOf('Turnstile') !== -1 || msg.indexOf('captcha') !== -1) {
             return 'Security check failed. Please complete the check and try again.';
+        }
+        if (msg.indexOf('Failed to fetch') !== -1 || msg.indexOf('NetworkError') !== -1) {
+            return 'We could not reach the server. Please check your connection and try again.';
         }
         if (msg && msg.length < 220 && msg.indexOf('{') === -1 && msg.indexOf('<') === -1) {
             return msg;
@@ -340,16 +327,7 @@
 
             hideError(errorEl);
 
-            if (isCareers && isFormSubmit()) {
-                setSubmitting(submitBtn, true, idleHtml);
-                if (!submitCareersNative(form, turnstileToken)) {
-                    setSubmitting(submitBtn, false, idleHtml);
-                    showError(errorEl, 'Form is not configured yet. Please check back soon.');
-                }
-                return;
-            }
-
-            var endpoint = getEndpoint(formKey);
+            var endpoint = getEndpoint();
             if (!endpoint) {
                 showError(errorEl, 'Form is not configured yet. Please check back soon.');
                 return;
@@ -357,11 +335,17 @@
 
             setSubmitting(submitBtn, true, idleHtml);
 
-            var payload = formKey === 'training'
-                ? buildTrainingPayload(form)
-                : buildContactPayload(form);
+            var request;
+            if (isCareers) {
+                request = submitMultipart(endpoint, buildCareersFormData(form, turnstileToken));
+            } else {
+                var payload = formKey === 'training'
+                    ? buildTrainingPayload(form)
+                    : buildContactPayload(form);
+                request = submitJson(endpoint, payload, turnstileToken);
+            }
 
-            submitJson(endpoint, payload, turnstileToken)
+            request
                 .then(parseSubmitResponse)
                 .then(function () {
                     form.reset();

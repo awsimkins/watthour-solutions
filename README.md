@@ -48,13 +48,19 @@ Previously **Innovative Electric Services**, rebranded in 2025–2026 as Watthou
 
 ## Tech stack
 
-- **HTML + Tailwind CSS** (CDN)
+- **HTML + Tailwind CSS v3** — precompiled to `css/tailwind.min.css` (no runtime CDN)
 - **Vanilla JavaScript** — mobile menu, form handling (`js/forms.js`)
 - **FormSubmit** — all site forms
 - **Cloudflare Turnstile** — spam protection on forms (business account widget `watthour-solutions`)
 - **GitHub Pages** — hosting with custom domain via `CNAME`
 
-No build step required.
+No build step is needed to *serve* the site. If you add or change Tailwind classes in any `.html` or `js/*.js` file, rebuild the stylesheet:
+
+```bash
+npx tailwindcss@3 -c tailwind.config.js -i src/tailwind.css -o css/tailwind.min.css --minify
+```
+
+Commit the regenerated `css/tailwind.min.css` and bump its `?v=` query string in the HTML files.
 
 ---
 
