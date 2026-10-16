@@ -224,6 +224,9 @@
                 </div>
 
                 <div id="turnstile-widget" class="flex justify-center"></div>
+                <noscript>
+                    <p class="text-center text-sm text-slate-400">JavaScript is off, so this application cannot be sent. Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a>.</p>
+                </noscript>
                 <p data-wh-form-error role="alert" aria-live="assertive" class="hidden text-center text-sm text-red-400"></p>
 
                 <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-500 font-semibold text-lg rounded-2xl transition-all flex items-center justify-center gap-x-3">
@@ -251,11 +254,12 @@
                 <a href="contact.html" class="hover:text-white">Contact us</a>
             </div>
         </div>
+        <p class="max-w-6xl mx-auto px-6 mt-6 text-center text-xs text-slate-400">Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a></p>
     </footer>
 
     <script src="js/forms-config.js?v=8"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="js/forms.js?v=10"></script>
+    <script src="js/forms.js?v=11"></script>
     <script>
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');

@@ -3,6 +3,13 @@
 
     // All forms post to the site's /api/form relay (FormSubmit backend).
     var FORM_ENDPOINT = '/api/form';
+    // Site problems only. Normal form mail still goes to the business inbox.
+    var SITE_SUPPORT_EMAIL = 'support@watthoursolutions.com';
+
+    function withSiteSupport(message) {
+        if (message.indexOf(SITE_SUPPORT_EMAIL) !== -1) return message;
+        return message + ' Having trouble with the site? Email ' + SITE_SUPPORT_EMAIL + '.';
+    }
 
     function getEndpoint() {
         var wh = window.WH_FORMS || {};
@@ -248,24 +255,24 @@
     function friendlyError(err) {
         var msg = (err && err.message) ? String(err.message) : '';
         if (msg.indexOf('does not exist') !== -1) {
-            return 'The form is not configured correctly yet. Please try again later.';
+            return withSiteSupport('The form is not configured correctly yet. Please try again later.');
         }
         if (msg.indexOf('Activation') !== -1 || msg.indexOf('Activate Form') !== -1) {
-            return 'The application inbox still needs a one-time email confirmation. Please try again in a few minutes.';
+            return withSiteSupport('The application inbox still needs a one-time email confirmation. Please try again in a few minutes.');
         }
         if (msg.indexOf('file uploads are not supported') !== -1) {
-            return 'Resume upload is not available on this form yet. Please try again shortly.';
+            return withSiteSupport('Resume upload is not available on this form yet. Please try again shortly.');
         }
         if (msg.indexOf('Turnstile') !== -1 || msg.indexOf('captcha') !== -1) {
-            return 'Security check failed. Please complete the check and try again.';
+            return withSiteSupport('Security check failed. Please complete the check and try again.');
         }
         if (msg.indexOf('Failed to fetch') !== -1 || msg.indexOf('NetworkError') !== -1) {
-            return 'We could not reach the server. Please check your connection and try again.';
+            return withSiteSupport('We could not reach the server. Please check your connection and try again.');
         }
         if (msg && msg.length < 220 && msg.indexOf('{') === -1 && msg.indexOf('<') === -1) {
-            return msg;
+            return withSiteSupport(msg);
         }
-        return 'Something went wrong. Please try again in a moment.';
+        return withSiteSupport('Something went wrong. Please try again in a moment.');
     }
 
     function showAppliedFromQuery() {
@@ -329,7 +336,7 @@
 
             var endpoint = getEndpoint();
             if (!endpoint) {
-                showError(errorEl, 'Form is not configured yet. Please check back soon.');
+                showError(errorEl, withSiteSupport('Form is not configured yet. Please check back soon.'));
                 return;
             }
 
