@@ -94,9 +94,3 @@ The careers form uses multipart file upload.
 1. Edit files on `\\ws_server\Watthour_Solutions\watthoursolutions_website`.
 2. Commit and push to `main`.
 3. GitHub Pages deploys automatically to [watthoursolutions.com](https://watthoursolutions.com).
-
----
-
-## Deferred / future work
-
-See **[DEFERRED.md](DEFERRED.md)** for the full backlog (forms testing, bootcamp, careers, WSApp, and related projects).
