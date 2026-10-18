@@ -37,7 +37,7 @@ Previously **Innovative Electric Services**, rebranded in 2025–2026 as Watthou
 
 | File | URL | Description |
 |------|-----|-------------|
-| `index.html` | `/` | Home — hero, promo video, services overview, training teaser, testimonials |
+| `index.html` | `/` | Home — hero, services overview, training teaser |
 | `services.html` | `/services.html` | Meter audits, field testing, billing corrections, revenue recovery, CT expertise |
 | `training.html` | `/training.html` | 2027 Metering Bootcamp details + interest form |
 | `about.html` | `/about.html` | Company story, founder background, core values |
@@ -82,7 +82,6 @@ The careers form uses multipart file upload.
 | File | Purpose |
 |------|---------|
 | `logo.png` | Navbar logo and favicon |
-| `watthour-ad.mp4` | Homepage promotional video (~11 MB) |
 | `CNAME` | Custom domain: `watthoursolutions.com` |
 | `js/forms-config.js` | Form IDs and Turnstile site key |
 | `js/forms.js` | Shared form submit handler |
