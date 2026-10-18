@@ -75,14 +75,15 @@
     box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
 }
 
-@media (max-width: 767px) {
+/* Phone and tablet use the menu, which already contains this link. */
+@media (max-width: 1099px) {
     .wh-client-login {
         display: none;
     }
 }
 
-/* Keep the logo clear of the absolute control on mid widths only. */
-@media (min-width: 768px) and (max-width: 1536px) {
+/* Keep the logo clear of the absolute control once the desktop row is showing. */
+@media (min-width: 1100px) and (max-width: 1536px) {
     nav > .max-w-7xl {
         padding-left: 12.25rem;
     }

@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>About Us • Watthour Solutions</title>
-    <meta name="description" content="Learn about Watthour Solutions and founder Anthony W. Simkins. Over 30 years of experience providing precision metering, audits, and training for Midwest utilities and electric cooperatives.">
+    <title>About Watthour Solutions | Anthony W. Simkins</title>
+    <meta name="description" content="Watthour Solutions, founded by Anthony W. Simkins, provides metering audits, CT meter testing, and field work for utilities in Missouri, Kansas, Oklahoma, and Arkansas.">
     <meta name="theme-color" content="#020617">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Watthour Solutions">
-    <meta property="og:title" content="About Us • Watthour Solutions">
-    <meta property="og:description" content="Founded by Anthony W. Simkins — 30+ years of precision metering and utility expertise across the Midwest.">
+    <meta property="og:title" content="About Watthour Solutions | Anthony W. Simkins">
+    <meta property="og:description" content="Watthour Solutions, founded by Anthony W. Simkins, provides metering audits, CT meter testing, and field work for utilities in Missouri, Kansas, Oklahoma, and Arkansas.">
     <meta property="og:url" content="https://watthoursolutions.com/about.html">
     <link rel="canonical" href="https://watthoursolutions.com/about.html">
-    <meta property="og:image" content="https://watthoursolutions.com/logo.png">
+    <meta property="og:image" content="https://watthoursolutions.com/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Watthour Solutions">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Watthour Solutions | Anthony W. Simkins">
+    <meta name="twitter:description" content="Watthour Solutions, founded by Anthony W. Simkins, provides metering audits, CT meter testing, and field work for utilities in Missouri, Kansas, Oklahoma, and Arkansas.">
+    <meta name="twitter:image" content="https://watthoursolutions.com/og.jpg">
+    <meta name="twitter:image:alt" content="Watthour Solutions">
     
     <link rel="icon" type="image/png" href="logo.png">
     
-    <link rel="stylesheet" href="css/tailwind.min.css?v=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/client-login.css?v=10">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/space-grotesk-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/tailwind.min.css?v=2">
+    <link rel="stylesheet" href="css/client-login.css?v=11">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        body { font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Space Grotesk Fallback', 'Inter Fallback', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
         
         .nav-active { position: relative; }
         .nav-active:after {
@@ -35,6 +43,22 @@
         .value-card { transition: all 0.3s ease; }
         .value-card:hover { transform: translateY(-6px); }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Watthour Solutions",
+        "url": "https://watthoursolutions.com/",
+        "image": "https://watthoursolutions.com/og.jpg",
+        "description": "CT meter testing, metering audits, and on-site field testing for utilities and electric cooperatives.",
+        "areaServed": [
+            {"@type": "State", "name": "Missouri"},
+            {"@type": "State", "name": "Kansas"},
+            {"@type": "State", "name": "Oklahoma"},
+            {"@type": "State", "name": "Arkansas"}
+        ]
+    }
+    </script>
 </head>
 <body class="bg-slate-950 text-white">
     <!-- Navbar -->
@@ -42,41 +66,39 @@
         <a class="wh-client-login" href="https://clients.watthoursolutions.com">Client Login</a>
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-x-4">
-                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
+                <a href="index.html" class="shrink-0"><picture><source srcset="logo-320.webp" type="image/webp"><img src="logo-320.png" alt="Watthour Solutions" width="320" height="149" class="h-[72px] w-auto"></picture></a>
             </div>
             
-            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+            <div class="hidden min-[1100px]:flex items-center gap-x-4 xl:gap-x-8 text-sm font-medium">
                 <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
                 <a href="services.html" class="hover:text-blue-400 transition-colors">Services</a>
                 <a href="training.html" class="hover:text-blue-400 transition-colors">Training</a>
                 <a href="about.html" class="nav-active text-blue-400">About</a>
-                <a href="careers.html" class="flex items-center gap-x-1 text-blue-400 hover:text-blue-300 transition-colors">
-                    Careers 
-                    <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span>
-                </a>
+                <a href="careers.html" class="flex items-center gap-x-1 hover:text-blue-400 transition-colors">Careers <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span></a>
                 <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
             </div>
             
-            <div class="hidden md:block">
+            <div class="hidden min-[1100px]:block">
                 <a href="contact.html" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
                     Get in Touch
                 </a>
             </div>
             
-            <button id="mobile-menu-btn" type="button" class="md:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-                <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+            <button id="mobile-menu-btn" type="button" class="min-[1100px]:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
         </div>
         
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
+        <div id="mobile-menu" class="hidden min-[1100px]:hidden bg-slate-900 border-t border-white/10">
             <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
                 <a class="wh-client-login-mobile" href="https://clients.watthoursolutions.com">Client Login</a>
                 <a href="index.html" class="py-1 hover:text-blue-400">Home</a>
                 <a href="services.html" class="py-1 hover:text-blue-400">Services</a>
                 <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
                 <a href="about.html" class="py-1 text-blue-400">About</a>
-                <a href="careers.html" class="py-1 hover:text-blue-400">Careers</a>
+                <a href="careers.html" class="py-1 hover:text-blue-400">Careers <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span></a>
                 <a href="contact.html" class="py-1 hover:text-blue-400">Contact</a>
+                <a href="contact.html" class="mt-2 px-5 py-2.5 bg-blue-600 text-center rounded-xl">Get in Touch</a>
             </div>
         </div>
     </nav>
@@ -98,6 +120,8 @@
             
             <p>Previously operating as Innovative Electric Services, we rebranded in 2025–2026 to better reflect our expanded focus on precision metering, revenue optimization, and practical training for Midwest utilities and electric cooperatives.</p>
             
+            <p>Watthour Solutions serves utilities and electric cooperatives in Missouri, Kansas, Oklahoma, and Arkansas.</p>
+            
             <p>Our work centers on helping utilities improve metering accuracy, identify billing errors, and recover lost revenue through detailed audits, field testing, and CT meter expertise. We believe in practical, field-tested solutions rather than theoretical approaches.</p>
         </div>
     </section>
@@ -113,7 +137,7 @@
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="value-card bg-slate-950 border border-white/10 rounded-3xl p-8">
                     <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-handshake text-blue-400 text-2xl"></i>
+                        <svg class="w-6 h-6 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 13 3 3a2 2 0 0 0 3 0l4-4"/><path d="m7 12 2-2 3 1 2-2 3 2"/><path d="M4 14h3M17 10l3-2"/></svg>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Integrity</h3>
                     <p class="text-slate-300">We deliver honest findings and clear recommendations in every audit, test, and training session.</p>
@@ -121,7 +145,7 @@
                 
                 <div class="value-card bg-slate-950 border border-white/10 rounded-3xl p-8">
                     <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-medal text-blue-400 text-2xl"></i>
+                        <svg class="w-6 h-6 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="5"/><path d="M8.5 4 12 10l3.5-6"/></svg>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Excellence</h3>
                     <p class="text-slate-300">We bring technical precision and practical experience to every project and training opportunity.</p>
@@ -129,7 +153,7 @@
                 
                 <div class="value-card bg-slate-950 border border-white/10 rounded-3xl p-8">
                     <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-users text-blue-400 text-2xl"></i>
+                        <svg class="w-6 h-6 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3"/><path d="M21 20v-1a3.5 3.5 0 0 0-3-3.45"/><path d="M16 5.1a3 3 0 0 1 0 5.8"/></svg>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Partnership</h3>
                     <p class="text-slate-300">We work alongside utilities as trusted partners focused on long-term success and measurable results.</p>
@@ -182,11 +206,9 @@
                 <a href="careers.html" class="hover:text-white">Careers</a>
                 <a href="contact.html" class="hover:text-white">Contact</a>
             </div>
-            <div class="text-center md:text-right">
-                <a href="contact.html" class="hover:text-white">Contact us</a>
-            </div>
         </div>
-        <p class="max-w-6xl mx-auto px-6 mt-6 text-center text-xs text-slate-400">Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a></p>
+        <p class="max-w-6xl mx-auto px-6 mt-6 text-center text-xs text-slate-400">Serving utilities and electric cooperatives in Missouri, Kansas, Oklahoma, and Arkansas.</p>
+        <p class="max-w-6xl mx-auto px-6 mt-2 text-center text-xs text-slate-400">Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a></p>
     </footer>
 
     <script>

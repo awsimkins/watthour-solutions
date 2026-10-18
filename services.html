@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Our Services • Watthour Solutions</title>
-    <meta name="description" content="Expert CT meter testing, metering audits, field testing, billing corrections, and revenue recovery services for Midwest electric cooperatives and utilities.">
+    <title>Meter Audits, Field Testing, and CT Testing | Watthour Solutions</title>
+    <meta name="description" content="Meter audits, on-site field testing, CT meter testing, billing corrections, and revenue recovery for utilities and electric cooperatives.">
     <meta name="theme-color" content="#020617">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Watthour Solutions">
-    <meta property="og:title" content="Our Services • Watthour Solutions">
-    <meta property="og:description" content="Meter audits, field testing, billing corrections, and revenue recovery for Midwest utilities.">
+    <meta property="og:title" content="Meter Audits, Field Testing, and CT Testing | Watthour Solutions">
+    <meta property="og:description" content="Meter audits, on-site field testing, CT meter testing, billing corrections, and revenue recovery for utilities and electric cooperatives.">
     <meta property="og:url" content="https://watthoursolutions.com/services.html">
     <link rel="canonical" href="https://watthoursolutions.com/services.html">
-    <meta property="og:image" content="https://watthoursolutions.com/logo.png">
+    <meta property="og:image" content="https://watthoursolutions.com/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Watthour Solutions">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meter Audits, Field Testing, and CT Testing | Watthour Solutions">
+    <meta name="twitter:description" content="Meter audits, on-site field testing, CT meter testing, billing corrections, and revenue recovery for utilities and electric cooperatives.">
+    <meta name="twitter:image" content="https://watthoursolutions.com/og.jpg">
+    <meta name="twitter:image:alt" content="Watthour Solutions">
     
     <link rel="icon" type="image/png" href="logo.png">
     
-    <link rel="stylesheet" href="css/tailwind.min.css?v=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/client-login.css?v=10">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/space-grotesk-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/tailwind.min.css?v=2">
+    <link rel="stylesheet" href="css/client-login.css?v=11">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        body { font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Space Grotesk Fallback', 'Inter Fallback', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
         
         .nav-active { position: relative; }
         .nav-active:after {
@@ -35,6 +43,22 @@
         .service-detail { transition: all 0.3s ease; }
         .service-detail:hover { transform: translateY(-6px); }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Watthour Solutions",
+        "url": "https://watthoursolutions.com/",
+        "image": "https://watthoursolutions.com/og.jpg",
+        "description": "CT meter testing, metering audits, and on-site field testing for utilities and electric cooperatives.",
+        "areaServed": [
+            {"@type": "State", "name": "Missouri"},
+            {"@type": "State", "name": "Kansas"},
+            {"@type": "State", "name": "Oklahoma"},
+            {"@type": "State", "name": "Arkansas"}
+        ]
+    }
+    </script>
 </head>
 <body class="bg-slate-950 text-white">
     <!-- Navbar -->
@@ -42,41 +66,39 @@
         <a class="wh-client-login" href="https://clients.watthoursolutions.com">Client Login</a>
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-x-4">
-                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
+                <a href="index.html" class="shrink-0"><picture><source srcset="logo-320.webp" type="image/webp"><img src="logo-320.png" alt="Watthour Solutions" width="320" height="149" class="h-[72px] w-auto"></picture></a>
             </div>
             
-            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+            <div class="hidden min-[1100px]:flex items-center gap-x-4 xl:gap-x-8 text-sm font-medium">
                 <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
                 <a href="services.html" class="nav-active text-blue-400">Services</a>
                 <a href="training.html" class="hover:text-blue-400 transition-colors">Training</a>
                 <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="careers.html" class="flex items-center gap-x-1 text-blue-400 hover:text-blue-300 transition-colors">
-                    Careers 
-                    <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span>
-                </a>
+                <a href="careers.html" class="flex items-center gap-x-1 hover:text-blue-400 transition-colors">Careers <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span></a>
                 <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
             </div>
             
-            <div class="hidden md:block">
-                <a href="contact.html" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
+            <div class="hidden min-[1100px]:block">
+                <a href="contact.html?inquiry=audit" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
                     Request Consultation
                 </a>
             </div>
             
-            <button id="mobile-menu-btn" type="button" class="md:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-                <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+            <button id="mobile-menu-btn" type="button" class="min-[1100px]:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
         </div>
         
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
+        <div id="mobile-menu" class="hidden min-[1100px]:hidden bg-slate-900 border-t border-white/10">
             <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
                 <a class="wh-client-login-mobile" href="https://clients.watthoursolutions.com">Client Login</a>
                 <a href="index.html" class="py-1 hover:text-blue-400">Home</a>
                 <a href="services.html" class="py-1 text-blue-400">Services</a>
                 <a href="training.html" class="py-1 hover:text-blue-400">Training</a>
                 <a href="about.html" class="py-1 hover:text-blue-400">About</a>
-                <a href="careers.html" class="py-1 hover:text-blue-400">Careers</a>
+                <a href="careers.html" class="py-1 hover:text-blue-400">Careers <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span></a>
                 <a href="contact.html" class="py-1 hover:text-blue-400">Contact</a>
+                <a href="contact.html?inquiry=audit" class="mt-2 px-5 py-2.5 bg-blue-600 text-center rounded-xl">Request a Consultation</a>
             </div>
         </div>
     </nav>
@@ -102,18 +124,19 @@
             <div class="flex flex-col lg:flex-row gap-10">
                 <div class="lg:w-1/3">
                     <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-search text-blue-400 text-4xl"></i>
+                        <svg class="w-10 h-10 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-3.5-3.5"/></svg>
                     </div>
                     <h2 class="text-3xl font-semibold">Meter Audits</h2>
                 </div>
                 <div class="lg:w-2/3 text-slate-300 space-y-4">
                     <p>Comprehensive accuracy testing and billing error detection across your entire metering infrastructure using industry-standard methods and ANSI C12.1 guidelines.</p>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Full system accuracy reviews</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Billing discrepancy identification</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Detailed reporting with findings</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Recommendations for correction</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Full system accuracy reviews</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Billing discrepancy identification</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Detailed reporting with findings</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Recommendations for correction</li>
                     </ul>
+                    <p class="pt-2"><a href="contact.html?inquiry=audit" class="text-blue-400 hover:text-blue-300 font-medium">Request a metering audit</a></p>
                 </div>
             </div>
         </div>
@@ -123,18 +146,19 @@
             <div class="flex flex-col lg:flex-row gap-10">
                 <div class="lg:w-1/3">
                     <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-tools text-blue-400 text-4xl"></i>
+                        <svg class="w-10 h-10 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L4 17l3 3 5.1-5.1a4 4 0 0 0 5.6-5.6L15 12l-3-3 2.7-2.7z"/></svg>
                     </div>
                     <h2 class="text-3xl font-semibold">Field Testing</h2>
                 </div>
                 <div class="lg:w-2/3 text-slate-300 space-y-4">
                     <p>On-site meter testing and calibration verification performed by experienced technicians using properly calibrated equipment.</p>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> CT and PT testing</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Self-contained meter testing</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> In-service testing</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Performance validation reports</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> CT and PT testing</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Self-contained meter testing</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> In-service testing</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Performance validation reports</li>
                     </ul>
+                    <p class="pt-2"><a href="contact.html?inquiry=field" class="text-blue-400 hover:text-blue-300 font-medium">Request field testing</a></p>
                 </div>
             </div>
         </div>
@@ -144,18 +168,19 @@
             <div class="flex flex-col lg:flex-row gap-10">
                 <div class="lg:w-1/3">
                     <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-file-invoice-dollar text-blue-400 text-4xl"></i>
+                        <svg class="w-10 h-10 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M15 3v4h4M8 13h8M8 17h5"/><path d="M12 13v4"/></svg>
                     </div>
                     <h2 class="text-3xl font-semibold">Billing Corrections</h2>
                 </div>
                 <div class="lg:w-2/3 text-slate-300 space-y-4">
                     <p>Identify and recover lost revenue through detailed tariff analysis, misbilling detection, and correction support.</p>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Tariff and rate analysis</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Historical billing reviews</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Correction documentation</li>
-                        <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Support for utility staff</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Tariff and rate analysis</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Historical billing reviews</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Correction documentation</li>
+                        <li class="flex gap-x-2"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Support for utility staff</li>
                     </ul>
+                    <p class="pt-2"><a href="contact.html?inquiry=billing" class="text-blue-400 hover:text-blue-300 font-medium">Request billing corrections</a></p>
                 </div>
             </div>
         </div>
@@ -165,7 +190,7 @@
             <div class="flex flex-col lg:flex-row gap-10">
                 <div class="lg:w-1/3">
                     <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-chart-line text-blue-400 text-4xl"></i>
+                        <svg class="w-10 h-10 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="m7 14 4-4 3 3 6-7"/></svg>
                     </div>
                     <h2 class="text-3xl font-semibold">Revenue Recovery</h2>
                 </div>
@@ -173,7 +198,7 @@
                     <p>Proven track record of helping electric cooperatives and utilities recover significant lost revenue through precise metering and billing analysis.</p>
                     <div class="pt-2">
                         <div class="inline-flex items-center gap-x-2 text-emerald-400 text-sm font-medium">
-                            <i class="fa-solid fa-check-double"></i>
+                            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 13 4 4L14 8"/><path d="m9 13 4 4L22 8"/></svg>
                             <span>Over $1 Million in recovered revenue for our clients</span>
                         </div>
                     </div>
@@ -193,7 +218,7 @@
             
             <div class="max-w-3xl mx-auto text-center text-slate-300">
                 <p class="mb-6">We specialize in CT (Current Transformer) meter testing and audits. Our technicians are experienced with 3-phase CT metering, multiplier calculations, and identifying issues that commonly cause revenue loss in instrument transformer rated services.</p>
-                <a href="contact.html" class="inline-flex items-center px-6 py-3 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl transition-all">
+                <a href="contact.html?inquiry=ct" class="inline-flex items-center px-6 py-3 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl transition-all">
                     Request a CT Meter Testing Quote
                 </a>
             </div>
@@ -206,7 +231,7 @@
         <p class="text-slate-300 mb-8 max-w-md mx-auto">Let’s discuss how we can support your utility with audits, testing, or revenue recovery.</p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="contact.html" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition-all">
+            <a href="contact.html?inquiry=audit" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl transition-all">
                 Request a Consultation
             </a>
             <a href="training.html" class="px-8 py-4 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl transition-all">
@@ -226,11 +251,9 @@
                 <a href="careers.html" class="hover:text-white">Careers</a>
                 <a href="contact.html" class="hover:text-white">Contact</a>
             </div>
-            <div class="text-center md:text-right">
-                <a href="contact.html" class="hover:text-white">Contact us</a>
-            </div>
         </div>
-        <p class="max-w-6xl mx-auto px-6 mt-6 text-center text-xs text-slate-400">Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a></p>
+        <p class="max-w-6xl mx-auto px-6 mt-6 text-center text-xs text-slate-400">Serving utilities and electric cooperatives in Missouri, Kansas, Oklahoma, and Arkansas.</p>
+        <p class="max-w-6xl mx-auto px-6 mt-2 text-center text-xs text-slate-400">Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a></p>
     </footer>
 
     <script>
