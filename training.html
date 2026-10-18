@@ -5,35 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>2027 Metering Bootcamp • Watthour Solutions Training</title>
-    <meta name="description" content="Hands-on 3-day Metering Bootcamp with Matt Heath of Mergo Consulting. Practical training covering safety, CT/PT metering, demand, vector analysis, testing, and modern challenges. Limited seats.">
+    <title>2027 Metering Bootcamp | Watthour Solutions</title>
+    <meta name="description" content="Planned March 10–12, 2027. A 3-day hands-on metering bootcamp with Matt Heath of Mergo Consulting, hosted by Watthour Solutions.">
     <meta name="keywords" content="metering bootcamp, meter training, CT meter training, utility training, Matt Heath, Mergo Consulting, Watthour Solutions, electric metering, instrument transformers, demand metering">
     
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="2027 Metering Bootcamp • Watthour Solutions">
-    <meta property="og:description" content="3-day hands-on metering training with Matt Heath. Practical skills for utility meter technicians.">
+    <meta property="og:title" content="2027 Metering Bootcamp | Watthour Solutions">
+    <meta property="og:description" content="Planned March 10–12, 2027. A 3-day hands-on metering bootcamp with Matt Heath of Mergo Consulting, hosted by Watthour Solutions.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Watthour Solutions">
     <meta property="og:url" content="https://watthoursolutions.com/training.html">
     <link rel="canonical" href="https://watthoursolutions.com/training.html">
-    <meta property="og:image" content="https://watthoursolutions.com/logo.png">
-    
+    <meta property="og:image" content="https://watthoursolutions.com/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Watthour Solutions">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="2027 Metering Bootcamp • Watthour Solutions">
-    <meta name="twitter:description" content="Hands-on training with Matt Heath of Mergo Consulting.">
+    <meta name="twitter:title" content="2027 Metering Bootcamp | Watthour Solutions">
+    <meta name="twitter:description" content="Planned March 10–12, 2027. A 3-day hands-on metering bootcamp with Matt Heath of Mergo Consulting, hosted by Watthour Solutions.">
+    <meta name="twitter:image" content="https://watthoursolutions.com/og.jpg">
+    <meta name="twitter:image:alt" content="Watthour Solutions">
     
     <meta name="theme-color" content="#020617">
     <link rel="icon" type="image/png" href="logo.png">
     
-    <link rel="stylesheet" href="css/tailwind.min.css?v=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/client-login.css?v=10">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/space-grotesk-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/tailwind.min.css?v=2">
+    <link rel="stylesheet" href="css/client-login.css?v=11">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        body { font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Space Grotesk Fallback', 'Inter Fallback', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
         
         .nav-active { position: relative; }
         .nav-active:after {
@@ -53,6 +56,22 @@
         .module-card { transition: all 0.2s ease; }
         .module-card:hover { transform: translateY(-4px); }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Watthour Solutions",
+        "url": "https://watthoursolutions.com/",
+        "image": "https://watthoursolutions.com/og.jpg",
+        "description": "CT meter testing, metering audits, and on-site field testing for utilities and electric cooperatives.",
+        "areaServed": [
+            {"@type": "State", "name": "Missouri"},
+            {"@type": "State", "name": "Kansas"},
+            {"@type": "State", "name": "Oklahoma"},
+            {"@type": "State", "name": "Arkansas"}
+        ]
+    }
+    </script>
 </head>
 <body class="bg-slate-950 text-white">
     <!-- Navbar -->
@@ -60,23 +79,20 @@
         <a class="wh-client-login" href="https://clients.watthoursolutions.com">Client Login</a>
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-x-4">
-                <a href="index.html"><img src="logo.png" alt="Watthour Solutions" class="h-[72px] w-auto"></a>
+                <a href="index.html" class="shrink-0"><picture><source srcset="logo-320.webp" type="image/webp"><img src="logo-320.png" alt="Watthour Solutions" width="320" height="149" class="h-[72px] w-auto"></picture></a>
             </div>
             
             <!-- Desktop Nav -->
-            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+            <div class="hidden min-[1100px]:flex items-center gap-x-4 xl:gap-x-8 text-sm font-medium">
                 <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
                 <a href="services.html" class="hover:text-blue-400 transition-colors">Services</a>
                 <a href="training.html" class="nav-active text-blue-400">Training</a>
                 <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="careers.html" class="flex items-center gap-x-1 text-blue-400 hover:text-blue-300 transition-colors">
-                    Careers 
-                    <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span>
-                </a>
+                <a href="careers.html" class="flex items-center gap-x-1 hover:text-blue-400 transition-colors">Careers <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span></a>
                 <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
             </div>
             
-            <div class="hidden md:block">
+            <div class="hidden min-[1100px]:block">
                 <a href="#interest-form" 
                    class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-xl transition-all">
                     Register Interest
@@ -84,20 +100,20 @@
             </div>
             
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" type="button" class="md:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-                <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+            <button id="mobile-menu-btn" type="button" class="min-[1100px]:hidden text-white p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/10">
+        <div id="mobile-menu" class="hidden min-[1100px]:hidden bg-slate-900 border-t border-white/10">
             <div class="px-6 py-4 flex flex-col gap-y-3 text-sm">
                 <a class="wh-client-login-mobile" href="https://clients.watthoursolutions.com">Client Login</a>
                 <a href="index.html" class="py-1 hover:text-blue-400">Home</a>
                 <a href="services.html" class="py-1 hover:text-blue-400">Services</a>
                 <a href="training.html" class="py-1 text-blue-400">Training</a>
                 <a href="about.html" class="py-1 hover:text-blue-400">About</a>
-                <a href="careers.html" class="py-1 hover:text-blue-400">Careers</a>
+                <a href="careers.html" class="py-1 hover:text-blue-400">Careers <span class="text-[10px] bg-blue-500/20 text-blue-300 px-1.5 py-px rounded">Hiring</span></a>
                 <a href="contact.html" class="py-1 hover:text-blue-400">Contact</a>
                 <a href="#interest-form" class="mt-2 px-5 py-2.5 bg-blue-600 text-center rounded-xl">Register Interest</a>
             </div>
@@ -108,7 +124,7 @@
     <section class="pt-20 pb-16 bg-gradient-to-b from-slate-950 to-slate-900">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
-                <i class="fa-solid fa-calendar-days"></i>
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg>
                 <span>Planned for March 2027 • 3-Day Intensive</span>
             </div>
             
@@ -123,7 +139,7 @@
                 <a href="#interest-form" 
                    class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-2xl text-lg transition-all flex items-center justify-center gap-x-3">
                     <span>Register My Interest</span>
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </a>
                 <a href="#syllabus" 
                    class="px-8 py-4 border border-white/20 hover:bg-white/5 font-semibold rounded-2xl text-lg transition-all">
@@ -155,14 +171,14 @@
             
             <div class="bg-slate-900 border border-white/10 rounded-3xl p-8">
                 <h3 class="font-semibold text-xl mb-6 flex items-center gap-x-3">
-                    <i class="fa-solid fa-users text-blue-400"></i>
+                    <svg class="w-4 h-4 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3"/><path d="M21 20v-1a3.5 3.5 0 0 0-3-3.45"/><path d="M16 5.1a3 3 0 0 1 0 5.8"/></svg>
                     <span>Who This Is For</span>
                 </h3>
                 <ul class="space-y-3 text-slate-300">
-                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Meter technicians and field personnel</li>
-                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Engineers and supervisors wanting deeper metering knowledge</li>
-                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Utilities looking to improve accuracy and reduce lost revenue</li>
-                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Teams wanting practical, not just theoretical, training</li>
+                    <li class="flex gap-x-3"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Meter technicians and field personnel</li>
+                    <li class="flex gap-x-3"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Engineers and supervisors wanting deeper metering knowledge</li>
+                    <li class="flex gap-x-3"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Utilities looking to improve accuracy and reduce lost revenue</li>
+                    <li class="flex gap-x-3"><svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg> Teams wanting practical, not just theoretical, training</li>
                 </ul>
             </div>
         </div>
@@ -181,7 +197,7 @@
                 <div class="bg-slate-950 border border-white/10 rounded-3xl p-8">
                     <div class="flex items-center gap-x-4 mb-6">
                         <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center">
-                            <i class="fa-solid fa-user-tie text-blue-400 text-3xl"></i>
+                            <svg class="w-8 h-8 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M6 20v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1"/><path d="m12 15 1.2 3H12l-1.2-3"/></svg>
                         </div>
                         <div>
                             <div class="font-semibold text-xl">Matt Heath</div>
@@ -198,7 +214,7 @@
                 <div class="bg-slate-950 border border-white/10 rounded-3xl p-8">
                     <div class="flex items-center gap-x-4 mb-6">
                         <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center">
-                            <i class="fa-solid fa-user text-blue-400 text-3xl"></i>
+                            <svg class="w-8 h-8 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M6 20v-1a6 6 0 0 1 12 0v1"/></svg>
                         </div>
                         <div>
                             <div class="font-semibold text-xl">Anthony Simkins</div>
@@ -312,27 +328,27 @@
             <h3 class="text-2xl font-semibold mb-8 text-center">What’s Included</h3>
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 text-sm">
                 <div class="flex gap-x-4">
-                    <i class="fa-solid fa-utensils text-blue-400 mt-1"></i>
+                    <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v8a2 2 0 0 0 2 2V3M8 3v10M10 3v8a2 2 0 0 1-2 2"/><path d="M16 3v18M16 3c2 2 2 5 0 7v11"/></svg>
                     <div>Lunch provided all three days + coffee/drinks throughout</div>
                 </div>
                 <div class="flex gap-x-4">
-                    <i class="fa-solid fa-book text-blue-400 mt-1"></i>
+                    <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h6a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3V4z"/><path d="M19 4h-6a3 3 0 0 0-3 3"/></svg>
                     <div>Course materials and handouts</div>
                 </div>
                 <div class="flex gap-x-4">
-                    <i class="fa-solid fa-users text-blue-400 mt-1"></i>
+                    <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3"/><path d="M21 20v-1a3.5 3.5 0 0 0-3-3.45"/><path d="M16 5.1a3 3 0 0 1 0 5.8"/></svg>
                     <div>Small class size for personalized attention</div>
                 </div>
                 <div class="flex gap-x-4">
-                    <i class="fa-solid fa-comments text-blue-400 mt-1"></i>
+                    <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6h14v9H8l-3 3V6z"/></svg>
                     <div>Roundtable discussion with peers</div>
                 </div>
                 <div class="flex gap-x-4">
-                    <i class="fa-solid fa-map-marker-alt text-blue-400 mt-1"></i>
+                    <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>
                     <div>Venue coordination and logistics handled by Watthour Solutions</div>
                 </div>
                 <div class="flex gap-x-4">
-                    <i class="fa-solid fa-certificate text-blue-400 mt-1"></i>
+                    <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="m9 13.2-1 7 4-2 4 2-1-7"/></svg>
                     <div>Certificate of completion (upon request)</div>
                 </div>
             </div>
@@ -349,7 +365,7 @@
             </div>
             
             <div id="training-success-message" role="status" class="hidden mb-6 p-5 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-center">
-                <i class="fa-solid fa-circle-check text-emerald-400 text-2xl mb-2"></i>
+                <svg class="w-6 h-6 text-emerald-400 mb-2 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.6 2.6L16.5 9"/></svg>
                 <p class="font-semibold text-emerald-300">Interest Registered</p>
                 <p class="text-sm text-slate-300 mt-1">We'll notify you when registration opens for the 2027 Bootcamp.</p>
             </div>
@@ -360,33 +376,33 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                         <label for="training-utility" class="block text-sm font-medium mb-1.5 text-slate-300">Utility / Company Name *</label>
-                        <input type="text" id="training-utility" name="utility" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
+                        <input type="text" id="training-utility" name="utility" required class="w-full bg-slate-950 border border-slate-400 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
                         <label for="training-name" class="block text-sm font-medium mb-1.5 text-slate-300">Your Name *</label>
-                        <input type="text" id="training-name" name="name" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
+                        <input type="text" id="training-name" name="name" required class="w-full bg-slate-950 border border-slate-400 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                         <label for="training-title" class="block text-sm font-medium mb-1.5 text-slate-300">Title / Position</label>
-                        <input type="text" id="training-title" name="title" class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
+                        <input type="text" id="training-title" name="title" class="w-full bg-slate-950 border border-slate-400 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
                         <label for="training-phone" class="block text-sm font-medium mb-1.5 text-slate-300">Phone Number</label>
-                        <input type="tel" id="training-phone" name="phone" class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
+                        <input type="tel" id="training-phone" name="phone" class="w-full bg-slate-950 border border-slate-400 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                     </div>
                 </div>
                 
                 <div>
                     <label for="training-email" class="block text-sm font-medium mb-1.5 text-slate-300">Email Address *</label>
-                    <input type="email" id="training-email" name="email" required class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
+                    <input type="email" id="training-email" name="email" required class="w-full bg-slate-950 border border-slate-400 rounded-2xl px-5 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500">
                 </div>
                 
                 <div>
                     <label for="training-attendees" class="block text-sm font-medium mb-1.5 text-slate-300">How many people are you interested in sending?</label>
-                    <select id="training-attendees" name="attendees" class="w-full bg-slate-950 border border-white/20 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
+                    <select id="training-attendees" name="attendees" class="w-full bg-slate-950 border border-slate-400 rounded-2xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
                         <option value="">Please select</option>
                         <option value="1">1 person</option>
                         <option value="2-3">2–3 people</option>
@@ -408,7 +424,7 @@
                 
                 <div>
                     <label for="training-message" class="block text-sm font-medium mb-1.5 text-slate-300">Questions or Additional Notes</label>
-                    <textarea id="training-message" name="message" rows="4" class="w-full bg-slate-950 border border-white/20 rounded-3xl px-5 py-4 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500 resize-y"></textarea>
+                    <textarea id="training-message" name="message" rows="4" class="w-full bg-slate-950 border border-slate-400 rounded-3xl px-5 py-4 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500 resize-y"></textarea>
                 </div>
 
                 <div id="turnstile-widget" class="flex justify-center"></div>
@@ -421,7 +437,7 @@
                 <button type="submit"
                         class="w-full py-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 font-semibold text-lg rounded-2xl transition-all flex items-center justify-center gap-x-3">
                     <span>Submit Interest Form</span>
-                    <i class="fa-solid fa-paper-plane"></i>
+                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 16-8-6 16-2.2-6.2L4 12z"/></svg>
                 </button>
                 
                 <p class="text-center text-xs text-slate-400 pt-2">We respect your inbox. You’ll only hear from us about this training.</p>
@@ -440,16 +456,14 @@
                 <a href="careers.html" class="hover:text-white">Careers</a>
                 <a href="contact.html" class="hover:text-white">Contact</a>
             </div>
-            <div class="text-center md:text-right">
-                <a href="contact.html" class="hover:text-white">Contact us</a>
-            </div>
         </div>
-        <p class="max-w-6xl mx-auto px-6 mt-6 text-center text-xs text-slate-400">Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a></p>
+        <p class="max-w-6xl mx-auto px-6 mt-6 text-center text-xs text-slate-400">Serving utilities and electric cooperatives in Missouri, Kansas, Oklahoma, and Arkansas.</p>
+        <p class="max-w-6xl mx-auto px-6 mt-2 text-center text-xs text-slate-400">Having trouble with the site? Email <a href="mailto:support@watthoursolutions.com" class="hover:text-white">support@watthoursolutions.com</a></p>
     </footer>
 
     <script src="js/forms-config.js?v=8"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="js/forms.js?v=11"></script>
+    <script src="js/forms.js?v=12"></script>
     <script>
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');

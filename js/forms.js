@@ -67,7 +67,7 @@
         if (!button) return;
         button.disabled = isSubmitting;
         if (isSubmitting) {
-            button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            button.innerHTML = '<svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3" opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg> Sending...';
         } else if (idleHtml) {
             button.innerHTML = idleHtml;
         }
